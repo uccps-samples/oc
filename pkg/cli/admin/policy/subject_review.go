@@ -22,8 +22,8 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	securityv1 "github.com/openshift/api/security/v1"
-	securityv1typedclient "github.com/openshift/client-go/security/clientset/versioned/typed/security/v1"
+	securityv1 "github.com/uccps-samples/api/security/v1"
+	securityv1typedclient "github.com/uccps-samples/client-go/security/clientset/versioned/typed/security/v1"
 )
 
 var (

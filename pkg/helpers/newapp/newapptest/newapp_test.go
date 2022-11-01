@@ -35,26 +35,26 @@ import (
 	krest "k8s.io/client-go/rest"
 	clientgotesting "k8s.io/client-go/testing"
 
-	"github.com/openshift/api"
-	appsv1 "github.com/openshift/api/apps/v1"
-	buildv1 "github.com/openshift/api/build/v1"
-	dockerv10 "github.com/openshift/api/image/docker10"
-	imagev1 "github.com/openshift/api/image/v1"
-	fakeimagev1client "github.com/openshift/client-go/image/clientset/versioned/fake"
-	imagev1typedclient "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	fakeroutev1client "github.com/openshift/client-go/route/clientset/versioned/fake"
-	faketemplatev1client "github.com/openshift/client-go/template/clientset/versioned/fake"
-	"github.com/openshift/library-go/pkg/git"
-	newappapp "github.com/openshift/oc/pkg/cli/newapp"
-	"github.com/openshift/oc/pkg/helpers/newapp"
-	"github.com/openshift/oc/pkg/helpers/newapp/app"
-	apptest "github.com/openshift/oc/pkg/helpers/newapp/app/test"
-	"github.com/openshift/oc/pkg/helpers/newapp/cmd"
-	"github.com/openshift/oc/pkg/helpers/newapp/dockerfile"
-	"github.com/openshift/oc/pkg/helpers/newapp/jenkinsfile"
-	"github.com/openshift/oc/pkg/helpers/newapp/source"
+	"github.com/uccps-samples/api"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	dockerv10 "github.com/uccps-samples/api/image/docker10"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	fakeimagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/fake"
+	imagev1typedclient "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	fakeroutev1client "github.com/uccps-samples/client-go/route/clientset/versioned/fake"
+	faketemplatev1client "github.com/uccps-samples/client-go/template/clientset/versioned/fake"
+	"github.com/uccps-samples/library-go/pkg/git"
+	newappapp "github.com/uccps-samples/oc/pkg/cli/newapp"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/app"
+	apptest "github.com/uccps-samples/oc/pkg/helpers/newapp/app/test"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/cmd"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/dockerfile"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/jenkinsfile"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/source"
 
-	s2igit "github.com/openshift/oc/pkg/helpers/source-to-image/git"
+	s2igit "github.com/uccps-samples/oc/pkg/helpers/source-to-image/git"
 )
 
 func skipExternalGit(t *testing.T) {
@@ -90,13 +90,13 @@ func TestNewAppAddArguments(t *testing.T) {
 			unknown:    []string{},
 		},
 		"source": {
-			args:    []string{".", testDir, "git://github.com/openshift/origin.git"},
-			repos:   []string{".", testDir, "git://github.com/openshift/origin.git"},
+			args:    []string{".", testDir, "git://github.com/uccps-samples/origin.git"},
+			repos:   []string{".", testDir, "git://github.com/uccps-samples/origin.git"},
 			unknown: []string{},
 		},
 		"source custom ref": {
-			args:    []string{"https://github.com/openshift/ruby-hello-world#beta4"},
-			repos:   []string{"https://github.com/openshift/ruby-hello-world#beta4"},
+			args:    []string{"https://github.com/uccps-samples/ruby-hello-world#beta4"},
+			repos:   []string{"https://github.com/uccps-samples/ruby-hello-world#beta4"},
 			unknown: []string{},
 		},
 		"env": {
@@ -105,9 +105,9 @@ func TestNewAppAddArguments(t *testing.T) {
 			unknown: []string{},
 		},
 		"mix 1": {
-			args:       []string{"git://github.com/openshift/origin.git", "mysql+ruby~git@github.com/openshift/origin.git", "env1=test", "ruby-helloworld-sample"},
-			repos:      []string{"git://github.com/openshift/origin.git"},
-			components: []string{"mysql+ruby~git@github.com/openshift/origin.git", "ruby-helloworld-sample"},
+			args:       []string{"git://github.com/uccps-samples/origin.git", "mysql+ruby~git@github.com/uccps-samples/origin.git", "env1=test", "ruby-helloworld-sample"},
+			repos:      []string{"git://github.com/uccps-samples/origin.git"},
+			components: []string{"mysql+ruby~git@github.com/uccps-samples/origin.git", "ruby-helloworld-sample"},
 			env:        []string{"env1=test"},
 			unknown:    []string{},
 		},
@@ -354,7 +354,7 @@ func TestNewAppRunAll(t *testing.T) {
 			name: "successful ruby app generation",
 			config: &cmd.AppConfig{
 				ComponentInputs: cmd.ComponentInputs{
-					SourceRepositories: []string{"https://github.com/openshift/ruby-hello-world"},
+					SourceRepositories: []string{"https://github.com/uccps-samples/ruby-hello-world"},
 				},
 				Resolvers: cmd.Resolvers{
 					ImageStreamByAnnotationSearcher: app.NewImageStreamByAnnotationSearcher(okImageClient.ImageV1(), okImageClient.ImageV1(), []string{"default"}),
@@ -396,7 +396,7 @@ func TestNewAppRunAll(t *testing.T) {
 			name: "successful ruby app generation - deployment config",
 			config: &cmd.AppConfig{
 				ComponentInputs: cmd.ComponentInputs{
-					SourceRepositories: []string{"https://github.com/openshift/ruby-hello-world"},
+					SourceRepositories: []string{"https://github.com/uccps-samples/ruby-hello-world"},
 				},
 				Resolvers: cmd.Resolvers{
 					ImageStreamByAnnotationSearcher: app.NewImageStreamByAnnotationSearcher(okImageClient.ImageV1(), okImageClient.ImageV1(), []string{"default"}),
@@ -439,7 +439,7 @@ func TestNewAppRunAll(t *testing.T) {
 			name: "successful ruby app generation with labels",
 			config: &cmd.AppConfig{
 				ComponentInputs: cmd.ComponentInputs{
-					SourceRepositories: []string{"https://github.com/openshift/ruby-hello-world"},
+					SourceRepositories: []string{"https://github.com/uccps-samples/ruby-hello-world"},
 				},
 
 				Resolvers: cmd.Resolvers{
@@ -484,7 +484,7 @@ func TestNewAppRunAll(t *testing.T) {
 			name: "successful docker app generation",
 			config: &cmd.AppConfig{
 				ComponentInputs: cmd.ComponentInputs{
-					SourceRepositories: []string{"https://github.com/openshift/ruby-hello-world"},
+					SourceRepositories: []string{"https://github.com/uccps-samples/ruby-hello-world"},
 				},
 
 				Resolvers: cmd.Resolvers{
@@ -527,7 +527,7 @@ func TestNewAppRunAll(t *testing.T) {
 			name: "app generation using context dir",
 			config: &cmd.AppConfig{
 				ComponentInputs: cmd.ComponentInputs{
-					SourceRepositories: []string{"https://github.com/openshift/sti-ruby"},
+					SourceRepositories: []string{"https://github.com/uccps-samples/sti-ruby"},
 				},
 				GenerationInputs: cmd.GenerationInputs{
 					ContextDir: "2.0/test/rack-test-app",
@@ -568,7 +568,7 @@ func TestNewAppRunAll(t *testing.T) {
 			name: "failed app generation using missing context dir",
 			config: &cmd.AppConfig{
 				ComponentInputs: cmd.ComponentInputs{
-					SourceRepositories: []string{"https://github.com/openshift/sti-ruby"},
+					SourceRepositories: []string{"https://github.com/uccps-samples/sti-ruby"},
 				},
 				GenerationInputs: cmd.GenerationInputs{
 					ContextDir: "2.0/test/missing-dir",
@@ -604,7 +604,7 @@ func TestNewAppRunAll(t *testing.T) {
 			expectedName:    "sti-ruby",
 			expectedVolumes: nil,
 			errFn: func(err error) bool {
-				return err.Error() == "supplied context directory '2.0/test/missing-dir' does not exist in 'https://github.com/openshift/sti-ruby'"
+				return err.Error() == "supplied context directory '2.0/test/missing-dir' does not exist in 'https://github.com/uccps-samples/sti-ruby'"
 			},
 		},
 
@@ -613,7 +613,7 @@ func TestNewAppRunAll(t *testing.T) {
 			config: &cmd.AppConfig{
 				ComponentInputs: cmd.ComponentInputs{
 					Components:         []string{"myrepo:5000/myco/example"},
-					SourceRepositories: []string{"https://github.com/openshift/ruby-hello-world"},
+					SourceRepositories: []string{"https://github.com/uccps-samples/ruby-hello-world"},
 				},
 				GenerationInputs: cmd.GenerationInputs{
 					Strategy:         newapp.StrategySource,
@@ -707,7 +707,7 @@ func TestNewAppRunAll(t *testing.T) {
 			name: "Docker build",
 			config: &cmd.AppConfig{
 				ComponentInputs: cmd.ComponentInputs{
-					SourceRepositories: []string{"https://github.com/openshift/ruby-hello-world"},
+					SourceRepositories: []string{"https://github.com/uccps-samples/ruby-hello-world"},
 				},
 
 				Resolvers: cmd.Resolvers{
@@ -753,7 +753,7 @@ func TestNewAppRunAll(t *testing.T) {
 			name: "Docker build with no registry image",
 			config: &cmd.AppConfig{
 				ComponentInputs: cmd.ComponentInputs{
-					SourceRepositories: []string{"https://github.com/openshift/ruby-hello-world"},
+					SourceRepositories: []string{"https://github.com/uccps-samples/ruby-hello-world"},
 				},
 
 				Resolvers: cmd.Resolvers{
@@ -1072,7 +1072,7 @@ func TestNewAppRunBuilds(t *testing.T) {
 			name: "successful ruby app generation",
 			config: &cmd.AppConfig{
 				ComponentInputs: cmd.ComponentInputs{
-					SourceRepositories: []string{"https://github.com/openshift/ruby-hello-world"},
+					SourceRepositories: []string{"https://github.com/uccps-samples/ruby-hello-world"},
 					DockerImages:       []string{"quay.io/centos7/ruby-27-centos7", "openshift/nodejs-010-centos7"},
 				},
 				GenerationInputs: cmd.GenerationInputs{
@@ -1176,7 +1176,7 @@ func TestNewAppRunBuilds(t *testing.T) {
 			name: "successful generation of BC with multiple sources: repo + Dockerfile",
 			config: &cmd.AppConfig{
 				ComponentInputs: cmd.ComponentInputs{
-					SourceRepositories: []string{"https://github.com/openshift/ruby-hello-world"},
+					SourceRepositories: []string{"https://github.com/uccps-samples/ruby-hello-world"},
 				},
 				GenerationInputs: cmd.GenerationInputs{
 					Dockerfile: "FROM quay.io/centos7/ruby-27-centos7\nRUN false",
@@ -1240,7 +1240,7 @@ func TestNewAppRunBuilds(t *testing.T) {
 			config: &cmd.AppConfig{
 				ComponentInputs: cmd.ComponentInputs{
 					SourceRepositories: []string{
-						"https://github.com/openshift/ruby-hello-world",
+						"https://github.com/uccps-samples/ruby-hello-world",
 						"https://github.com/sclorg/django-ex",
 					},
 				},
@@ -1257,7 +1257,7 @@ func TestNewAppRunBuilds(t *testing.T) {
 			config: &cmd.AppConfig{
 				ComponentInputs: cmd.ComponentInputs{
 					SourceRepositories: []string{
-						"https://github.com/openshift/ruby-hello-world",
+						"https://github.com/uccps-samples/ruby-hello-world",
 					},
 				},
 				GenerationInputs: cmd.GenerationInputs{
@@ -1813,7 +1813,7 @@ func TestNewAppNewBuildEnvVars(t *testing.T) {
 			name: "explicit environment variables for buildConfig and deploymentConfig",
 			config: &cmd.AppConfig{
 				ComponentInputs: cmd.ComponentInputs{
-					SourceRepositories: []string{"https://github.com/openshift/ruby-hello-world"},
+					SourceRepositories: []string{"https://github.com/uccps-samples/ruby-hello-world"},
 					DockerImages:       []string{"quay.io/centos7/ruby-27-centos7", "registry.centos.org/centos/nodejs-12-centos7"},
 				},
 				GenerationInputs: cmd.GenerationInputs{
@@ -1889,7 +1889,7 @@ func TestNewAppBuildConfigEnvVarsAndSecrets(t *testing.T) {
 			name: "explicit environment variables for buildConfig and deploymentConfig",
 			config: &cmd.AppConfig{
 				ComponentInputs: cmd.ComponentInputs{
-					SourceRepositories: []string{"https://github.com/openshift/ruby-hello-world"},
+					SourceRepositories: []string{"https://github.com/uccps-samples/ruby-hello-world"},
 					DockerImages:       []string{"quay.io/centos7/ruby-27-centos7", "registry.centos.org/centos/mongodb-34-centos7"},
 				},
 				GenerationInputs: cmd.GenerationInputs{
@@ -2342,7 +2342,7 @@ func fakeSimpleDockerSearcher() app.Searcher {
 func MockSourceRepositories(t *testing.T, file string) []*app.SourceRepository {
 	var b []*app.SourceRepository
 	for _, location := range []string{
-		"https://github.com/openshift/ruby-hello-world.git",
+		"https://github.com/uccps-samples/ruby-hello-world.git",
 		file,
 	} {
 		s, err := app.NewSourceRepository(location, newapp.StrategySource)

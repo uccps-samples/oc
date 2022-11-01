@@ -25,9 +25,9 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	securityv1 "github.com/openshift/api/security/v1"
-	securityv1typedclient "github.com/openshift/client-go/security/clientset/versioned/typed/security/v1"
-	ometa "github.com/openshift/library-go/pkg/image/referencemutator"
+	securityv1 "github.com/uccps-samples/api/security/v1"
+	securityv1typedclient "github.com/uccps-samples/client-go/security/clientset/versioned/typed/security/v1"
+	ometa "github.com/uccps-samples/library-go/pkg/image/referencemutator"
 )
 
 var (
@@ -224,7 +224,7 @@ func CheckStatefulSetWithWolumeClaimTemplates(obj runtime.Object) error {
 	// Currently podTemplateSpec for a statefulSet is not fully validated
 	// spec.volumeClaimTemplates info should be propagated down to
 	// spec.template.spec validateContainers to validate volumeMounts
-	//https://github.com/openshift/origin/blob/master/vendor/k8s.io/kubernetes/pkg/apis/apps/validation/validation.go#L57
+	//https://github.com/uccps-samples/origin/blob/master/vendor/k8s.io/kubernetes/pkg/apis/apps/validation/validation.go#L57
 	switch r := obj.(type) {
 	case *appsv1beta1.StatefulSet:
 		if len(r.Spec.VolumeClaimTemplates) > 0 {

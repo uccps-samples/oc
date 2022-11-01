@@ -11,9 +11,9 @@ import (
 	"k8s.io/kubectl/pkg/describe"
 	"k8s.io/kubectl/pkg/polymorphichelpers"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	appsclient "github.com/openshift/client-go/apps/clientset/versioned"
-	appstypedclient "github.com/openshift/client-go/apps/clientset/versioned/typed/apps/v1"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	appsclient "github.com/uccps-samples/client-go/apps/clientset/versioned"
+	appstypedclient "github.com/uccps-samples/client-go/apps/clientset/versioned/typed/apps/v1"
 )
 
 func NewDeploymentConfigRollbacker(appsClient appsclient.Interface) polymorphichelpers.Rollbacker {

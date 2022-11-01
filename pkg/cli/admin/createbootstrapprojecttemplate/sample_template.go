@@ -7,9 +7,9 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/serializer"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 
-	"github.com/openshift/api/annotations"
-	projectv1 "github.com/openshift/api/project/v1"
-	templatev1 "github.com/openshift/api/template/v1"
+	"github.com/uccps-samples/api/annotations"
+	projectv1 "github.com/uccps-samples/api/project/v1"
+	templatev1 "github.com/uccps-samples/api/template/v1"
 )
 
 const (
@@ -23,7 +23,7 @@ const (
 	ProjectAdminUserParam   = "PROJECT_ADMIN_USER"
 	ProjectRequesterParam   = "PROJECT_REQUESTING_USER"
 
-	ProjectRequester = "openshift.io/requester"
+	ProjectRequester = "uccp.io/requester"
 )
 
 var (

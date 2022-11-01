@@ -67,7 +67,7 @@ items:
   metadata:
     annotations:
       kubernetes.io/created-by: '{"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicationController","namespace":"dueling-rc","name":"rc-1","uid":"a18e8784-2c9f-11e5-9c26-28d2447dc82b","apiVersion":"v1","resourceVersion":"10170"}}'
-      openshift.io/scc: restricted
+      uccp.io/scc: restricted
     creationTimestamp: null
     name: conflicted-pod
     labels:

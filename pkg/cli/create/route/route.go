@@ -10,7 +10,7 @@ import (
 	"k8s.io/apimachinery/pkg/util/intstr"
 	corev1client "k8s.io/client-go/kubernetes/typed/core/v1"
 
-	routev1 "github.com/openshift/api/route/v1"
+	routev1 "github.com/uccps-samples/api/route/v1"
 )
 
 // UnsecuredRoute will return a route with enough info so that it can direct traffic to

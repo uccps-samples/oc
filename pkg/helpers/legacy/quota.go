@@ -4,7 +4,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 
-	quotav1 "github.com/openshift/api/quota/v1"
+	quotav1 "github.com/uccps-samples/api/quota/v1"
 )
 
 func InstallExternalLegacyQuota(scheme *runtime.Scheme) {

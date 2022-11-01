@@ -10,8 +10,8 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	utilerrors "k8s.io/apimachinery/pkg/util/errors"
 
-	authv1client "github.com/openshift/client-go/authorization/clientset/versioned/typed/authorization/v1"
-	securityv1client "github.com/openshift/client-go/security/clientset/versioned/typed/security/v1"
+	authv1client "github.com/uccps-samples/client-go/authorization/clientset/versioned/typed/authorization/v1"
+	securityv1client "github.com/uccps-samples/client-go/security/clientset/versioned/typed/security/v1"
 )
 
 func reapForGroup(
@@ -44,7 +44,7 @@ func reapForGroup(
 			if _, err := securityClient.Update(context.TODO(), &updatedSCC, metav1.UpdateOptions{}); err != nil && !kerrors.IsNotFound(err) {
 				errors = append(errors, err)
 			} else {
-				fmt.Fprintf(out, "securitycontextconstraints.security.openshift.io/"+updatedSCC.Name+" updated\n")
+				fmt.Fprintf(out, "securitycontextconstraints.security.uccp.io/"+updatedSCC.Name+" updated\n")
 			}
 		}
 	}

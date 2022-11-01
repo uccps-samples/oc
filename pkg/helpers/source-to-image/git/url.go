@@ -12,14 +12,14 @@ import (
 // According to git-clone(1), a "Git URL" can be in one of three broad types:
 // 1) A standards-compliant URL.
 //    a) The scheme may be followed by '://',
-//       e.g. https://github.com/openshift/origin, file:///foo/bar, etc.  In
+//       e.g. https://github.com/uccps-samples/origin, file:///foo/bar, etc.  In
 //       this case, note that among other things, a standards-compliant file URL
 //       must have an empty host part, an absolute path and no backslashes.  The
 //       Git for Windows URL parser accepts many non-compliant URLs, but we
 //       don't.
 //    b) Alternatively, the scheme may be followed by '::', in which case it is
 //       treated as an transport/opaque address pair, e.g.
-//       http::http://github.com/openshift/origin.git .
+//       http::http://github.com/uccps-samples/origin.git .
 // 2) The "alternative scp-like syntax", including a ':' with no preceding '/',
 //    but not of the form C:... on Windows, e.g.
 //    git@github.com:openshift/origin, etc.

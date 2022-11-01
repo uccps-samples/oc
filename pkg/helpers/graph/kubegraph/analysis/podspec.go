@@ -5,10 +5,10 @@ import (
 
 	"github.com/gonum/graph"
 
-	"github.com/openshift/oc/pkg/helpers/graph/appsgraph"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	kubeedges "github.com/openshift/oc/pkg/helpers/graph/kubegraph"
-	kubegraph "github.com/openshift/oc/pkg/helpers/graph/kubegraph/nodes"
+	"github.com/uccps-samples/oc/pkg/helpers/graph/appsgraph"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	kubeedges "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph"
+	kubegraph "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph/nodes"
 )
 
 const (

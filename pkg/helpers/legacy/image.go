@@ -5,9 +5,9 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 
-	"github.com/openshift/api/image/docker10"
-	"github.com/openshift/api/image/dockerpre012"
-	imagev1 "github.com/openshift/api/image/v1"
+	"github.com/uccps-samples/api/image/docker10"
+	"github.com/uccps-samples/api/image/dockerpre012"
+	imagev1 "github.com/uccps-samples/api/image/v1"
 )
 
 func InstallExternalLegacyImage(scheme *runtime.Scheme) {

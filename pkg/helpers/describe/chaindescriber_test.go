@@ -11,10 +11,10 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/util/sets"
 
-	fakebuildclient "github.com/openshift/client-go/build/clientset/versioned/fake"
-	buildclientscheme "github.com/openshift/client-go/build/clientset/versioned/scheme"
-	fakebuildv1client "github.com/openshift/client-go/build/clientset/versioned/typed/build/v1/fake"
-	imagegraph "github.com/openshift/oc/pkg/helpers/graph/imagegraph/nodes"
+	fakebuildclient "github.com/uccps-samples/client-go/build/clientset/versioned/fake"
+	buildclientscheme "github.com/uccps-samples/client-go/build/clientset/versioned/scheme"
+	fakebuildv1client "github.com/uccps-samples/client-go/build/clientset/versioned/typed/build/v1/fake"
+	imagegraph "github.com/uccps-samples/oc/pkg/helpers/graph/imagegraph/nodes"
 )
 
 func TestChainDescriber(t *testing.T) {

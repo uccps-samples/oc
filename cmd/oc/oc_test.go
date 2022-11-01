@@ -9,7 +9,7 @@ import (
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 	"k8s.io/apimachinery/pkg/util/sets"
 
-	"github.com/openshift/api/security"
+	"github.com/uccps-samples/api/security"
 )
 
 func TestInstallNonCRDSecurity(t *testing.T) {
@@ -20,8 +20,8 @@ func TestInstallNonCRDSecurity(t *testing.T) {
 	complete := runtime.NewScheme()
 	utilruntime.Must(security.Install(complete))
 	expected := gvks(complete.AllKnownTypes())
-	expected.Delete("security.openshift.io/v1, Kind=SecurityContextConstraints")
-	expected.Delete("security.openshift.io/v1, Kind=SecurityContextConstraintsList")
+	expected.Delete("security.uccp.io/v1, Kind=SecurityContextConstraints")
+	expected.Delete("security.uccp.io/v1, Kind=SecurityContextConstraintsList")
 
 	if !reflect.DeepEqual(expected, nonCRDTypes) {
 		t.Errorf("unexpected security/v1 scheme without CRD types\nunexpected: %v\nmissing: %v", nonCRDTypes.Difference(expected).List(), expected.Difference(nonCRDTypes).List())

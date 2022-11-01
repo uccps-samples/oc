@@ -5,10 +5,10 @@ import (
 	"io"
 	"strings"
 
-	templatev1 "github.com/openshift/api/template/v1"
-	"github.com/openshift/library-go/pkg/template/templateprocessing"
-	"github.com/openshift/oc/pkg/helpers/newapp/app"
-	"github.com/openshift/oc/pkg/helpers/template/templateprocessorclient"
+	templatev1 "github.com/uccps-samples/api/template/v1"
+	"github.com/uccps-samples/library-go/pkg/template/templateprocessing"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/app"
+	"github.com/uccps-samples/oc/pkg/helpers/template/templateprocessorclient"
 )
 
 // TransformTemplateV1 processes a template with the provided parameters, returning an error if transformation fails.

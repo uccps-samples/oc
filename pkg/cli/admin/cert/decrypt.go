@@ -8,8 +8,8 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/openshift/library-go/pkg/certs"
-	"github.com/openshift/oc/pkg/helpers/term"
+	"github.com/uccps-samples/library-go/pkg/certs"
+	"github.com/uccps-samples/oc/pkg/helpers/term"
 	"github.com/spf13/cobra"
 
 	"k8s.io/cli-runtime/pkg/genericclioptions"

@@ -6,8 +6,8 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/kubectl/pkg/polymorphichelpers"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	deploymentcmd "github.com/openshift/oc/pkg/helpers/originpolymorphichelpers/deploymentconfigs"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	deploymentcmd "github.com/uccps-samples/oc/pkg/helpers/originpolymorphichelpers/deploymentconfigs"
 )
 
 func NewHistoryViewerFn(delegate polymorphichelpers.HistoryViewerFunc) polymorphichelpers.HistoryViewerFunc {

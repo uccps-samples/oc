@@ -21,8 +21,8 @@ import (
 	"github.com/spf13/cobra"
 	"k8s.io/klog/v2"
 
-	s2ifs "github.com/openshift/oc/pkg/helpers/source-to-image/fs"
-	"github.com/openshift/oc/pkg/helpers/source-to-image/tar"
+	s2ifs "github.com/uccps-samples/oc/pkg/helpers/source-to-image/fs"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/tar"
 
 	corev1 "k8s.io/api/core/v1"
 	kerrors "k8s.io/apimachinery/pkg/api/errors"
@@ -38,15 +38,15 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/api/build"
-	buildv1 "github.com/openshift/api/build/v1"
-	buildv1client "github.com/openshift/client-go/build/clientset/versioned/typed/build/v1"
-	"github.com/openshift/library-go/pkg/git"
-	buildhelpers "github.com/openshift/oc/pkg/helpers/build"
-	buildclientmanual "github.com/openshift/oc/pkg/helpers/build/client/v1"
-	cmdutil "github.com/openshift/oc/pkg/helpers/cmd"
-	utilenv "github.com/openshift/oc/pkg/helpers/env"
-	ocerrors "github.com/openshift/oc/pkg/helpers/errors"
+	"github.com/uccps-samples/api/build"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	buildv1client "github.com/uccps-samples/client-go/build/clientset/versioned/typed/build/v1"
+	"github.com/uccps-samples/library-go/pkg/git"
+	buildhelpers "github.com/uccps-samples/oc/pkg/helpers/build"
+	buildclientmanual "github.com/uccps-samples/oc/pkg/helpers/build/client/v1"
+	cmdutil "github.com/uccps-samples/oc/pkg/helpers/cmd"
+	utilenv "github.com/uccps-samples/oc/pkg/helpers/env"
+	ocerrors "github.com/uccps-samples/oc/pkg/helpers/errors"
 )
 
 var (

@@ -11,8 +11,8 @@ import (
 
 	"k8s.io/klog/v2"
 
-	"github.com/openshift/library-go/pkg/image/registryclient"
-	"github.com/openshift/oc/pkg/helpers/image/credentialprovider"
+	"github.com/uccps-samples/library-go/pkg/image/registryclient"
+	"github.com/uccps-samples/oc/pkg/helpers/image/credentialprovider"
 )
 
 var (

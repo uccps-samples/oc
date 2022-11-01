@@ -7,8 +7,8 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/klog/v2"
 
-	buildv1 "github.com/openshift/api/build/v1"
-	buildv1client "github.com/openshift/client-go/build/clientset/versioned/typed/build/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	buildv1client "github.com/uccps-samples/client-go/build/clientset/versioned/typed/build/v1"
 )
 
 type Pruner interface {

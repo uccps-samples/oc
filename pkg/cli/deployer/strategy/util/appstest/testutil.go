@@ -9,7 +9,7 @@ import (
 	"k8s.io/apimachinery/pkg/util/sets"
 	"k8s.io/kubectl/pkg/scheme"
 
-	appsv1 "github.com/openshift/api/apps/v1"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
 )
 
 const (
@@ -23,7 +23,7 @@ func OkDeploymentConfig(version int64) *appsv1.DeploymentConfig {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:      "config",
 			Namespace: corev1.NamespaceDefault,
-			SelfLink:  "/apis/apps.openshift.io/v1/deploymentConfig/config",
+			SelfLink:  "/apis/apps.uccp.io/v1/deploymentConfig/config",
 		},
 		Spec:   OkDeploymentConfigSpec(),
 		Status: OkDeploymentConfigStatus(version),

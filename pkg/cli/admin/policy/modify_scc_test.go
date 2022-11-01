@@ -31,7 +31,7 @@ func TestModifySCC(t *testing.T) {
 				Rules: []rbacv1.PolicyRule{
 					{
 						Verbs:         []string{"use"},
-						APIGroups:     []string{"security.openshift.io"},
+						APIGroups:     []string{"security.uccp.io"},
 						Resources:     []string{"securitycontextconstraints"},
 						ResourceNames: []string{sccName},
 					},
@@ -69,7 +69,7 @@ func TestModifySCC(t *testing.T) {
 				Rules: []rbacv1.PolicyRule{
 					{
 						Verbs:         []string{"use"},
-						APIGroups:     []string{"security.openshift.io"},
+						APIGroups:     []string{"security.uccp.io"},
 						Resources:     []string{"securitycontextconstraints"},
 						ResourceNames: []string{sccName},
 					},
@@ -106,7 +106,7 @@ func TestModifySCC(t *testing.T) {
 				Rules: []rbacv1.PolicyRule{
 					{
 						Verbs:         []string{"use"},
-						APIGroups:     []string{"security.openshift.io"},
+						APIGroups:     []string{"security.uccp.io"},
 						Resources:     []string{"securitycontextconstraints"},
 						ResourceNames: []string{sccName},
 					},

@@ -4,12 +4,12 @@ import (
 	"strings"
 	"testing"
 
-	buildedges "github.com/openshift/oc/pkg/helpers/graph/buildgraph"
-	buildgraph "github.com/openshift/oc/pkg/helpers/graph/buildgraph/nodes"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	osgraphtest "github.com/openshift/oc/pkg/helpers/graph/genericgraph/test"
-	imageedges "github.com/openshift/oc/pkg/helpers/graph/imagegraph"
-	imagegraph "github.com/openshift/oc/pkg/helpers/graph/imagegraph/nodes"
+	buildedges "github.com/uccps-samples/oc/pkg/helpers/graph/buildgraph"
+	buildgraph "github.com/uccps-samples/oc/pkg/helpers/graph/buildgraph/nodes"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	osgraphtest "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph/test"
+	imageedges "github.com/uccps-samples/oc/pkg/helpers/graph/imagegraph"
+	imagegraph "github.com/uccps-samples/oc/pkg/helpers/graph/imagegraph/nodes"
 )
 
 func TestUnpushableBuild(t *testing.T) {

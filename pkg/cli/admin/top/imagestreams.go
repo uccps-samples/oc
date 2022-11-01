@@ -16,12 +16,12 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	dockerv10 "github.com/openshift/api/image/docker10"
-	imagev1 "github.com/openshift/api/image/v1"
-	imagev1client "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	"github.com/openshift/library-go/pkg/image/imageutil"
-	"github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	imagegraph "github.com/openshift/oc/pkg/helpers/graph/imagegraph/nodes"
+	dockerv10 "github.com/uccps-samples/api/image/docker10"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	imagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
+	"github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	imagegraph "github.com/uccps-samples/oc/pkg/helpers/graph/imagegraph/nodes"
 )
 
 const TopImageStreamsRecommendedName = "imagestreams"

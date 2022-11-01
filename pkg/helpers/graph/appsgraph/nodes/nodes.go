@@ -3,9 +3,9 @@ package nodes
 import (
 	"github.com/gonum/graph"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	kubegraph "github.com/openshift/oc/pkg/helpers/graph/kubegraph/nodes"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	kubegraph "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph/nodes"
 )
 
 // EnsureDeploymentConfigNode adds the provided deployment config to the graph if it does not exist

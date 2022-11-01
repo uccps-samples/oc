@@ -1,8 +1,8 @@
 package groupdetector
 
 import (
-	ldapquery "github.com/openshift/library-go/pkg/security/ldapquery"
-	"github.com/openshift/oc/pkg/helpers/groupsync/interfaces"
+	ldapquery "github.com/uccps-samples/library-go/pkg/security/ldapquery"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/interfaces"
 )
 
 // NewGroupBasedDetector returns an LDAPGroupDetector that determines group existence based on

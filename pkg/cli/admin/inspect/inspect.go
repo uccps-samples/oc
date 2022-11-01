@@ -29,7 +29,7 @@ import (
 	"k8s.io/kubectl/pkg/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	configv1 "github.com/openshift/api/config/v1"
+	configv1 "github.com/uccps-samples/api/config/v1"
 )
 
 var (
@@ -43,11 +43,11 @@ var (
 	`)
 
 	inspectExample = templates.Examples(`
-		# Collect debugging data for the "openshift-apiserver" clusteroperator
-		oc adm inspect clusteroperator/openshift-apiserver
+		# Collect debugging data for the "uccp-apiserver" clusteroperator
+		oc adm inspect clusteroperator/uccp-apiserver
 
-		# Collect debugging data for the "openshift-apiserver" and "kube-apiserver" clusteroperators
-		oc adm inspect clusteroperator/openshift-apiserver clusteroperator/kube-apiserver
+		# Collect debugging data for the "uccp-apiserver" and "kube-apiserver" clusteroperators
+		oc adm inspect clusteroperator/uccp-apiserver clusteroperator/kube-apiserver
 
 		# Collect debugging data for all clusteroperators
 		oc adm inspect clusteroperator
@@ -249,16 +249,16 @@ func (o *InspectOptions) Run() error {
 	return nil
 }
 
-// gatherConfigResourceData gathers all config.openshift.io resources
+// gatherConfigResourceData gathers all config.uccp.io resources
 func (o *InspectOptions) gatherConfigResourceData(destDir string, ctx *resourceContext) error {
 	// determine if we've already collected configResourceData
 	if ctx.visited.Has(configResourceDataKey) {
-		klog.V(1).Infof("Skipping previously-collected config.openshift.io resource data")
+		klog.V(1).Infof("Skipping previously-collected config.uccp.io resource data")
 		return nil
 	}
 	ctx.visited.Insert(configResourceDataKey)
 
-	klog.V(1).Infof("Gathering config.openshift.io resource data...\n")
+	klog.V(1).Infof("Gathering config.uccp.io resource data...\n")
 
 	// ensure destination path exists
 	if err := os.MkdirAll(destDir, os.ModePerm); err != nil {
@@ -287,16 +287,16 @@ func (o *InspectOptions) gatherConfigResourceData(destDir string, ctx *resourceC
 	}
 
 	if len(errs) > 0 {
-		return fmt.Errorf("one or more errors ocurred while gathering config.openshift.io resource data:\n\n    %v", errors.NewAggregate(errs))
+		return fmt.Errorf("one or more errors ocurred while gathering config.uccp.io resource data:\n\n    %v", errors.NewAggregate(errs))
 	}
 	return nil
 }
 
-// gatherOperatorResourceData gathers all kubeapiserver.operator.openshift.io resources
+// gatherOperatorResourceData gathers all kubeapiserver.operator.uccp.io resources
 func (o *InspectOptions) gatherOperatorResourceData(destDir string, ctx *resourceContext) error {
 	// determine if we've already collected operatorResourceData
 	if ctx.visited.Has(operatorResourceDataKey) {
-		klog.V(1).Infof("Skipping previously-collected operator.openshift.io resource data")
+		klog.V(1).Infof("Skipping previously-collected operator.uccp.io resource data")
 		return nil
 	}
 	ctx.visited.Insert(operatorResourceDataKey)
@@ -306,7 +306,7 @@ func (o *InspectOptions) gatherOperatorResourceData(destDir string, ctx *resourc
 		return err
 	}
 
-	resources, err := retrieveAPIGroupVersionResourceNames(o.discoveryClient, "kubeapiserver.operator.openshift.io")
+	resources, err := retrieveAPIGroupVersionResourceNames(o.discoveryClient, "kubeapiserver.operator.uccp.io")
 	if err != nil {
 		return err
 	}
@@ -328,7 +328,7 @@ func (o *InspectOptions) gatherOperatorResourceData(destDir string, ctx *resourc
 	}
 
 	if len(errs) > 0 {
-		return fmt.Errorf("one or more errors ocurred while gathering operator.openshift.io resource data:\n\n    %v", errors.NewAggregate(errs))
+		return fmt.Errorf("one or more errors ocurred while gathering operator.uccp.io resource data:\n\n    %v", errors.NewAggregate(errs))
 	}
 	return nil
 }

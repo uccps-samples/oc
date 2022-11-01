@@ -3,8 +3,8 @@ package nodes
 import (
 	"github.com/gonum/graph"
 
-	buildv1 "github.com/openshift/api/build/v1"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
 )
 
 // EnsureBuildConfigNode adds a graph node for the specific build config if it does not exist

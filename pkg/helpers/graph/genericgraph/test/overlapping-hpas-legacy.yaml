@@ -9,7 +9,7 @@ items:
     scaleTargetRef:
       kind: DeploymentConfig
       name: frontend
-      apiVersion: apps.openshift.io/v1
+      apiVersion: apps.uccp.io/v1
       subresource: scale
     minReplicas: 1
     maxReplicas: 10
@@ -22,7 +22,7 @@ items:
     scaleTargetRef:
       kind: DeploymentConfig
       name: frontend
-      apiVersion: apps.openshift.io/v1
+      apiVersion: apps.uccp.io/v1
       subresource: scale
     minReplicas: 1
     maxReplicas: 10
@@ -35,7 +35,7 @@ items:
     scaleTargetRef:
       kind: DeploymentConfig
       name: frontend
-      apiVersion: apps.openshift.io/v1
+      apiVersion: apps.uccp.io/v1
       subresource: scale
     minReplicas: 1
     maxReplicas: 10
@@ -106,7 +106,7 @@ items:
   kind: ReplicationController
   metadata:
     annotations:
-      openshift.io/deployment-config.name: someotherdc
+      uccp.io/deployment-config.name: someotherdc
     creationTimestamp: null
     generation: 1
     name: someotherdc-1

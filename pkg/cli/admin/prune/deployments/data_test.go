@@ -9,7 +9,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/util/sets"
 
-	appsv1 "github.com/openshift/api/apps/v1"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
 )
 
 func mockDeploymentConfig(namespace, name string) *appsv1.DeploymentConfig {

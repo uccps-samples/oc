@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/openshift/oc/pkg/helpers/newapp"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp"
 )
 
 type StatFunc func(path string) (os.FileInfo, error)

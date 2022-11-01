@@ -5,18 +5,18 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/openshift/oc/pkg/helpers/newapp/app"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/app"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 
-	dockerv10 "github.com/openshift/api/image/docker10"
-	imagev1 "github.com/openshift/api/image/v1"
-	templatev1 "github.com/openshift/api/template/v1"
-	fakeimagev1client "github.com/openshift/client-go/image/clientset/versioned/fake"
-	faketemplatev1client "github.com/openshift/client-go/template/clientset/versioned/fake"
-	configcmd "github.com/openshift/oc/pkg/helpers/bulk"
-	newcmd "github.com/openshift/oc/pkg/helpers/newapp/cmd"
+	dockerv10 "github.com/uccps-samples/api/image/docker10"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	templatev1 "github.com/uccps-samples/api/template/v1"
+	fakeimagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/fake"
+	faketemplatev1client "github.com/uccps-samples/client-go/template/clientset/versioned/fake"
+	configcmd "github.com/uccps-samples/oc/pkg/helpers/bulk"
+	newcmd "github.com/uccps-samples/oc/pkg/helpers/newapp/cmd"
 )
 
 // TestNewAppDefaultFlags ensures that flags default values are set.
@@ -166,7 +166,7 @@ func TestNewAppRunFailure(t *testing.T) {
 				AsSearch: true,
 				ComponentInputs: newcmd.ComponentInputs{
 					Components:         []string{"mysql"},
-					SourceRepositories: []string{"https://github.com/openshift/ruby-hello-world"},
+					SourceRepositories: []string{"https://github.com/uccps-samples/ruby-hello-world"},
 				},
 			},
 			expectedErr: "--search can't be used with source code",

@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	testfs "github.com/openshift/oc/pkg/helpers/source-to-image/fs/test"
+	testfs "github.com/uccps-samples/oc/pkg/helpers/source-to-image/fs/test"
 )
 
 func helper(t *testing.T, keepSymlinks bool) {

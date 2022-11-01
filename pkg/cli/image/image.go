@@ -7,19 +7,19 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	ktemplates "k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/oc/pkg/cli/image/append"
-	"github.com/openshift/oc/pkg/cli/image/extract"
-	"github.com/openshift/oc/pkg/cli/image/info"
-	"github.com/openshift/oc/pkg/cli/image/mirror"
-	"github.com/openshift/oc/pkg/cli/image/serve"
-	cmdutil "github.com/openshift/oc/pkg/helpers/cmd"
+	"github.com/uccps-samples/oc/pkg/cli/image/append"
+	"github.com/uccps-samples/oc/pkg/cli/image/extract"
+	"github.com/uccps-samples/oc/pkg/cli/image/info"
+	"github.com/uccps-samples/oc/pkg/cli/image/mirror"
+	"github.com/uccps-samples/oc/pkg/cli/image/serve"
+	cmdutil "github.com/uccps-samples/oc/pkg/helpers/cmd"
 )
 
 var (
 	imageLong = ktemplates.LongDesc(`
-		Manage images on OpenShift
+		Manage images on Uccp
 
-		These commands help you manage images on OpenShift.`)
+		These commands help you manage images on Uccp.`)
 )
 
 // NewCmdImage exposes commands for modifying images.

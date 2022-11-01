@@ -18,59 +18,59 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	ktemplates "k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/oc/pkg/cli/admin"
-	"github.com/openshift/oc/pkg/cli/cancelbuild"
-	"github.com/openshift/oc/pkg/cli/debug"
-	"github.com/openshift/oc/pkg/cli/deployer"
-	"github.com/openshift/oc/pkg/cli/experimental/dockergc"
-	"github.com/openshift/oc/pkg/cli/expose"
-	"github.com/openshift/oc/pkg/cli/extract"
-	"github.com/openshift/oc/pkg/cli/idle"
-	"github.com/openshift/oc/pkg/cli/image"
-	"github.com/openshift/oc/pkg/cli/importimage"
-	"github.com/openshift/oc/pkg/cli/kubectlwrappers"
-	"github.com/openshift/oc/pkg/cli/login"
-	"github.com/openshift/oc/pkg/cli/logout"
-	"github.com/openshift/oc/pkg/cli/logs"
-	"github.com/openshift/oc/pkg/cli/newapp"
-	"github.com/openshift/oc/pkg/cli/newbuild"
-	"github.com/openshift/oc/pkg/cli/observe"
-	"github.com/openshift/oc/pkg/cli/options"
-	"github.com/openshift/oc/pkg/cli/policy"
-	"github.com/openshift/oc/pkg/cli/process"
-	"github.com/openshift/oc/pkg/cli/project"
-	"github.com/openshift/oc/pkg/cli/projects"
-	"github.com/openshift/oc/pkg/cli/recycle"
-	"github.com/openshift/oc/pkg/cli/registry"
-	"github.com/openshift/oc/pkg/cli/requestproject"
-	"github.com/openshift/oc/pkg/cli/rollback"
-	"github.com/openshift/oc/pkg/cli/rollout"
-	"github.com/openshift/oc/pkg/cli/rsh"
-	"github.com/openshift/oc/pkg/cli/rsync"
-	"github.com/openshift/oc/pkg/cli/secrets"
-	"github.com/openshift/oc/pkg/cli/serviceaccounts"
-	"github.com/openshift/oc/pkg/cli/set"
-	"github.com/openshift/oc/pkg/cli/startbuild"
-	"github.com/openshift/oc/pkg/cli/status"
-	"github.com/openshift/oc/pkg/cli/tag"
-	"github.com/openshift/oc/pkg/cli/version"
-	"github.com/openshift/oc/pkg/cli/whoami"
-	cmdutil "github.com/openshift/oc/pkg/helpers/cmd"
-	"github.com/openshift/oc/pkg/helpers/term"
+	"github.com/uccps-samples/oc/pkg/cli/admin"
+	"github.com/uccps-samples/oc/pkg/cli/cancelbuild"
+	"github.com/uccps-samples/oc/pkg/cli/debug"
+	"github.com/uccps-samples/oc/pkg/cli/deployer"
+	"github.com/uccps-samples/oc/pkg/cli/experimental/dockergc"
+	"github.com/uccps-samples/oc/pkg/cli/expose"
+	"github.com/uccps-samples/oc/pkg/cli/extract"
+	"github.com/uccps-samples/oc/pkg/cli/idle"
+	"github.com/uccps-samples/oc/pkg/cli/image"
+	"github.com/uccps-samples/oc/pkg/cli/importimage"
+	"github.com/uccps-samples/oc/pkg/cli/kubectlwrappers"
+	"github.com/uccps-samples/oc/pkg/cli/login"
+	"github.com/uccps-samples/oc/pkg/cli/logout"
+	"github.com/uccps-samples/oc/pkg/cli/logs"
+	"github.com/uccps-samples/oc/pkg/cli/newapp"
+	"github.com/uccps-samples/oc/pkg/cli/newbuild"
+	"github.com/uccps-samples/oc/pkg/cli/observe"
+	"github.com/uccps-samples/oc/pkg/cli/options"
+	"github.com/uccps-samples/oc/pkg/cli/policy"
+	"github.com/uccps-samples/oc/pkg/cli/process"
+	"github.com/uccps-samples/oc/pkg/cli/project"
+	"github.com/uccps-samples/oc/pkg/cli/projects"
+	"github.com/uccps-samples/oc/pkg/cli/recycle"
+	"github.com/uccps-samples/oc/pkg/cli/registry"
+	"github.com/uccps-samples/oc/pkg/cli/requestproject"
+	"github.com/uccps-samples/oc/pkg/cli/rollback"
+	"github.com/uccps-samples/oc/pkg/cli/rollout"
+	"github.com/uccps-samples/oc/pkg/cli/rsh"
+	"github.com/uccps-samples/oc/pkg/cli/rsync"
+	"github.com/uccps-samples/oc/pkg/cli/secrets"
+	"github.com/uccps-samples/oc/pkg/cli/serviceaccounts"
+	"github.com/uccps-samples/oc/pkg/cli/set"
+	"github.com/uccps-samples/oc/pkg/cli/startbuild"
+	"github.com/uccps-samples/oc/pkg/cli/status"
+	"github.com/uccps-samples/oc/pkg/cli/tag"
+	"github.com/uccps-samples/oc/pkg/cli/version"
+	"github.com/uccps-samples/oc/pkg/cli/whoami"
+	cmdutil "github.com/uccps-samples/oc/pkg/helpers/cmd"
+	"github.com/uccps-samples/oc/pkg/helpers/term"
 )
 
-const productName = `OpenShift`
+const productName = `UCCPS`
 
 var (
 	cliLong = heredoc.Doc(`
     ` + productName + ` Client
 
     This client helps you develop, build, deploy, and run your applications on any
-    OpenShift or Kubernetes cluster. It also includes the administrative
+    Uccp or Kubernetes cluster. It also includes the administrative
     commands for managing a cluster under the 'adm' subcommand.`)
 
 	cliExplain = heredoc.Doc(`
-    To familiarize yourself with OpenShift, login to your cluster and try creating a sample application:
+    To familiarize yourself with Uccp, login to your cluster and try creating a sample application:
 
         oc login mycluster.mycompany.com
         oc new-project my-example
@@ -89,11 +89,9 @@ var (
 
         oc new-app -L
 
-    Since OpenShift runs on top of Kubernetes, your favorite kubectl commands are also present in oc,
+    Since Uccp runs on top of Kubernetes, your favorite kubectl commands are also present in oc,
     allowing you to quickly switch between development and debugging. You can also run kubectl directly
-    against any OpenShift cluster using the kubeconfig file created by 'oc login'.
-
-    For more on OpenShift, see the documentation at https://docs.openshift.com.
+    against any Uccp cluster using the kubeconfig file created by 'oc login'.
 
     To see the full list of commands supported, run 'oc --help'.`)
 )
@@ -335,9 +333,9 @@ func CommandFor(basename string) *cobra.Command {
 	switch basename {
 	case "kubectl":
 		cmd = kubecmd.NewDefaultKubectlCommand()
-	case "openshift-deploy":
+	case "uccp-deploy":
 		cmd = deployer.NewCommandDeployer(basename)
-	case "openshift-recycle":
+	case "uccp-recycle":
 		cmd = recycle.NewCommandRecycle(basename, out)
 	default:
 		shimKubectlForOc()

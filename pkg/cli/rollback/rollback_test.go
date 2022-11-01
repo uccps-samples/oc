@@ -6,10 +6,10 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/client-go/kubernetes/fake"
 
-	appsv1 "github.com/openshift/api/apps/v1"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
 
-	"github.com/openshift/library-go/pkg/apps/appsutil"
-	appstest "github.com/openshift/oc/pkg/helpers/apps/test"
+	"github.com/uccps-samples/library-go/pkg/apps/appsutil"
+	appstest "github.com/uccps-samples/oc/pkg/helpers/apps/test"
 )
 
 func TestRollbackOptions_findTargetDeployment(t *testing.T) {

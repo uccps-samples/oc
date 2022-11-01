@@ -5,10 +5,10 @@ import (
 
 	"github.com/gonum/graph/topo"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	appstest "github.com/openshift/oc/pkg/helpers/apps/test"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	kubetypes "github.com/openshift/oc/pkg/helpers/graph/kubegraph/nodes"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	appstest "github.com/uccps-samples/oc/pkg/helpers/apps/test"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	kubetypes "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph/nodes"
 )
 
 func TestDCPodTemplateSpecNode(t *testing.T) {

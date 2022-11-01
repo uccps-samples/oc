@@ -19,11 +19,11 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	configv1 "github.com/openshift/api/config/v1"
-	configv1client "github.com/openshift/client-go/config/clientset/versioned"
-	imagereference "github.com/openshift/library-go/pkg/image/reference"
+	configv1 "github.com/uccps-samples/api/config/v1"
+	configv1client "github.com/uccps-samples/client-go/config/clientset/versioned"
+	imagereference "github.com/uccps-samples/library-go/pkg/image/reference"
 
-	"github.com/openshift/oc/pkg/cli/admin/upgrade/channel"
+	"github.com/uccps-samples/oc/pkg/cli/admin/upgrade/channel"
 )
 
 func NewOptions(streams genericclioptions.IOStreams) *Options {
@@ -156,7 +156,7 @@ func (o *Options) Run() error {
 	cv, err := o.Client.ConfigV1().ClusterVersions().Get(context.TODO(), "version", metav1.GetOptions{})
 	if err != nil {
 		if errors.IsNotFound(err) {
-			return fmt.Errorf("No cluster version information available - you must be connected to an OpenShift version 4 server to fetch the current version")
+			return fmt.Errorf("No cluster version information available - you must be connected to an Uccp version 1 server to fetch the current version")
 		}
 		return err
 	}

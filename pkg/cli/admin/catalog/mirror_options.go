@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/openshift/oc/pkg/cli/image/imagesource"
+	"github.com/uccps-samples/oc/pkg/cli/image/imagesource"
 )
 
 type IndexImageMirrorerOptions struct {

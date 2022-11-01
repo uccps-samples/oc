@@ -35,7 +35,7 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/oc/pkg/helpers/proc"
+	"github.com/uccps-samples/oc/pkg/helpers/proc"
 )
 
 var (

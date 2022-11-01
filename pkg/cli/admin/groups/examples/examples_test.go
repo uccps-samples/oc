@@ -5,9 +5,9 @@ import (
 	"io/ioutil"
 	"testing"
 
-	legacyconfigv1 "github.com/openshift/api/legacyconfig/v1"
-	"github.com/openshift/library-go/pkg/config/helpers"
-	"github.com/openshift/oc/pkg/helpers/groupsync/ldap"
+	legacyconfigv1 "github.com/uccps-samples/api/legacyconfig/v1"
+	"github.com/uccps-samples/library-go/pkg/config/helpers"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/ldap"
 )
 
 func TestLDAPSyncConfigFixtures(t *testing.T) {

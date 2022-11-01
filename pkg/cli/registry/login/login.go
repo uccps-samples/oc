@@ -28,16 +28,16 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	imageclient "github.com/openshift/client-go/image/clientset/versioned"
-	"github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/library-go/pkg/image/registryclient"
+	imageclient "github.com/uccps-samples/client-go/image/clientset/versioned"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/library-go/pkg/image/registryclient"
 )
 
 var (
 	desc = templates.LongDesc(`
-		Log in to the OpenShift integrated registry.
+		Log in to the Uccp integrated registry.
 
-		This logs your local Docker client into the OpenShift integrated registry using the
+		This logs your local Docker client into the Uccp integrated registry using the
 		external registry name (if configured by your administrator). You may also log in
 		using a service account if you have access to its credentials. If you are logged in
 		to the server using a client certificate the command will report an error because
@@ -51,7 +51,7 @@ var (
 		written to standard output.
 
 		To detect the registry hostname the client will attempt to find an image stream in
-		the current namespace or the openshift namespace and use the status fields that
+		the current namespace or the uccp namespace and use the status fields that
 		indicate the registry hostnames. If no image stream is found or if you do not have
 		permission to view image streams you will have to pass the --registry flag with the
 		desired host name.
@@ -224,7 +224,7 @@ func (o *LoginOptions) Complete(f kcmdutil.Factory, args []string) error {
 			return err
 		}
 
-		registry, internal, err := findPublicHostname(client, ns, "openshift")
+		registry, internal, err := findPublicHostname(client, ns, "uccp")
 		if err != nil {
 			return err
 		}

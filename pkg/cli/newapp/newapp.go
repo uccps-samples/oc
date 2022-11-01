@@ -39,24 +39,24 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	"github.com/openshift/api/build"
-	buildv1 "github.com/openshift/api/build/v1"
-	imagev1 "github.com/openshift/api/image/v1"
-	routev1 "github.com/openshift/api/route/v1"
-	imagev1typedclient "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	routev1typedclient "github.com/openshift/client-go/route/clientset/versioned/typed/route/v1"
-	templatev1typedclient "github.com/openshift/client-go/template/clientset/versioned/typed/template/v1"
-	"github.com/openshift/library-go/pkg/git"
-	"github.com/openshift/library-go/pkg/image/imageutil"
-	"github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/oc/pkg/helpers/bulk"
-	cmdutil "github.com/openshift/oc/pkg/helpers/cmd"
-	imagehelpers "github.com/openshift/oc/pkg/helpers/image"
-	"github.com/openshift/oc/pkg/helpers/newapp"
-	newappapp "github.com/openshift/oc/pkg/helpers/newapp/app"
-	newcmd "github.com/openshift/oc/pkg/helpers/newapp/cmd"
-	dockerutil "github.com/openshift/oc/pkg/helpers/newapp/docker"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	"github.com/uccps-samples/api/build"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	routev1 "github.com/uccps-samples/api/route/v1"
+	imagev1typedclient "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	routev1typedclient "github.com/uccps-samples/client-go/route/clientset/versioned/typed/route/v1"
+	templatev1typedclient "github.com/uccps-samples/client-go/template/clientset/versioned/typed/template/v1"
+	"github.com/uccps-samples/library-go/pkg/git"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/oc/pkg/helpers/bulk"
+	cmdutil "github.com/uccps-samples/oc/pkg/helpers/cmd"
+	imagehelpers "github.com/uccps-samples/oc/pkg/helpers/image"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp"
+	newappapp "github.com/uccps-samples/oc/pkg/helpers/newapp/app"
+	newcmd "github.com/uccps-samples/oc/pkg/helpers/newapp/cmd"
+	dockerutil "github.com/uccps-samples/oc/pkg/helpers/newapp/docker"
 )
 
 // RoutePollTimoutSeconds sets how long new-app command waits for route host to be prepopulated
@@ -100,7 +100,7 @@ var (
 		oc new-app --docker-image=myregistry.com/mycompany/mysql --name=private
 
 		# Create an application from a remote repository using its beta4 branch
-		oc new-app https://github.com/openshift/ruby-hello-world#beta4
+		oc new-app https://github.com/uccps-samples/ruby-hello-world#beta4
 
 		# Create an application based on a stored template, explicitly setting a parameter value
 		oc new-app --template=ruby-helloworld-sample --param=MYSQL_USER=admin
@@ -246,7 +246,7 @@ func NewAppOptions(streams genericclioptions.IOStreams) *AppOptions {
 	}
 }
 
-// NewCmdNewApplication implements the OpenShift cli new-app command.
+// NewCmdNewApplication implements the Uccp cli new-app command.
 func NewCmdNewApplication(f kcmdutil.Factory, streams genericclioptions.IOStreams) *cobra.Command {
 	o := NewAppOptions(streams)
 
@@ -284,7 +284,7 @@ func NewCmdNewApplication(f kcmdutil.Factory, streams genericclioptions.IOStream
 	cmd.Flags().StringArrayVar(&o.Config.BuildEnvironmentFiles, "build-env-file", o.Config.BuildEnvironmentFiles, "File containing key-value pairs of environment variables to set into each build image.")
 	cmd.MarkFlagFilename("build-env-file")
 	cmd.Flags().StringVar(&o.Config.Name, "name", o.Config.Name, "Set name to use for generated application artifacts")
-	cmd.Flags().Var(&o.Config.Strategy, "strategy", "Specify the build strategy to use if you don't want to detect (docker|pipeline|source). NOTICE: the pipeline strategy is deprecated; consider using Jenkinsfiles directly on Jenkins or OpenShift Pipelines.")
+	cmd.Flags().Var(&o.Config.Strategy, "strategy", "Specify the build strategy to use if you don't want to detect (docker|pipeline|source). NOTICE: the pipeline strategy is deprecated; consider using Jenkinsfiles directly on Jenkins or Uccp Pipelines.")
 	cmd.Flags().StringP("labels", "l", "", "Label to set in all resources for this application.")
 	cmd.Flags().BoolVar(&o.Config.IgnoreUnknownParameters, "ignore-unknown-parameters", o.Config.IgnoreUnknownParameters, "If true, will not stop processing if a provided parameter does not exist in the template.")
 	cmd.Flags().BoolVar(&o.Config.InsecureRegistry, "insecure-registry", o.Config.InsecureRegistry, "If true, indicates that the referenced Docker images are on insecure registries and should bypass certificate checking")
@@ -316,7 +316,7 @@ func (o *AppOptions) Complete(f kcmdutil.Factory, c *cobra.Command, args []strin
 	return nil
 }
 
-// RunNewApp contains all the necessary functionality for the OpenShift cli new-app command
+// RunNewApp contains all the necessary functionality for the Uccp cli new-app command
 func (o *AppOptions) RunNewApp() error {
 	config := o.Config
 	out := o.Action.Out
@@ -452,7 +452,7 @@ func (o *AppOptions) RunNewApp() error {
 			}
 		case *buildv1.BuildConfig:
 			if t.Spec.Strategy.Type == buildv1.JenkinsPipelineBuildStrategyType {
-				fmt.Fprintln(o.Action.ErrOut, "JenkinsPipeline build strategy is deprecated. Use Jenkinsfiles directly on Jenkins or OpenShift Pipelines instead")
+				fmt.Fprintln(o.Action.ErrOut, "JenkinsPipeline build strategy is deprecated. Use Jenkinsfiles directly on Jenkins or Uccp Pipelines instead")
 			}
 			triggered := false
 			for _, trigger := range t.Spec.Triggers {
@@ -970,10 +970,10 @@ func TransformRunError(err error, commandPath string, groups ErrorGroups, config
 			heredoc.Docf(`
 				The '%[1]s' command will match arguments to the following types:
 
-				  1. Images tagged into image streams in the current project or the 'openshift' project
+				  1. Images tagged into image streams in the current project or the 'uccp' project
 				     - if you don't specify a tag, we'll add ':latest'
 				  2. Images in the Docker Hub, on remote registries, or on the local Docker engine
-				  3. Templates in the current project or the 'openshift' project
+				  3. Templates in the current project or the 'uccp' project
 				  4. Git repository URLs or local paths that point to Git repositories
 
 				--allow-missing-images can be used to point to an image that does not exist yet.
@@ -996,7 +996,7 @@ func TransformRunError(err error, commandPath string, groups ErrorGroups, config
 				groups.Add(
 					"multiple-matches",
 					heredoc.Docf(`
-						The argument %[1]q could apply to the following Docker images, OpenShift image streams, or templates:
+						The argument %[1]q could apply to the following Docker images, Uccp image streams, or templates:
 
 						%[2]sTo view a full list of matches, use 'oc new-app -S %[1]s'`, t.Value, buf.String(),
 					),
@@ -1015,7 +1015,7 @@ func TransformRunError(err error, commandPath string, groups ErrorGroups, config
 		groups.Add(
 			"multiple-matches",
 			heredoc.Docf(`
-					The argument %[1]q could apply to the following Docker images, OpenShift image streams, or templates:
+					The argument %[1]q could apply to the following Docker images, Uccp image streams, or templates:
 
 					%[2]s`, t.Value, buf.String(),
 			),
@@ -1033,7 +1033,7 @@ func TransformRunError(err error, commandPath string, groups ErrorGroups, config
 		groups.Add(
 			"partial-match",
 			heredoc.Docf(`
-					The argument %[1]q only partially matched the following Docker image, OpenShift image stream, or template:
+					The argument %[1]q only partially matched the following Docker image, Uccp image stream, or template:
 
 					%[2]s`, t.Value, buf.String(),
 			),

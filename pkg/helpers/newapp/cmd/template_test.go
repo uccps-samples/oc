@@ -5,7 +5,7 @@ import (
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	templatev1 "github.com/openshift/api/template/v1"
+	templatev1 "github.com/uccps-samples/api/template/v1"
 )
 
 func TestTransformTemplate(t *testing.T) {

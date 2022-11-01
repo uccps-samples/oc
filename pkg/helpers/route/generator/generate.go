@@ -9,7 +9,7 @@ import (
 	"k8s.io/apimachinery/pkg/util/intstr"
 	"k8s.io/kubectl/pkg/generate"
 
-	routev1 "github.com/openshift/api/route/v1"
+	routev1 "github.com/uccps-samples/api/route/v1"
 )
 
 // RouteGenerator generates routes from a given set of parameters

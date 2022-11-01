@@ -13,10 +13,10 @@ import (
 	kapierrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	userv1 "github.com/openshift/api/user/v1"
-	userv1client "github.com/openshift/client-go/user/clientset/versioned/typed/user/v1"
-	"github.com/openshift/library-go/pkg/security/ldapquery"
-	"github.com/openshift/oc/pkg/helpers/groupsync/interfaces"
+	userv1 "github.com/uccps-samples/api/user/v1"
+	userv1client "github.com/uccps-samples/client-go/user/clientset/versioned/typed/user/v1"
+	"github.com/uccps-samples/library-go/pkg/security/ldapquery"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/interfaces"
 )
 
 // GroupSyncer runs a Sync job on Groups

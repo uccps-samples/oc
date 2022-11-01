@@ -8,8 +8,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/openshift/oc/pkg/cli"
-	"github.com/openshift/oc/tools/gendocs/gendocs"
+	"github.com/uccps-samples/oc/pkg/cli"
+	"github.com/uccps-samples/oc/tools/gendocs/gendocs"
 )
 
 var admin = flag.Bool("admin", false, "Generate admin commands docs")

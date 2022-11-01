@@ -19,9 +19,9 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	cmdutil "github.com/openshift/oc/pkg/helpers/cmd"
-	utilenv "github.com/openshift/oc/pkg/helpers/env"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	cmdutil "github.com/uccps-samples/oc/pkg/helpers/cmd"
+	utilenv "github.com/uccps-samples/oc/pkg/helpers/env"
 )
 
 var (

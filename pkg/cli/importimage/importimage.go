@@ -15,13 +15,13 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	imagev1 "github.com/openshift/api/image/v1"
-	imagev1client "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	"github.com/openshift/library-go/pkg/image/imageutil"
-	"github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/oc/pkg/cli/tag"
-	"github.com/openshift/oc/pkg/helpers/describe"
-	imagehelpers "github.com/openshift/oc/pkg/helpers/image"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	imagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/oc/pkg/cli/tag"
+	"github.com/uccps-samples/oc/pkg/helpers/describe"
+	imagehelpers "github.com/uccps-samples/oc/pkg/helpers/image"
 )
 
 var (

@@ -21,7 +21,7 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	buildv1 "github.com/openshift/api/build/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
 )
 
 var (

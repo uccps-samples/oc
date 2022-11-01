@@ -1,9 +1,9 @@
 package app
 
 import (
-	dockerv10 "github.com/openshift/api/image/docker10"
-	imagev1 "github.com/openshift/api/image/v1"
-	templatev1 "github.com/openshift/api/template/v1"
+	dockerv10 "github.com/uccps-samples/api/image/docker10"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	templatev1 "github.com/uccps-samples/api/template/v1"
 )
 
 // ComponentMatch is a match to a provided component

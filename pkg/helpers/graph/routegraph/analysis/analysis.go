@@ -8,12 +8,12 @@ import (
 
 	corev1 "k8s.io/api/core/v1"
 
-	routev1 "github.com/openshift/api/route/v1"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	kubegraph "github.com/openshift/oc/pkg/helpers/graph/kubegraph/nodes"
-	routeedges "github.com/openshift/oc/pkg/helpers/graph/routegraph"
-	routegraph "github.com/openshift/oc/pkg/helpers/graph/routegraph/nodes"
-	routedisplayhelpers "github.com/openshift/oc/pkg/helpers/route"
+	routev1 "github.com/uccps-samples/api/route/v1"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	kubegraph "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph/nodes"
+	routeedges "github.com/uccps-samples/oc/pkg/helpers/graph/routegraph"
+	routegraph "github.com/uccps-samples/oc/pkg/helpers/graph/routegraph/nodes"
+	routedisplayhelpers "github.com/uccps-samples/oc/pkg/helpers/route"
 )
 
 const (

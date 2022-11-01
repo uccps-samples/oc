@@ -21,24 +21,24 @@ import (
 	"k8s.io/client-go/tools/cache"
 	watchtools "k8s.io/client-go/tools/watch"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	imageapiv1 "github.com/openshift/api/image/v1"
-	imageclienttyped "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	"github.com/openshift/library-go/pkg/build/naming"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	imageapiv1 "github.com/uccps-samples/api/image/v1"
+	imageclienttyped "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	"github.com/uccps-samples/library-go/pkg/build/naming"
 
-	"github.com/openshift/library-go/pkg/apps/appsserialization"
-	"github.com/openshift/library-go/pkg/apps/appsutil"
-	strategyutil "github.com/openshift/oc/pkg/cli/deployer/strategy/util"
+	"github.com/uccps-samples/library-go/pkg/apps/appsserialization"
+	"github.com/uccps-samples/library-go/pkg/apps/appsutil"
+	strategyutil "github.com/uccps-samples/oc/pkg/cli/deployer/strategy/util"
 )
 
 const (
 	// hookContainerName is the name used for the container that runs inside hook pods.
 	hookContainerName = "lifecycle"
 	// deploymentPodTypeLabel is a label with which contains a type of deployment pod.
-	deploymentPodTypeLabel = "openshift.io/deployer-pod.type"
+	deploymentPodTypeLabel = "uccp.io/deployer-pod.type"
 	// deploymentAnnotation is an annotation on a deployer Pod. The annotation value is the name
 	// of the deployment (a ReplicationController) on which the deployer Pod acts.
-	deploymentAnnotation = "openshift.io/deployment.name"
+	deploymentAnnotation = "uccp.io/deployment.name"
 )
 
 // HookExecutor knows how to execute a deployment lifecycle hook.
@@ -382,8 +382,8 @@ func createHookPodManifest(hook *appsv1.LifecycleHook, rc *corev1.ReplicationCon
 	for k, v := range envMap {
 		mergedEnv = append(mergedEnv, corev1.EnvVar{Name: k, Value: v.Value, ValueFrom: v.ValueFrom})
 	}
-	mergedEnv = append(mergedEnv, corev1.EnvVar{Name: "OPENSHIFT_DEPLOYMENT_NAME", Value: rc.Name})
-	mergedEnv = append(mergedEnv, corev1.EnvVar{Name: "OPENSHIFT_DEPLOYMENT_NAMESPACE", Value: rc.Namespace})
+	mergedEnv = append(mergedEnv, corev1.EnvVar{Name: "UCCP_DEPLOYMENT_NAME", Value: rc.Name})
+	mergedEnv = append(mergedEnv, corev1.EnvVar{Name: "UCCP_DEPLOYMENT_NAMESPACE", Value: rc.Namespace})
 
 	// Assigning to a variable since its address is required
 	defaultActiveDeadline := appsutil.MaxDeploymentDurationSeconds

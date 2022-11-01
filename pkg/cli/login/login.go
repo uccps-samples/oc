@@ -16,8 +16,8 @@ import (
 	"k8s.io/kubectl/pkg/util/templates"
 	"k8s.io/kubectl/pkg/util/term"
 
-	"github.com/openshift/oc/pkg/helpers/flagtypes"
-	"github.com/openshift/oc/pkg/helpers/tokencmd"
+	"github.com/uccps-samples/oc/pkg/helpers/flagtypes"
+	"github.com/uccps-samples/oc/pkg/helpers/tokencmd"
 )
 
 var (

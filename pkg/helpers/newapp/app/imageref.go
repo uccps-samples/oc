@@ -13,15 +13,15 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	kvalidation "k8s.io/apimachinery/pkg/util/validation"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	buildv1 "github.com/openshift/api/build/v1"
-	dockerv10 "github.com/openshift/api/image/docker10"
-	imagev1 "github.com/openshift/api/image/v1"
-	"github.com/openshift/library-go/pkg/build/naming"
-	"github.com/openshift/library-go/pkg/image/imageutil"
-	"github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/oc/pkg/helpers/newapp/docker/dockerfile"
-	"github.com/openshift/oc/pkg/helpers/newapp/portutils"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	dockerv10 "github.com/uccps-samples/api/image/docker10"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	"github.com/uccps-samples/library-go/pkg/build/naming"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/docker/dockerfile"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/portutils"
 )
 
 // ImageRefGenerator is an interface for generating ImageRefs
@@ -333,7 +333,7 @@ func (r *ImageRef) ImageStream() (*imagev1.ImageStream, error) {
 	stream.Spec.Tags = append(stream.Spec.Tags, imagev1.TagReference{
 		Name: r.InternalTag(),
 		// Make this a constant
-		Annotations: map[string]string{"openshift.io/imported-from": r.Reference.Exact()},
+		Annotations: map[string]string{"uccp.io/imported-from": r.Reference.Exact()},
 		From: &corev1.ObjectReference{
 			Kind: "DockerImage",
 			Name: r.PullSpec(),
@@ -357,7 +357,7 @@ func (r *ImageRef) ImageStreamTag() (*imagev1.ImageStreamTag, error) {
 		ObjectMeta: metav1.ObjectMeta{
 			Name:        istname,
 			Namespace:   r.SuggestNamespace(),
-			Annotations: map[string]string{"openshift.io/imported-from": r.Reference.Exact()},
+			Annotations: map[string]string{"uccp.io/imported-from": r.Reference.Exact()},
 		},
 		Tag: &imagev1.TagReference{
 			Name: r.InternalTag(),

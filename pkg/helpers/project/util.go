@@ -6,8 +6,8 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	restclient "k8s.io/client-go/rest"
 
-	authorizationv1 "github.com/openshift/api/authorization/v1"
-	authorizationv1typedclient "github.com/openshift/client-go/authorization/clientset/versioned/typed/authorization/v1"
+	authorizationv1 "github.com/uccps-samples/api/authorization/v1"
+	authorizationv1typedclient "github.com/uccps-samples/client-go/authorization/clientset/versioned/typed/authorization/v1"
 )
 
 func CanRequestProjects(config *restclient.Config, defaultNamespace string) (bool, error) {

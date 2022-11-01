@@ -7,7 +7,7 @@ import (
 
 	"k8s.io/apimachinery/pkg/util/errors"
 
-	"github.com/openshift/oc/pkg/cli/image/imagesource"
+	"github.com/uccps-samples/oc/pkg/cli/image/imagesource"
 )
 
 type Mirrorer interface {

@@ -20,18 +20,18 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/util/validation/field"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	buildv1 "github.com/openshift/api/build/v1"
-	"github.com/openshift/library-go/pkg/git"
-	triggerutil "github.com/openshift/library-go/pkg/image/trigger"
-	"github.com/openshift/oc/pkg/helpers/newapp"
-	s2igit "github.com/openshift/oc/pkg/helpers/source-to-image/git"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	"github.com/uccps-samples/library-go/pkg/git"
+	triggerutil "github.com/uccps-samples/library-go/pkg/image/trigger"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp"
+	s2igit "github.com/uccps-samples/oc/pkg/helpers/source-to-image/git"
 )
 
 const (
 	volumeNameInfix = "volume"
 
-	GenerationWarningAnnotation = "app.generate.openshift.io/warnings"
+	GenerationWarningAnnotation = "app.generate.uccp.io/warnings"
 )
 
 // NameSuggester is an object that can suggest a name for itself

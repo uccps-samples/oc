@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/openshift/api"
+	"github.com/uccps-samples/api"
 	"k8s.io/apimachinery/pkg/api/apitesting"
 
 	corev1 "k8s.io/api/core/v1"
@@ -14,11 +14,11 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	buildv1 "github.com/openshift/api/build/v1"
-	dockerv10 "github.com/openshift/api/image/docker10"
-	imagev1 "github.com/openshift/api/image/v1"
-	"github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/oc/pkg/helpers/source-to-image/git"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	dockerv10 "github.com/uccps-samples/api/image/docker10"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/git"
 )
 
 func testImageInfo() *dockerv10.DockerImage {
@@ -61,7 +61,7 @@ func TestWithType(t *testing.T) {
 }
 
 func TestBuildConfigNoOutput(t *testing.T) {
-	url, err := git.Parse("https://github.com/openshift/origin.git")
+	url, err := git.Parse("https://github.com/uccps-samples/origin.git")
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -80,7 +80,7 @@ func TestBuildConfigNoOutput(t *testing.T) {
 }
 
 func TestBuildConfigWithSecrets(t *testing.T) {
-	url, err := git.Parse("https://github.com/openshift/origin.git")
+	url, err := git.Parse("https://github.com/uccps-samples/origin.git")
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -100,7 +100,7 @@ func TestBuildConfigWithSecrets(t *testing.T) {
 }
 
 func TestBuildConfigWithConfigMaps(t *testing.T) {
-	url, err := git.Parse("https://github.com/openshift/origin.git")
+	url, err := git.Parse("https://github.com/uccps-samples/origin.git")
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -186,13 +186,13 @@ func TestSourceRefBuildSourceURI(t *testing.T) {
 	}{
 		{
 			name:     "URL without hash",
-			input:    "https://github.com/openshift/ruby-hello-world.git",
-			expected: "https://github.com/openshift/ruby-hello-world.git",
+			input:    "https://github.com/uccps-samples/ruby-hello-world.git",
+			expected: "https://github.com/uccps-samples/ruby-hello-world.git",
 		},
 		{
 			name:     "URL with hash",
-			input:    "https://github.com/openshift/ruby-hello-world.git#testref",
-			expected: "https://github.com/openshift/ruby-hello-world.git",
+			input:    "https://github.com/uccps-samples/ruby-hello-world.git#testref",
+			expected: "https://github.com/uccps-samples/ruby-hello-world.git",
 		},
 	}
 	for _, tst := range tests {
@@ -212,7 +212,7 @@ func TestGenerateSimpleDockerApp(t *testing.T) {
 	// TODO: determine whether we want to clone this repo, or use it directly. Using it directly would require setting hooks
 	// if we have source, assume we are going to go into a build flow.
 	// TODO: get info about git url: does this need STI?
-	url, _ := git.Parse("https://github.com/openshift/origin.git")
+	url, _ := git.Parse("https://github.com/uccps-samples/origin.git")
 	source := &SourceRef{URL: url}
 	// generate a local name for the repo
 	name, _ := source.SuggestName()
@@ -430,7 +430,7 @@ func TestIsParameterizableValue(t *testing.T) {
 }
 
 func TestNameFromGitURL(t *testing.T) {
-	gitURL, err := git.Parse("https://github.com/openshift/origin.git")
+	gitURL, err := git.Parse("https://github.com/uccps-samples/origin.git")
 	if err != nil {
 		t.Fatalf("failed parsing git url: %v", err)
 	}

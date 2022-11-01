@@ -9,9 +9,9 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	clienttesting "k8s.io/client-go/testing"
 
-	userv1 "github.com/openshift/api/user/v1"
-	fakeuserclient "github.com/openshift/client-go/user/clientset/versioned/fake"
-	fakeuserv1client "github.com/openshift/client-go/user/clientset/versioned/typed/user/v1/fake"
+	userv1 "github.com/uccps-samples/api/user/v1"
+	fakeuserclient "github.com/uccps-samples/client-go/user/clientset/versioned/fake"
+	fakeuserv1client "github.com/uccps-samples/client-go/user/clientset/versioned/typed/user/v1/fake"
 )
 
 func TestListAllOpenShiftGroups(t *testing.T) {
@@ -38,7 +38,7 @@ func TestListAllOpenShiftGroups(t *testing.T) {
 					Annotations: map[string]string{LDAPUIDAnnotation: "alpha-uid"},
 					Labels:      map[string]string{LDAPHostLabel: "test-host"}}},
 			},
-			expectedErr: `group "alpha" marked as having been synced did not have an openshift.io/ldap.url annotation`,
+			expectedErr: `group "alpha" marked as having been synced did not have an uccp.io/ldap.url annotation`,
 		},
 		"no uid annotation": {
 			startingGroups: []runtime.Object{
@@ -46,7 +46,7 @@ func TestListAllOpenShiftGroups(t *testing.T) {
 					Annotations: map[string]string{LDAPURLAnnotation: "test-host:port"},
 					Labels:      map[string]string{LDAPHostLabel: "test-host"}}},
 			},
-			expectedErr: `group "alpha" marked as having been synced did not have an openshift.io/ldap.uid annotation`,
+			expectedErr: `group "alpha" marked as having been synced did not have an uccp.io/ldap.uid annotation`,
 		},
 		"no match: different port": {
 			startingGroups: []runtime.Object{
@@ -155,7 +155,7 @@ func TestListWhitelistOpenShiftGroups(t *testing.T) {
 					Labels:      map[string]string{LDAPHostLabel: "test-host"}}},
 			},
 			whitelist:   []string{"alpha"},
-			expectedErr: `group "alpha" marked as having been synced did not have an openshift.io/ldap.url annotation`,
+			expectedErr: `group "alpha" marked as having been synced did not have an uccp.io/ldap.url annotation`,
 		},
 		"no uid annotation": {
 			startingGroups: []*userv1.Group{
@@ -164,7 +164,7 @@ func TestListWhitelistOpenShiftGroups(t *testing.T) {
 					Labels:      map[string]string{LDAPHostLabel: "test-host"}}},
 			},
 			whitelist:   []string{"alpha"},
-			expectedErr: `group "alpha" marked as having been synced did not have an openshift.io/ldap.uid annotation`,
+			expectedErr: `group "alpha" marked as having been synced did not have an uccp.io/ldap.uid annotation`,
 		},
 		"no match: different port": {
 			startingGroups: []*userv1.Group{

@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	"github.com/openshift/library-go/pkg/apps/appsutil"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	"github.com/uccps-samples/library-go/pkg/apps/appsutil"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/kubectl/pkg/polymorphichelpers"
 )

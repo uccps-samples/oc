@@ -15,11 +15,11 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 
-	"github.com/openshift/api"
-	appsv1 "github.com/openshift/api/apps/v1"
-	appsgraph "github.com/openshift/oc/pkg/helpers/graph/appsgraph/nodes"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	kubegraph "github.com/openshift/oc/pkg/helpers/graph/kubegraph/nodes"
+	"github.com/uccps-samples/api"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	appsgraph "github.com/uccps-samples/oc/pkg/helpers/graph/appsgraph/nodes"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	kubegraph "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph/nodes"
 )
 
 type objectifier interface {
@@ -184,7 +184,7 @@ func TestHPADCEdges(t *testing.T) {
 		ScaleTargetRef: autoscalingv1.CrossVersionObjectReference{
 			Name:       "test-dc",
 			Kind:       "DeploymentConfig",
-			APIVersion: "apps.openshift.io/v1",
+			APIVersion: "apps.uccp.io/v1",
 		},
 	}
 

@@ -7,8 +7,8 @@ import (
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	imagev1typedclient "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	"github.com/openshift/library-go/pkg/image/reference"
+	imagev1typedclient "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
 )
 
 func ParseDockerImageReferenceToStringFunc(spec string) (string, error) {

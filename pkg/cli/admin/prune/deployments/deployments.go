@@ -17,8 +17,8 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	appsv1client "github.com/openshift/client-go/apps/clientset/versioned/typed/apps/v1"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	appsv1client "github.com/uccps-samples/client-go/apps/clientset/versioned/typed/apps/v1"
 )
 
 var (

@@ -7,9 +7,9 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	clientgotesting "k8s.io/client-go/testing"
 
-	templatev1 "github.com/openshift/api/template/v1"
-	templatefake "github.com/openshift/client-go/template/clientset/versioned/fake"
-	templatev1client "github.com/openshift/client-go/template/clientset/versioned/typed/template/v1"
+	templatev1 "github.com/uccps-samples/api/template/v1"
+	templatefake "github.com/uccps-samples/client-go/template/clientset/versioned/fake"
+	templatev1client "github.com/uccps-samples/client-go/template/clientset/versioned/typed/template/v1"
 )
 
 func testTemplateClient(templates *templatev1.TemplateList) templatev1client.TemplateV1Interface {

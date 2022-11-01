@@ -11,8 +11,8 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 
-	"github.com/openshift/oc/pkg/cli"
-	mangen "github.com/openshift/oc/tools/genman/md2man"
+	"github.com/uccps-samples/oc/pkg/cli"
+	mangen "github.com/uccps-samples/oc/tools/genman/md2man"
 )
 
 func main() {

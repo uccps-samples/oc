@@ -9,20 +9,20 @@ import (
 	"testing"
 	"text/tabwriter"
 
-	v1 "github.com/openshift/api/quota/v1"
+	v1 "github.com/uccps-samples/api/quota/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
 
-	"github.com/openshift/api"
-	appsv1 "github.com/openshift/api/apps/v1"
-	authorizationv1 "github.com/openshift/api/authorization/v1"
-	buildv1 "github.com/openshift/api/build/v1"
-	dockerv10 "github.com/openshift/api/image/docker10"
-	dockerpre012 "github.com/openshift/api/image/dockerpre012"
-	imagev1 "github.com/openshift/api/image/v1"
-	oauthv1 "github.com/openshift/api/oauth/v1"
-	projectv1 "github.com/openshift/api/project/v1"
-	securityv1 "github.com/openshift/api/security/v1"
-	templatev1 "github.com/openshift/api/template/v1"
+	"github.com/uccps-samples/api"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	authorizationv1 "github.com/uccps-samples/api/authorization/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	dockerv10 "github.com/uccps-samples/api/image/docker10"
+	dockerpre012 "github.com/uccps-samples/api/image/dockerpre012"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	oauthv1 "github.com/uccps-samples/api/oauth/v1"
+	projectv1 "github.com/uccps-samples/api/project/v1"
+	securityv1 "github.com/uccps-samples/api/security/v1"
+	templatev1 "github.com/uccps-samples/api/template/v1"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -91,24 +91,24 @@ var MissingDescriberCoverageExceptions = []reflect.Type{
 }
 
 var MissingDescriberGroupCoverageExceptions = []schema.GroupVersion{
-	{Group: "config.openshift.io", Version: "v1"},
-	{Group: "osin.config.openshift.io", Version: "v1"},
-	{Group: "servicecertsigner.config.openshift.io", Version: "v1alpha1"},
-	{Group: "kubecontrolplane.config.openshift.io", Version: "v1"},
-	{Group: "openshiftcontrolplane.config.openshift.io", Version: "v1"},
+	{Group: "config.uccp.io", Version: "v1"},
+	{Group: "osin.config.uccp.io", Version: "v1"},
+	{Group: "servicecertsigner.config.uccp.io", Version: "v1alpha1"},
+	{Group: "kubecontrolplane.config.uccp.io", Version: "v1"},
+	{Group: "openshiftcontrolplane.config.uccp.io", Version: "v1"},
 
-	{Group: "controlplane.operator.openshift.io", Version: "v1alpha1"},
-	{Group: "imageregistry.operator.openshift.io", Version: "v1"},
-	{Group: "operator.openshift.io", Version: "v1alpha1"},
-	{Group: "operator.openshift.io", Version: "v1"},
-	{Group: "network.operator.openshift.io", Version: "v1"},
-	{Group: "samples.operator.openshift.io", Version: "v1"},
+	{Group: "controlplane.operator.uccp.io", Version: "v1alpha1"},
+	{Group: "imageregistry.operator.uccp.io", Version: "v1"},
+	{Group: "operator.uccp.io", Version: "v1alpha1"},
+	{Group: "operator.uccp.io", Version: "v1"},
+	{Group: "network.operator.uccp.io", Version: "v1"},
+	{Group: "samples.operator.uccp.io", Version: "v1"},
 
-	{Group: "cloud.network.openshift.io", Version: "v1"},
+	{Group: "cloud.network.uccp.io", Version: "v1"},
 
-	{Group: "apiserver.openshift.io", Version: "v1"},
+	{Group: "apiserver.uccp.io", Version: "v1"},
 
-	{Group: "helm.openshift.io", Version: "v1beta1"},
+	{Group: "helm.uccp.io", Version: "v1beta1"},
 }
 
 func TestDescriberCoverage(t *testing.T) {
@@ -118,7 +118,7 @@ func TestDescriberCoverage(t *testing.T) {
 
 main:
 	for gvk, apiType := range scheme.AllKnownTypes() {
-		if !strings.HasPrefix(apiType.PkgPath(), "github.com/openshift/api") || strings.HasPrefix(apiType.PkgPath(), "github.com/openshift/origin/vendor/") {
+		if !strings.HasPrefix(apiType.PkgPath(), "github.com/uccps-samples/api") || strings.HasPrefix(apiType.PkgPath(), "github.com/uccps-samples/origin/vendor/") {
 			continue
 		}
 		// we don't describe lists

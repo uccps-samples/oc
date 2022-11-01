@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"reflect"
 
-	imagev1 "github.com/openshift/api/image/v1"
-	"github.com/openshift/library-go/pkg/image/imageutil"
-	"github.com/openshift/library-go/pkg/image/reference"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
 )
 
 type ImageComponentType string

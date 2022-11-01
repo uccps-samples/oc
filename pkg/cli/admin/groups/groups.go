@@ -6,9 +6,9 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/oc/pkg/cli/admin/groups/new"
-	"github.com/openshift/oc/pkg/cli/admin/groups/sync"
-	"github.com/openshift/oc/pkg/cli/admin/groups/users"
+	"github.com/uccps-samples/oc/pkg/cli/admin/groups/new"
+	"github.com/uccps-samples/oc/pkg/cli/admin/groups/sync"
+	"github.com/uccps-samples/oc/pkg/cli/admin/groups/users"
 )
 
 const GroupsRecommendedName = "groups"

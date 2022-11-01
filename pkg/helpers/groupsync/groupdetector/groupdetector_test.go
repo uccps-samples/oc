@@ -7,8 +7,8 @@ import (
 
 	"gopkg.in/ldap.v2"
 
-	ldapquery "github.com/openshift/library-go/pkg/security/ldapquery"
-	"github.com/openshift/oc/pkg/helpers/groupsync/interfaces"
+	ldapquery "github.com/uccps-samples/library-go/pkg/security/ldapquery"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/interfaces"
 )
 
 func TestGroupBasedDetectorExists(t *testing.T) {

@@ -5,8 +5,8 @@ items:
   metadata:
     annotations:
       deployment.kubernetes.io/revision: "1"
-      image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"ruby-deploy:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"ruby-deploy\")].image"}]'
-      openshift.io/generated-by: OpenShiftNewApp
+      image.uccp.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"ruby-deploy:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"ruby-deploy\")].image"}]'
+      uccp.io/generated-by: UccpNewApp
     generation: 1
     labels:
       app: ruby-deploy

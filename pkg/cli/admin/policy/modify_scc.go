@@ -17,7 +17,7 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/api/security"
+	"github.com/uccps-samples/api/security"
 )
 
 const (

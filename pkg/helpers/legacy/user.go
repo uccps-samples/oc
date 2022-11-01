@@ -5,7 +5,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 
-	userv1 "github.com/openshift/api/user/v1"
+	userv1 "github.com/uccps-samples/api/user/v1"
 )
 
 func InstallExternalLegacyUser(scheme *runtime.Scheme) {

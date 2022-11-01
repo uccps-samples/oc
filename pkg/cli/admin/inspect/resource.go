@@ -13,15 +13,15 @@ import (
 	"k8s.io/cli-runtime/pkg/resource"
 	"k8s.io/klog/v2"
 
-	configv1 "github.com/openshift/api/config/v1"
+	configv1 "github.com/uccps-samples/api/config/v1"
 )
 
 const (
 	clusterScopedResourcesDirname = "cluster-scoped-resources"
 	namespaceResourcesDirname     = "namespaces"
 
-	configResourceDataKey   = "/cluster-scoped-resources/config.openshift.io"
-	operatorResourceDataKey = "/cluster-scoped-resources/operator.openshift.io"
+	configResourceDataKey   = "/cluster-scoped-resources/config.uccp.io"
+	operatorResourceDataKey = "/cluster-scoped-resources/operator.uccp.io"
 )
 
 // InspectResource receives an object to gather debugging data for, and a context to keep track of
@@ -40,14 +40,14 @@ func InspectResource(info *resource.Info, context *resourceContext, o *InspectOp
 			return fmt.Errorf("unexpected type. Expecting %q but got %T", "*unstructured.Unstructured", info.Object)
 		}
 
-		// first, gather config.openshift.io resource data
+		// first, gather config.uccp.io resource data
 		errs := []error{}
-		if err := o.gatherConfigResourceData(path.Join(o.DestDir, "/cluster-scoped-resources/config.openshift.io"), context); err != nil {
+		if err := o.gatherConfigResourceData(path.Join(o.DestDir, "/cluster-scoped-resources/config.uccp.io"), context); err != nil {
 			errs = append(errs, err)
 		}
 
-		// then, gather operator.openshift.io resource data
-		if err := o.gatherOperatorResourceData(path.Join(o.DestDir, "/cluster-scoped-resources/operator.openshift.io"), context); err != nil {
+		// then, gather operator.uccp.io resource data
+		if err := o.gatherOperatorResourceData(path.Join(o.DestDir, "/cluster-scoped-resources/operator.uccp.io"), context); err != nil {
 			errs = append(errs, err)
 		}
 
@@ -94,7 +94,7 @@ func InspectResource(info *resource.Info, context *resourceContext, o *InspectOp
 		}
 		return nil
 
-	case schema.GroupResource{Group: "route.openshift.io", Resource: "routes"}:
+	case schema.GroupResource{Group: "route.uccp.io", Resource: "routes"}:
 		if err := inspectRouteInfo(info, o); err != nil {
 			return err
 		}

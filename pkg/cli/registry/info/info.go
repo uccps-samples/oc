@@ -16,9 +16,9 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	imageclient "github.com/openshift/client-go/image/clientset/versioned"
-	"github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/library-go/pkg/image/registryclient"
+	imageclient "github.com/uccps-samples/client-go/image/clientset/versioned"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/library-go/pkg/image/registryclient"
 )
 
 var (

@@ -20,9 +20,9 @@ import (
 	"k8s.io/kubectl/pkg/util/i18n"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	configv1 "github.com/openshift/api/config/v1"
-	configv1client "github.com/openshift/client-go/config/clientset/versioned/typed/config/v1"
-	"github.com/openshift/oc/pkg/version"
+	configv1 "github.com/uccps-samples/api/config/v1"
+	configv1client "github.com/uccps-samples/client-go/config/clientset/versioned/typed/config/v1"
+	"github.com/uccps-samples/oc/pkg/version"
 )
 
 type Version struct {
@@ -33,17 +33,17 @@ type Version struct {
 
 var (
 	versionLong = templates.LongDesc(`
-		Print the OpenShift client, kube-apiserver, and openshift-apiserver versions for the current context.
-		Pass --client to print only the OpenShift client version.
+		Print the Uccp client, kube-apiserver, and uccp-apiserver versions for the current context.
+		Pass --client to print only the Uccp client version.
 	`)
 	versionExample = templates.Examples(`
-		# Print the OpenShift client, kube-apiserver, and openshift-apiserver version information for the current context
+		# Print the Uccp client, kube-apiserver, and uccp-apiserver version information for the current context
 		oc version
 
-		# Print the OpenShift client, kube-apiserver, and openshift-apiserver version numbers for the current context
+		# Print the Uccp client, kube-apiserver, and uccp-apiserver version numbers for the current context
 		oc version --short
 
-		# Print the OpenShift client version information for the current context
+		# Print the Uccp client version information for the current context
 		oc version --client
 	`)
 )
@@ -62,8 +62,8 @@ func NewVersionOptions(ioStreams genericclioptions.IOStreams) *VersionOptions {
 	}
 }
 
-// NewCmdVersion is copied from upstream NewCmdVersion with addition of OpenShift Server version info.
-// OpenShift Server version is output only if logged in to a cluster as an admin user.
+// NewCmdVersion is copied from upstream NewCmdVersion with addition of Uccp Server version info.
+// Uccp Server version is output only if logged in to a cluster as an admin user.
 func NewCmdVersion(f cmdutil.Factory, ioStreams genericclioptions.IOStreams) *cobra.Command {
 	o := NewVersionOptions(ioStreams)
 	cmd := &cobra.Command{
@@ -85,7 +85,7 @@ func NewCmdVersion(f cmdutil.Factory, ioStreams genericclioptions.IOStreams) *co
 }
 
 // Complete is copied from upstream version command with added clusteroperator client
-// to report OpenShift server version
+// to report Uccp server version
 func (o *VersionOptions) Complete(f cmdutil.Factory, cmd *cobra.Command) error {
 	var err error
 	if o.ClientOnly {
@@ -111,7 +111,7 @@ func (o *VersionOptions) Complete(f cmdutil.Factory, cmd *cobra.Command) error {
 	return nil
 }
 
-// Run is copied from upstream version command, with added OpenShift server version logic
+// Run is copied from upstream version command, with added Uccp server version logic
 func (o *VersionOptions) Run() error {
 	var versionInfo Version
 	clientVersion, reportedVersion, err := version.ExtractVersion()
@@ -134,20 +134,20 @@ func (o *VersionOptions) Run() error {
 		}
 		if o.oClient != nil {
 			var clusterOperator *configv1.ClusterOperator
-			clusterOperator, serverErr = o.oClient.ClusterOperators().Get(context.TODO(), "openshift-apiserver", metav1.GetOptions{})
+			clusterOperator, serverErr = o.oClient.ClusterOperators().Get(context.TODO(), "uccp-apiserver", metav1.GetOptions{})
 			// error here indicates logged in as non-admin, log and move on
 			if serverErr != nil {
 				switch {
 				case kerrors.IsForbidden(serverErr), kerrors.IsNotFound(serverErr):
-					klog.V(5).Infof("OpenShift Version not found (must be logged in to cluster as admin): %v", serverErr)
+					klog.V(5).Infof("Uccp Version not found (must be logged in to cluster as admin): %v", serverErr)
 					serverErr = nil
 				}
 			}
 			if clusterOperator != nil {
 				for _, ver := range clusterOperator.Status.Versions {
 					if ver.Name == "operator" {
-						// openshift-apiserver does not report version,
-						// clusteroperator/openshift-apiserver does, and only version number
+						// uccp-apiserver does not report version,
+						// clusteroperator/uccp-apiserver does, and only version number
 						versionInfo.OpenShiftVersion = ver.Version
 					}
 				}

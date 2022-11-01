@@ -23,8 +23,8 @@ items:
   metadata:
     annotations:
       deployment.kubernetes.io/revision: "1"
-      image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"ruby-deploy:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"ruby-deploy\")].image"}]'
-      openshift.io/generated-by: OpenShiftNewApp
+      image.uccp.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"ruby-deploy:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"ruby-deploy\")].image"}]'
+      uccp.io/generated-by: UccpNewApp
     creationTimestamp: null
     generation: 1
     labels:
@@ -81,11 +81,11 @@ items:
     replicas: 1
     unavailableReplicas: 1
     updatedReplicas: 1
-- apiVersion: build.openshift.io/v1
+- apiVersion: build.uccp.io/v1
   kind: BuildConfig
   metadata:
     annotations:
-      openshift.io/generated-by: OpenShiftNewApp
+      uccp.io/generated-by: UccpNewApp
     creationTimestamp: null
     labels:
       app: ruby-deploy
@@ -123,7 +123,7 @@ items:
       type: ImageChange
   status:
     lastVersion: 0
-- apiVersion: image.openshift.io/v1
+- apiVersion: image.uccp.io/v1
   kind: ImageStream
   metadata:
     creationTimestamp: null

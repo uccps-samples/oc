@@ -6,10 +6,10 @@ import (
 
 	"k8s.io/apimachinery/pkg/util/errors"
 
-	dockerv10 "github.com/openshift/api/image/docker10"
-	imagev1 "github.com/openshift/api/image/v1"
-	"github.com/openshift/library-go/pkg/image/imageutil"
-	imagehelpers "github.com/openshift/oc/pkg/helpers/image"
+	dockerv10 "github.com/uccps-samples/api/image/docker10"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
+	imagehelpers "github.com/uccps-samples/oc/pkg/helpers/image"
 )
 
 var s2iEnvironmentNames = []string{"STI_LOCATION", "STI_SCRIPTS_URL", "STI_BUILDER"}

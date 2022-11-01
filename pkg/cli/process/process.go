@@ -27,15 +27,15 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	octemplateapi "github.com/openshift/api/template"
-	templatev1 "github.com/openshift/api/template/v1"
-	templatev1client "github.com/openshift/client-go/template/clientset/versioned/typed/template/v1"
-	"github.com/openshift/library-go/pkg/template/generator"
-	"github.com/openshift/library-go/pkg/template/templateprocessing"
-	cmdutil "github.com/openshift/oc/pkg/helpers/cmd"
-	"github.com/openshift/oc/pkg/helpers/describe"
-	"github.com/openshift/oc/pkg/helpers/newapp/app"
-	"github.com/openshift/oc/pkg/helpers/template/templateprocessorclient"
+	octemplateapi "github.com/uccps-samples/api/template"
+	templatev1 "github.com/uccps-samples/api/template/v1"
+	templatev1client "github.com/uccps-samples/client-go/template/clientset/versioned/typed/template/v1"
+	"github.com/uccps-samples/library-go/pkg/template/generator"
+	"github.com/uccps-samples/library-go/pkg/template/templateprocessing"
+	cmdutil "github.com/uccps-samples/oc/pkg/helpers/cmd"
+	"github.com/uccps-samples/oc/pkg/helpers/describe"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/app"
+	"github.com/uccps-samples/oc/pkg/helpers/template/templateprocessorclient"
 )
 
 var (

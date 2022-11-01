@@ -13,7 +13,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 
-	"github.com/openshift/api"
+	"github.com/uccps-samples/api"
 )
 
 type bulkTester struct {

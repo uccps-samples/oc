@@ -7,11 +7,11 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	groups "github.com/openshift/oc/pkg/cli/admin/groups/sync"
-	"github.com/openshift/oc/pkg/cli/admin/prune/auth"
-	"github.com/openshift/oc/pkg/cli/admin/prune/builds"
-	"github.com/openshift/oc/pkg/cli/admin/prune/deployments"
-	"github.com/openshift/oc/pkg/cli/admin/prune/images"
+	groups "github.com/uccps-samples/oc/pkg/cli/admin/groups/sync"
+	"github.com/uccps-samples/oc/pkg/cli/admin/prune/auth"
+	"github.com/uccps-samples/oc/pkg/cli/admin/prune/builds"
+	"github.com/uccps-samples/oc/pkg/cli/admin/prune/deployments"
+	"github.com/uccps-samples/oc/pkg/cli/admin/prune/images"
 )
 
 var pruneLong = templates.LongDesc(`

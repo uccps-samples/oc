@@ -1,10 +1,10 @@
 package graphview
 
 import (
-	"github.com/openshift/oc/pkg/helpers/graph/appsgraph"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	"github.com/openshift/oc/pkg/helpers/graph/kubegraph"
-	kubenodes "github.com/openshift/oc/pkg/helpers/graph/kubegraph/nodes"
+	"github.com/uccps-samples/oc/pkg/helpers/graph/appsgraph"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	"github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph"
+	kubenodes "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph/nodes"
 )
 
 type DaemonSet struct {

@@ -10,7 +10,7 @@ import (
 
 	"k8s.io/client-go/rest"
 
-	"github.com/openshift/library-go/pkg/image/registryclient"
+	"github.com/uccps-samples/library-go/pkg/image/registryclient"
 )
 
 // getImageManifestByIDFromRegistry retrieves the image manifest from the registry using the basic

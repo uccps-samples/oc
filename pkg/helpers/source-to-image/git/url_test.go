@@ -105,7 +105,7 @@ func TestParse(t *testing.T) {
 			},
 		},
 		parseTest{
-			rawurl: "http://github.com/openshift/origin",
+			rawurl: "http://github.com/uccps-samples/origin",
 			expectedGitURL: &URL{
 				URL: url.URL{
 					Scheme: "http",
@@ -118,11 +118,11 @@ func TestParse(t *testing.T) {
 
 		// transport::opaque
 		parseTest{
-			rawurl: "http::http://github.com/openshift/origin",
+			rawurl: "http::http://github.com/uccps-samples/origin",
 			expectedGitURL: &URL{
 				URL: url.URL{
 					Scheme: "http",
-					Opaque: ":http://github.com/openshift/origin",
+					Opaque: ":http://github.com/uccps-samples/origin",
 				},
 				Type: URLTypeURL,
 			},

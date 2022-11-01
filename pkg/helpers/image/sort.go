@@ -4,7 +4,7 @@ import (
 	"sort"
 	"time"
 
-	imagev1 "github.com/openshift/api/image/v1"
+	imagev1 "github.com/uccps-samples/api/image/v1"
 )
 
 type tag struct {

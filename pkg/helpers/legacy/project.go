@@ -4,7 +4,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 
-	projectv1 "github.com/openshift/api/project/v1"
+	projectv1 "github.com/uccps-samples/api/project/v1"
 )
 
 func InstallExternalLegacyProject(scheme *runtime.Scheme) {

@@ -3,9 +3,9 @@ package kubegraph
 import (
 	"sort"
 
-	deployutil "github.com/openshift/oc/pkg/helpers/deployment"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	kubegraph "github.com/openshift/oc/pkg/helpers/graph/kubegraph/nodes"
+	deployutil "github.com/uccps-samples/oc/pkg/helpers/deployment"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	kubegraph "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph/nodes"
 )
 
 // RelevantDeployments returns the active deployment and a list of inactive deployments (in order from newest to oldest)

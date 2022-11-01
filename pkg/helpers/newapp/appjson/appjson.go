@@ -16,11 +16,11 @@ import (
 	utilerrs "k8s.io/apimachinery/pkg/util/errors"
 	"k8s.io/apimachinery/pkg/util/sets"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	templatev1 "github.com/openshift/api/template/v1"
-	"github.com/openshift/oc/pkg/helpers/newapp"
-	"github.com/openshift/oc/pkg/helpers/newapp/app"
-	"github.com/openshift/oc/pkg/helpers/newapp/docker/dockerfile"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	templatev1 "github.com/uccps-samples/api/template/v1"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/app"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/docker/dockerfile"
 )
 
 type EnvVarOrString struct {
@@ -97,7 +97,7 @@ func (g *Generator) Generate(body []byte) (*templatev1.Template, error) {
 	template := &templatev1.Template{}
 	template.Name = name
 	template.Annotations = make(map[string]string)
-	template.Annotations["openshift.io/website"] = appJSON.Website
+	template.Annotations["uccp.io/website"] = appJSON.Website
 	template.Annotations["k8s.io/display-name"] = appJSON.Name
 	template.Annotations["k8s.io/description"] = appJSON.Description
 	template.Annotations["tags"] = strings.Join(appJSON.Keywords, ",")

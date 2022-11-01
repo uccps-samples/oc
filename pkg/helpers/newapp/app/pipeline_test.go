@@ -11,8 +11,8 @@ import (
 	"k8s.io/apimachinery/pkg/util/diff"
 	"k8s.io/apimachinery/pkg/util/intstr"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	imagev1 "github.com/openshift/api/image/v1"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	imagev1 "github.com/uccps-samples/api/image/v1"
 )
 
 type portDesc struct {

@@ -12,9 +12,9 @@ import (
 	"k8s.io/kubectl/pkg/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	routev1 "github.com/openshift/api/route/v1"
-	"github.com/openshift/oc/pkg/cli/create/route"
-	fileutil "github.com/openshift/oc/pkg/helpers/file"
+	routev1 "github.com/uccps-samples/api/route/v1"
+	"github.com/uccps-samples/oc/pkg/cli/create/route"
+	fileutil "github.com/uccps-samples/oc/pkg/helpers/file"
 )
 
 var (

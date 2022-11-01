@@ -30,9 +30,9 @@ import (
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 
 	"github.com/MakeNowJust/heredoc"
-	imagereference "github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/oc/pkg/cli/image/extract"
-	"github.com/openshift/oc/pkg/cli/image/imagesource"
+	imagereference "github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/oc/pkg/cli/image/extract"
+	"github.com/uccps-samples/oc/pkg/cli/image/imagesource"
 )
 
 // extractTarget describes how a file in the release image can be extracted to disk.
@@ -62,36 +62,33 @@ func (o *ExtractOptions) extractTools() error {
 
 var (
 	readmeInstallUnix = heredoc.Doc(`
-	# OpenShift Install
+	# Uccp Install
 
-	The OpenShift installer \u0060openshift-install\u0060 makes it easy to get a cluster
+	The Uccp installer \u0060uccp-install\u0060 makes it easy to get a cluster
 	running on the public cloud or your local infrastructure.
-
-	To learn more about installing OpenShift, visit [docs.openshift.com](https://docs.openshift.com)
-	and select the version of OpenShift you are using.
 
 	## Installing the tools
 
-	After extracting this archive, you can move the \u0060openshift-install\u0060 binary
+	After extracting this archive, you can move the \u0060uccp-install\u0060 binary
 	to a location on your PATH such as \u0060/usr/local/bin\u0060, or keep it in a temporary
-	directory and reference it via \u0060./openshift-install\u0060.
+	directory and reference it via \u0060./uccp-install\u0060.
 
 	## License
 
-	OpenShift is licensed under the Apache Public License 2.0. The source code for this
-	program is [located on github](https://github.com/openshift/installer).
+	Uccp is licensed under the Apache Public License 2.0. The source code for this
+	program is [located on github](https://github.com/uccps-samples/installer).
 	`)
 
 	readmeCLIUnix = heredoc.Doc(`
-	# OpenShift Clients
+	# Uccp Clients
 
-	The OpenShift client \u0060oc\u0060 simplifies working with Kubernetes and OpenShift
+	The Uccp client \u0060oc\u0060 simplifies working with Kubernetes and Uccp
 	clusters, offering a number of advantages over \u0060kubectl\u0060 such as easy login,
 	kube config file management, and access to developer tools. The \u0060kubectl\u0060
 	binary is included alongside for when strict Kubernetes compliance is necessary.
 
-	To learn more about OpenShift, visit [docs.openshift.com](https://docs.openshift.com)
-	and select the version of OpenShift you are using.
+	To learn more about Uccp, visit [docs.openshift.com](https://docs.openshift.com)
+	and select the version of Uccp you are using.
 
 	## Installing the tools
 
@@ -100,24 +97,24 @@ var (
 
 	    oc login [API_URL]
 
-	to start a session against an OpenShift cluster. After login, run \u0060oc\u0060 and
-	\u0060oc help\u0060 to learn more about how to get started with OpenShift.
+	to start a session against an Uccp cluster. After login, run \u0060oc\u0060 and
+	\u0060oc help\u0060 to learn more about how to get started with Uccp.
 
 	## License
 
-	OpenShift is licensed under the Apache Public License 2.0. The source code for this
-	program is [located on github](https://github.com/openshift/origin).
+	Uccp is licensed under the Apache Public License 2.0. The source code for this
+	program is [located on github](https://github.com/uccps-samples/origin).
 	`)
 
 	readmeCLIWindows = heredoc.Doc(`
-	# OpenShift Clients
+	# Uccp Clients
 
-	The OpenShift client \u0060oc.exe\u0060 simplifies working with Kubernetes and OpenShift
+	The Uccp client \u0060oc.exe\u0060 simplifies working with Kubernetes and Uccp
 	clusters, offering a number of advantages over \u0060kubectl.exe\u0060 such as easy login,
 	kube config file management, and access to developer tools.
 
-	To learn more about OpenShift, visit [docs.openshift.com](https://docs.openshift.com)
-	and select the version of OpenShift you are using.
+	To learn more about Uccp, visit [docs.openshift.com](https://docs.openshift.com)
+	and select the version of Uccp you are using.
 
 	## Installing the tools
 
@@ -126,8 +123,8 @@ var (
 
 	    oc login [API_URL]
 
-	to start a session against an OpenShift cluster. After login, run \u0060oc.exe\u0060 and
-	\u0060oc.exe help\u0060 to learn more about how to get started with OpenShift.
+	to start a session against an Uccp cluster. After login, run \u0060oc.exe\u0060 and
+	\u0060oc.exe help\u0060 to learn more about how to get started with Uccp.
 
 	If you would like to use \u0060kubectl.exe\u0060 instead, copy the \u0060oc.exe\u0060 file
 	and rename it to \u0060kubectl.exe\u0060. The interface will follow the conventions of that
@@ -135,8 +132,8 @@ var (
 
 	## License
 
-	OpenShift is licensed under the Apache Public License 2.0. The source code for this
-	program is [located on github](https://github.com/openshift/origin).
+	Uccp is licensed under the Apache Public License 2.0. The source code for this
+	program is [located on github](https://github.com/uccps-samples/origin).
 	`)
 
 	// indicates that the architecture of the binary matches the release payload
@@ -159,7 +156,7 @@ func (o *ExtractOptions) extractCommand(command string) error {
 			LinkTo:               []string{"kubectl"},
 			Readme:               readmeCLIUnix,
 			InjectReleaseVersion: true,
-			ArchiveFormat:        "openshift-client-mac-%s.tar.gz",
+			ArchiveFormat:        "uccp-client-mac-%s.tar.gz",
 		},
 		{
 			OS:      "linux",
@@ -170,7 +167,7 @@ func (o *ExtractOptions) extractCommand(command string) error {
 			LinkTo:               []string{"kubectl"},
 			Readme:               readmeCLIUnix,
 			InjectReleaseVersion: true,
-			ArchiveFormat:        "openshift-client-linux-%s.tar.gz",
+			ArchiveFormat:        "uccp-client-linux-%s.tar.gz",
 		},
 		{
 			OS:      "linux",
@@ -181,7 +178,7 @@ func (o *ExtractOptions) extractCommand(command string) error {
 			LinkTo:               []string{"kubectl"},
 			Readme:               readmeCLIUnix,
 			InjectReleaseVersion: true,
-			ArchiveFormat:        "openshift-client-linux-amd64-%s.tar.gz",
+			ArchiveFormat:        "uccp-client-linux-amd64-%s.tar.gz",
 		},
 		{
 			OS:      "windows",
@@ -191,54 +188,54 @@ func (o *ExtractOptions) extractCommand(command string) error {
 
 			Readme:               readmeCLIWindows,
 			InjectReleaseVersion: true,
-			ArchiveFormat:        "openshift-client-windows-%s.zip",
+			ArchiveFormat:        "uccp-client-windows-%s.zip",
 			AsZip:                true,
 		},
 		{
 			OS:      "darwin",
 			Arch:    "amd64",
-			Command: "openshift-install",
-			Mapping: extract.Mapping{Image: "installer-artifacts", From: "usr/share/openshift/mac/openshift-install"},
+			Command: "uccp-install",
+			Mapping: extract.Mapping{Image: "installer-artifacts", From: "usr/share/openshift/mac/uccp-install"},
 
 			Readme:               readmeInstallUnix,
 			InjectReleaseImage:   true,
 			InjectReleaseVersion: true,
-			ArchiveFormat:        "openshift-install-mac-%s.tar.gz",
+			ArchiveFormat:        "uccp-install-mac-%s.tar.gz",
 		},
 		{
 			OS:      "linux",
 			Arch:    targetReleaseArch,
-			Command: "openshift-install",
-			Mapping: extract.Mapping{Image: "installer", From: "usr/bin/openshift-install"},
+			Command: "uccp-install",
+			Mapping: extract.Mapping{Image: "installer", From: "usr/bin/uccp-install"},
 
 			Readme:               readmeInstallUnix,
 			InjectReleaseImage:   true,
 			InjectReleaseVersion: true,
-			ArchiveFormat:        "openshift-install-linux-%s.tar.gz",
+			ArchiveFormat:        "uccp-install-linux-%s.tar.gz",
 		},
 		{
 			OS:      "linux",
 			Arch:    "amd64",
-			Command: "openshift-install",
+			Command: "uccp-install",
 			NewArch: true,
-			Mapping: extract.Mapping{Image: "installer-artifacts", From: "usr/share/openshift/linux_amd64/openshift-install"},
+			Mapping: extract.Mapping{Image: "installer-artifacts", From: "usr/share/openshift/linux_amd64/uccp-install"},
 
 			Readme:               readmeInstallUnix,
 			InjectReleaseImage:   true,
 			InjectReleaseVersion: true,
-			ArchiveFormat:        "openshift-install-linux-amd64-%s.tar.gz",
+			ArchiveFormat:        "uccp-install-linux-amd64-%s.tar.gz",
 		},
 		{
 			OS:       "linux",
 			Arch:     targetReleaseArch,
-			Command:  "openshift-baremetal-install",
+			Command:  "uccp-baremetal-install",
 			Optional: true,
-			Mapping:  extract.Mapping{Image: "baremetal-installer", From: "usr/bin/openshift-install"},
+			Mapping:  extract.Mapping{Image: "baremetal-installer", From: "usr/bin/uccp-install"},
 
 			Readme:               readmeInstallUnix,
 			InjectReleaseImage:   true,
 			InjectReleaseVersion: true,
-			ArchiveFormat:        "openshift-baremetal-install-linux-%s.tar.gz",
+			ArchiveFormat:        "uccp-baremetal-install-linux-%s.tar.gz",
 		},
 	}
 
@@ -289,7 +286,7 @@ func (o *ExtractOptions) extractCommand(command string) error {
 		case len(command) > 0 && currentOS != "*":
 			return fmt.Errorf("command %q does not support the operating system %q", o.Command, currentOS)
 		case len(command) > 0:
-			return fmt.Errorf("the supported commands are 'oc' and 'openshift-install'")
+			return fmt.Errorf("the supported commands are 'oc' and 'uccp-install'")
 		default:
 			return fmt.Errorf("no available commands")
 		}
@@ -601,15 +598,15 @@ func (o *ExtractOptions) extractCommand(command string) error {
 	if willArchive {
 		buf := &bytes.Buffer{}
 		fmt.Fprintf(buf, heredoc.Doc(`
-			Client tools for OpenShift
+			Client tools for Uccp
 			--------------------------
 
-			These archives contain the client tooling for [OpenShift](https://docs.openshift.com).
+			These archives contain the client tooling for [Uccp](https://docs.openshift.com).
 
 			To verify the contents of this directory, use the 'gpg' and 'shasum' tools to
 			ensure the archives you have downloaded match those published from this location.
 
-			The openshift-install binary has been preconfigured to install the following release:
+			The uccp-install binary has been preconfigured to install the following release:
 
 			---
 

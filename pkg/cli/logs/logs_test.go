@@ -13,8 +13,8 @@ import (
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 	"k8s.io/kubectl/pkg/cmd/logs"
 
-	buildv1 "github.com/openshift/api/build/v1"
-	buildfake "github.com/openshift/client-go/build/clientset/versioned/fake"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	buildfake "github.com/uccps-samples/client-go/build/clientset/versioned/fake"
 )
 
 // TestLogsFlagParity makes sure that our copied flags don't slip during rebases

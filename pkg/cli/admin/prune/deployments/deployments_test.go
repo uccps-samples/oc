@@ -7,7 +7,7 @@ import (
 	fakecorev1client "k8s.io/client-go/kubernetes/typed/core/v1/fake"
 	clienttesting "k8s.io/client-go/testing"
 
-	fakeappsv1client "github.com/openshift/client-go/apps/clientset/versioned/typed/apps/v1/fake"
+	fakeappsv1client "github.com/uccps-samples/client-go/apps/clientset/versioned/typed/apps/v1/fake"
 )
 
 func TestDeploymentPruneNamespaced(t *testing.T) {

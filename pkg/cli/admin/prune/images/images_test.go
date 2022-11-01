@@ -27,14 +27,14 @@ import (
 	"k8s.io/klog/v2"
 	"k8s.io/kubectl/pkg/scheme"
 
-	"github.com/openshift/api"
-	fakeappsclient "github.com/openshift/client-go/apps/clientset/versioned/fake"
-	fakeappsv1client "github.com/openshift/client-go/apps/clientset/versioned/typed/apps/v1/fake"
-	fakebuildclient "github.com/openshift/client-go/build/clientset/versioned/fake"
-	fakebuildv1client "github.com/openshift/client-go/build/clientset/versioned/typed/build/v1/fake"
-	fakeimageclient "github.com/openshift/client-go/image/clientset/versioned/fake"
-	fakeimagev1client "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1/fake"
-	imagetest "github.com/openshift/oc/pkg/helpers/image/test"
+	"github.com/uccps-samples/api"
+	fakeappsclient "github.com/uccps-samples/client-go/apps/clientset/versioned/fake"
+	fakeappsv1client "github.com/uccps-samples/client-go/apps/clientset/versioned/typed/apps/v1/fake"
+	fakebuildclient "github.com/uccps-samples/client-go/build/clientset/versioned/fake"
+	fakebuildv1client "github.com/uccps-samples/client-go/build/clientset/versioned/typed/build/v1/fake"
+	fakeimageclient "github.com/uccps-samples/client-go/image/clientset/versioned/fake"
+	fakeimagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1/fake"
+	imagetest "github.com/uccps-samples/oc/pkg/helpers/image/test"
 )
 
 var logLevel = flag.Int("loglevel", 0, "")
@@ -212,7 +212,7 @@ func (f *fakeVersionDiscovery) RESTClient() restclient.Interface {
 	return &restfake.RESTClient{
 		NegotiatedSerializer: kubernetesscheme.Codecs,
 		Client: restfake.CreateHTTPClient(func(req *http.Request) (*http.Response, error) {
-			if req.URL.Path != "/version/openshift" {
+			if req.URL.Path != "/version/uccp" {
 				return &http.Response{
 					StatusCode: http.StatusNotFound,
 				}, nil

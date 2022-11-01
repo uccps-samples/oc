@@ -21,14 +21,14 @@ import (
 	"k8s.io/client-go/tools/record"
 	"k8s.io/client-go/util/retry"
 
-	imageclienttyped "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
+	imageclienttyped "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
 
-	"github.com/openshift/library-go/pkg/apps/appsserialization"
-	"github.com/openshift/library-go/pkg/apps/appsutil"
+	"github.com/uccps-samples/library-go/pkg/apps/appsserialization"
+	"github.com/uccps-samples/library-go/pkg/apps/appsutil"
 
-	strat "github.com/openshift/oc/pkg/cli/deployer/strategy"
-	stratsupport "github.com/openshift/oc/pkg/cli/deployer/strategy/support"
-	stratutil "github.com/openshift/oc/pkg/cli/deployer/strategy/util"
+	strat "github.com/uccps-samples/oc/pkg/cli/deployer/strategy"
+	stratsupport "github.com/uccps-samples/oc/pkg/cli/deployer/strategy/support"
+	stratutil "github.com/uccps-samples/oc/pkg/cli/deployer/strategy/util"
 )
 
 // RecreateDeploymentStrategy is a simple strategy appropriate as a default.

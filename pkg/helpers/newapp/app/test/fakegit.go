@@ -4,7 +4,7 @@ import (
 	"io"
 	"time"
 
-	"github.com/openshift/library-go/pkg/git"
+	"github.com/uccps-samples/library-go/pkg/git"
 )
 
 type FakeGit struct {

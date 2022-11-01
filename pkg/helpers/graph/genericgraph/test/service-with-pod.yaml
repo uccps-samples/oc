@@ -29,7 +29,7 @@ items:
   metadata:
     annotations:
       kubernetes.io/created-by: '{"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicationController","namespace":"example","name":"frontend-app-1","uid":"666e12d7-2996-11e5-b9e2-28d2447dc82b","apiVersion":"v1","resourceVersion":"32416"}}'
-      openshift.io/scc: restricted
+      uccp.io/scc: restricted
     creationTimestamp: 2015-07-13T19:36:04Z
     generateName: frontend-app-1-
     labels:

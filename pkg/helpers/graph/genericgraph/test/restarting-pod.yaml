@@ -5,7 +5,7 @@ items:
   metadata:
     annotations:
       kubernetes.io/created-by: '{"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicationController","namespace":"example","name":"frontend-app-1","uid":"666e12d7-2996-11e5-b9e2-28d2447dc82b","apiVersion":"v1","resourceVersion":"32416"}}'
-      openshift.io/scc: restricted
+      uccp.io/scc: restricted
     creationTimestamp: 2015-07-13T19:36:04Z
     generateName: frontend-app-1-
     labels:
@@ -92,11 +92,11 @@ items:
     annotations:
       kubernetes.io/created-by: |
         {"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicationController","namespace":"default","name":"gitlab-ce-1","uid":"f74e7dce-c6ad-11e5-9bbb-080027c5bfa9","apiVersion":"v1","resourceVersion":"120461"}}
-      openshift.io/deployment-config.latest-version: "1"
-      openshift.io/deployment-config.name: gitlab-ce
-      openshift.io/deployment.name: gitlab-ce-1
-      openshift.io/generated-by: OpenShiftNewApp
-      openshift.io/scc: restricted
+      uccp.io/deployment-config.latest-version: "1"
+      uccp.io/deployment-config.name: gitlab-ce
+      uccp.io/deployment.name: gitlab-ce-1
+      uccp.io/generated-by: UccpNewApp
+      uccp.io/scc: restricted
     creationTimestamp: 2016-01-29T17:30:21Z
     generateName: gitlab-ce-1-
     labels:

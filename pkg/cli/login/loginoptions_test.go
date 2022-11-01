@@ -17,8 +17,8 @@ import (
 	restclient "k8s.io/client-go/rest"
 	kclientcmdapi "k8s.io/client-go/tools/clientcmd/api"
 
-	"github.com/openshift/library-go/pkg/oauth/oauthdiscovery"
-	cliconfig "github.com/openshift/oc/pkg/helpers/kubeconfig"
+	"github.com/uccps-samples/library-go/pkg/oauth/oauthdiscovery"
+	cliconfig "github.com/uccps-samples/oc/pkg/helpers/kubeconfig"
 )
 
 const (

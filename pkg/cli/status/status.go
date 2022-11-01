@@ -15,14 +15,14 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	appsv1client "github.com/openshift/client-go/apps/clientset/versioned/typed/apps/v1"
-	buildv1client "github.com/openshift/client-go/build/clientset/versioned/typed/build/v1"
-	imagev1client "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	projectv1client "github.com/openshift/client-go/project/clientset/versioned/typed/project/v1"
-	routev1client "github.com/openshift/client-go/route/clientset/versioned/typed/route/v1"
-	"github.com/openshift/oc/pkg/helpers/describe"
-	dotutil "github.com/openshift/oc/pkg/helpers/dot"
-	loginutil "github.com/openshift/oc/pkg/helpers/project"
+	appsv1client "github.com/uccps-samples/client-go/apps/clientset/versioned/typed/apps/v1"
+	buildv1client "github.com/uccps-samples/client-go/build/clientset/versioned/typed/build/v1"
+	imagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	projectv1client "github.com/uccps-samples/client-go/project/clientset/versioned/typed/project/v1"
+	routev1client "github.com/uccps-samples/client-go/route/clientset/versioned/typed/route/v1"
+	"github.com/uccps-samples/oc/pkg/helpers/describe"
+	dotutil "github.com/uccps-samples/oc/pkg/helpers/dot"
+	loginutil "github.com/uccps-samples/oc/pkg/helpers/project"
 )
 
 var (

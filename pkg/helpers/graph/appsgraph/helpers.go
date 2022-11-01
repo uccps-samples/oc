@@ -6,12 +6,12 @@ import (
 
 	corev1 "k8s.io/api/core/v1"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	"github.com/openshift/library-go/pkg/apps/appsutil"
-	"github.com/openshift/library-go/pkg/image/reference"
-	appsgraph "github.com/openshift/oc/pkg/helpers/graph/appsgraph/nodes"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	kubegraph "github.com/openshift/oc/pkg/helpers/graph/kubegraph/nodes"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	"github.com/uccps-samples/library-go/pkg/apps/appsutil"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	appsgraph "github.com/uccps-samples/oc/pkg/helpers/graph/appsgraph/nodes"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	kubegraph "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph/nodes"
 )
 
 // RelevantDeployments returns the active deployment and a list of inactive deployments (in order from newest to oldest)

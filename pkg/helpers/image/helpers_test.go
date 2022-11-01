@@ -3,8 +3,8 @@ package image
 import (
 	"testing"
 
-	imagev1 "github.com/openshift/api/image/v1"
-	"github.com/openshift/library-go/pkg/image/imageutil"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
 )
 
 func TestLatestTaggedImage(t *testing.T) {

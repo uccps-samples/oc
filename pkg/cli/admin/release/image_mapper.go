@@ -12,8 +12,8 @@ import (
 
 	"github.com/blang/semver"
 	"github.com/ghodss/yaml"
-	imageapi "github.com/openshift/api/image/v1"
-	imagereference "github.com/openshift/library-go/pkg/image/reference"
+	imageapi "github.com/uccps-samples/api/image/v1"
+	imagereference "github.com/uccps-samples/library-go/pkg/image/reference"
 	"k8s.io/klog/v2"
 )
 
@@ -111,7 +111,7 @@ func readReleaseImageReferences(data []byte) (*imageapi.ImageStream, error) {
 	if err := yaml.Unmarshal(data, &is); err != nil {
 		return nil, fmt.Errorf("unable to load release image-references: %v", err)
 	}
-	if is.Kind != "ImageStream" || is.APIVersion != "image.openshift.io/v1" {
+	if is.Kind != "ImageStream" || is.APIVersion != "image.uccp.io/v1" {
 		return nil, fmt.Errorf("unrecognized image-references in release payload")
 	}
 	return is, nil

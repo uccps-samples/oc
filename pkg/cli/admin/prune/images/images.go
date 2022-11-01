@@ -33,14 +33,14 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	imagev1 "github.com/openshift/api/image/v1"
-	appsv1client "github.com/openshift/client-go/apps/clientset/versioned/typed/apps/v1"
-	buildv1client "github.com/openshift/client-go/build/clientset/versioned/typed/build/v1"
-	imagev1client "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	"github.com/openshift/library-go/pkg/network/networkutils"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	appsv1client "github.com/uccps-samples/client-go/apps/clientset/versioned/typed/apps/v1"
+	buildv1client "github.com/uccps-samples/client-go/build/clientset/versioned/typed/build/v1"
+	imagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	"github.com/uccps-samples/library-go/pkg/network/networkutils"
 
-	"github.com/openshift/oc/pkg/cli/admin/prune/imageprune"
-	"github.com/openshift/oc/pkg/version"
+	"github.com/uccps-samples/oc/pkg/cli/admin/prune/imageprune"
+	"github.com/uccps-samples/oc/pkg/version"
 )
 
 // PruneImagesRecommendedName is the recommended command name
@@ -89,7 +89,7 @@ var (
 	  oc adm prune images --keep-tag-revisions=3 --keep-younger-than=60m --confirm
 
 	  # See what the prune command would delete if we are interested in removing images
-	  # exceeding currently set limit ranges ('openshift.io/Image')
+	  # exceeding currently set limit ranges ('uccp.io/Image')
 	  oc adm prune images --prune-over-size-limit
 
 	  # To actually perform the prune operation, the confirm flag must be appended
@@ -166,7 +166,7 @@ func NewCmdPruneImages(f kcmdutil.Factory, streams genericclioptions.IOStreams) 
 	cmd.Flags().BoolVar(opts.AllImages, "all", *opts.AllImages, "Include images that were imported from external registries as candidates for pruning.  If pruned, all the mirrored objects associated with them will also be removed from the integrated registry.")
 	cmd.Flags().DurationVar(opts.KeepYoungerThan, "keep-younger-than", *opts.KeepYoungerThan, "Specify the minimum age of an image and its referrers for it to be considered a candidate for pruning.")
 	cmd.Flags().IntVar(opts.KeepTagRevisions, "keep-tag-revisions", *opts.KeepTagRevisions, "Specify the number of image revisions for a tag in an image stream that will be preserved.")
-	cmd.Flags().BoolVar(opts.PruneOverSizeLimit, "prune-over-size-limit", *opts.PruneOverSizeLimit, "Specify if images which are exceeding LimitRanges (see 'openshift.io/Image'), specified in the same namespace, should be considered for pruning. This flag cannot be combined with --keep-younger-than nor --keep-tag-revisions.")
+	cmd.Flags().BoolVar(opts.PruneOverSizeLimit, "prune-over-size-limit", *opts.PruneOverSizeLimit, "Specify if images which are exceeding LimitRanges (see 'uccp.io/Image'), specified in the same namespace, should be considered for pruning. This flag cannot be combined with --keep-younger-than nor --keep-tag-revisions.")
 	cmd.Flags().StringVar(&opts.CABundle, "certificate-authority", opts.CABundle, "The path to a certificate authority bundle to use when communicating with the managed container image registries. Defaults to the certificate authority data from the current user's config file. It cannot be used together with --force-insecure.")
 	cmd.Flags().StringVar(&opts.RegistryUrlOverride, "registry-url", opts.RegistryUrlOverride, "The address to use when contacting the registry, instead of using the default value. This is useful if you can't resolve or reach the registry (e.g.; the default is a cluster-internal URL) but you do have an alternative route that works. Particular transport protocol can be enforced using '<scheme>://' prefix.")
 	cmd.Flags().BoolVar(&opts.ForceInsecure, "force-insecure", opts.ForceInsecure, "If true, allow an insecure connection to the container image registry that is hosted via HTTP or has an invalid HTTPS certificate. Whenever possible, use --certificate-authority instead of this dangerous option.")
@@ -792,7 +792,7 @@ func getClientAndMasterVersions(client discovery.DiscoveryInterface, timeout tim
 	go func() {
 		defer close(done)
 
-		ocVersionBody, err := client.RESTClient().Get().AbsPath("/version/openshift").Do(context.TODO()).Raw()
+		ocVersionBody, err := client.RESTClient().Get().AbsPath("/version/uccp").Do(context.TODO()).Raw()
 		switch {
 		case err == nil:
 			var ocServerInfo apimachineryversion.Info

@@ -3,11 +3,11 @@ package imagegraph
 import (
 	"github.com/gonum/graph"
 
-	imagev1 "github.com/openshift/api/image/v1"
-	"github.com/openshift/library-go/pkg/image/imageutil"
-	"github.com/openshift/library-go/pkg/image/reference"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	imagegraph "github.com/openshift/oc/pkg/helpers/graph/imagegraph/nodes"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	imagegraph "github.com/uccps-samples/oc/pkg/helpers/graph/imagegraph/nodes"
 )
 
 const (

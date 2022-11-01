@@ -18,13 +18,13 @@ import (
 	"k8s.io/kubectl/pkg/polymorphichelpers"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	buildv1 "github.com/openshift/api/build/v1"
-	imagev1 "github.com/openshift/api/image/v1"
-	imagev1typedclient "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	"github.com/openshift/library-go/pkg/image/reference"
-	imageref "github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/oc/pkg/cli/admin/migrate"
-	"github.com/openshift/oc/pkg/helpers/image/credentialprovider"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	imagev1typedclient "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	imageref "github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/oc/pkg/cli/admin/migrate"
+	"github.com/uccps-samples/oc/pkg/helpers/image/credentialprovider"
 )
 
 var (
@@ -68,10 +68,10 @@ var (
 		oc adm migrate image-references docker.io/*=myregistry.com/* --loglevel=2 -o yaml
 
 		# Migrate from a service IP to an internal service DNS name
-		oc adm migrate image-references 172.30.1.54/*=registry.openshift.svc.cluster.local/*
+		oc adm migrate image-references 172.30.1.54/*=registry.uccp.svc.cluster.local/*
 
 		# Migrate from a service IP to an internal service DNS name for all deployment configs and builds
-		oc adm migrate image-references 172.30.1.54/*=registry.openshift.svc.cluster.local/* --include=buildconfigs,deploymentconfigs
+		oc adm migrate image-references 172.30.1.54/*=registry.uccp.svc.cluster.local/* --include=buildconfigs,deploymentconfigs
 	`)
 )
 
@@ -97,7 +97,7 @@ func NewCmdMigrateImageReferences(f kcmdutil.Factory, streams genericclioptions.
 		Short:      "Update embedded Docker image references",
 		Long:       internalMigrateImagesLong,
 		Example:    internalMigrateImagesExample,
-		Deprecated: "migration of content is managed automatically in OpenShift 4.x",
+		Deprecated: "migration of content is managed automatically in Uccp 1.x",
 		Run: func(cmd *cobra.Command, args []string) {
 			kcmdutil.CheckErr(o.Complete(f, cmd, args))
 			kcmdutil.CheckErr(o.Validate())

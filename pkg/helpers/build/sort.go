@@ -1,7 +1,7 @@
 package build
 
 import (
-	buildv1 "github.com/openshift/api/build/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
 )
 
 // BuildSliceByCreationTimestamp implements sort.Interface for []Build

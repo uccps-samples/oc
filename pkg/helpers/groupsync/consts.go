@@ -5,12 +5,12 @@ const (
 	// LDAPHostLabel is the Label value that stores the host of the LDAP server
 	// TODO: we don't store port here because labels don't allow for colons. We might want to add this back
 	// with a different separator
-	LDAPHostLabel string = "openshift.io/ldap.host"
+	LDAPHostLabel string = "uccp.io/ldap.host"
 
 	// LDAPURLAnnotation is the Annotation value that stores the host:port of the LDAP server
-	LDAPURLAnnotation string = "openshift.io/ldap.url"
+	LDAPURLAnnotation string = "uccp.io/ldap.url"
 	// LDAPUIDAnnotation is the Annotation value that stores the corresponding LDAP group UID for the Group
-	LDAPUIDAnnotation string = "openshift.io/ldap.uid"
+	LDAPUIDAnnotation string = "uccp.io/ldap.uid"
 	// LDAPSyncTime is the Annotation value that stores the last time this Group was synced with LDAP
-	LDAPSyncTimeAnnotation string = "openshift.io/ldap.sync-time"
+	LDAPSyncTimeAnnotation string = "uccp.io/ldap.sync-time"
 )

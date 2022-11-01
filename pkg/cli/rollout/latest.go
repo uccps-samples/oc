@@ -20,9 +20,9 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	appsclient "github.com/openshift/client-go/apps/clientset/versioned/typed/apps/v1"
-	"github.com/openshift/library-go/pkg/apps/appsutil"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	appsclient "github.com/uccps-samples/client-go/apps/clientset/versioned/typed/apps/v1"
+	"github.com/uccps-samples/library-go/pkg/apps/appsutil"
 )
 
 var (
@@ -172,7 +172,7 @@ func (o *RolloutLatestOptions) RunRolloutLatest() error {
 	}
 
 	// TODO: Consider allowing one-off deployments for paused configs
-	// See https://github.com/openshift/origin/issues/9903
+	// See https://github.com/uccps-samples/origin/issues/9903
 	if config.Spec.Paused {
 		return fmt.Errorf("cannot deploy a paused deployment config")
 	}

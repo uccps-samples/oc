@@ -6,7 +6,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 
-	authorizationv1 "github.com/openshift/api/authorization/v1"
+	authorizationv1 "github.com/uccps-samples/api/authorization/v1"
 )
 
 func InstallExternalLegacyAuthorization(scheme *runtime.Scheme) {

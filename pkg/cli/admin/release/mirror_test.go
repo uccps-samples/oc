@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	operatorv1alpha1 "github.com/openshift/api/operator/v1alpha1"
+	operatorv1alpha1 "github.com/uccps-samples/api/operator/v1alpha1"
 
 	"k8s.io/apimachinery/pkg/util/diff"
 )

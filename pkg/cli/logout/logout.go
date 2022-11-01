@@ -19,8 +19,8 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	oauthv1client "github.com/openshift/client-go/oauth/clientset/versioned/typed/oauth/v1"
-	"github.com/openshift/oc/pkg/helpers/project"
+	oauthv1client "github.com/uccps-samples/client-go/oauth/clientset/versioned/typed/oauth/v1"
+	"github.com/uccps-samples/oc/pkg/helpers/project"
 )
 
 const sha256Prefix = "sha256~"

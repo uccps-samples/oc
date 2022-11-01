@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	dockerv10 "github.com/openshift/api/image/docker10"
-	imagev1 "github.com/openshift/api/image/v1"
+	dockerv10 "github.com/uccps-samples/api/image/docker10"
+	imagev1 "github.com/uccps-samples/api/image/v1"
 )
 
 func TestIsBuilderImage(t *testing.T) {

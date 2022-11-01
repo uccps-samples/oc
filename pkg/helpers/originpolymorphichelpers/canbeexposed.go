@@ -4,7 +4,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"k8s.io/kubectl/pkg/polymorphichelpers"
 
-	appsv1 "github.com/openshift/api/apps/v1"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
 )
 
 func NewCanBeExposedFn(delegate polymorphichelpers.CanBeExposedFunc) polymorphichelpers.CanBeExposedFunc {

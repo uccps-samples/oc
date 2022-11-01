@@ -3,8 +3,8 @@ package nodes
 import (
 	"testing"
 
-	"github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	imagetest "github.com/openshift/oc/pkg/helpers/image/test"
+	"github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	imagetest "github.com/uccps-samples/oc/pkg/helpers/image/test"
 )
 
 const registryHost = "registry.io"

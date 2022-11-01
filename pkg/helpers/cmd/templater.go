@@ -12,7 +12,7 @@ import (
 
 	ktemplates "k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/oc/pkg/helpers/term"
+	"github.com/uccps-samples/oc/pkg/helpers/term"
 )
 
 type FlagExposer interface {

@@ -17,14 +17,14 @@ import (
 	"k8s.io/apimachinery/pkg/util/sets"
 	"k8s.io/client-go/rest"
 
-	authorizationv1 "github.com/openshift/api/authorization/v1"
-	buildv1 "github.com/openshift/api/build/v1"
-	imagev1 "github.com/openshift/api/image/v1"
-	templatev1 "github.com/openshift/api/template/v1"
-	"github.com/openshift/library-go/pkg/image/imageutil"
-	"github.com/openshift/library-go/pkg/image/reference"
-	buildhelpers "github.com/openshift/oc/pkg/helpers/build"
-	imagehelpers "github.com/openshift/oc/pkg/helpers/image"
+	authorizationv1 "github.com/uccps-samples/api/authorization/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	templatev1 "github.com/uccps-samples/api/template/v1"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	buildhelpers "github.com/uccps-samples/oc/pkg/helpers/build"
+	imagehelpers "github.com/uccps-samples/oc/pkg/helpers/image"
 )
 
 const emptyString = "<none>"

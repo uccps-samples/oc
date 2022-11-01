@@ -22,11 +22,11 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/scheme"
 
-	networkv1 "github.com/openshift/api/network/v1"
-	projectv1 "github.com/openshift/api/project/v1"
-	networkv1typedclient "github.com/openshift/client-go/network/clientset/versioned/typed/network/v1"
-	"github.com/openshift/library-go/pkg/network/networkapihelpers"
-	"github.com/openshift/library-go/pkg/network/networkutils"
+	networkv1 "github.com/uccps-samples/api/network/v1"
+	projectv1 "github.com/uccps-samples/api/project/v1"
+	networkv1typedclient "github.com/uccps-samples/client-go/network/clientset/versioned/typed/network/v1"
+	"github.com/uccps-samples/library-go/pkg/network/networkapihelpers"
+	"github.com/uccps-samples/library-go/pkg/network/networkutils"
 )
 
 type ProjectOptions struct {

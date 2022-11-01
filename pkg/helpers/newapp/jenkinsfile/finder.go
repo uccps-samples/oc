@@ -4,7 +4,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/openshift/oc/pkg/helpers/newapp"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp"
 )
 
 type tester bool

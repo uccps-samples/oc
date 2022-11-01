@@ -3,8 +3,8 @@ package nodes
 import (
 	"reflect"
 
-	routev1 "github.com/openshift/api/route/v1"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
+	routev1 "github.com/uccps-samples/api/route/v1"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
 )
 
 var (

@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/openshift/library-go/pkg/build/naming"
+	"github.com/uccps-samples/library-go/pkg/build/naming"
 
 	corev1 "k8s.io/api/core/v1"
 	apiequality "k8s.io/apimachinery/pkg/api/equality"
@@ -23,10 +23,10 @@ import (
 	"k8s.io/client-go/kubernetes/fake"
 	clientgotesting "k8s.io/client-go/testing"
 
-	appsv1 "github.com/openshift/api/apps/v1"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
 
-	"github.com/openshift/library-go/pkg/apps/appsutil"
-	"github.com/openshift/oc/pkg/cli/deployer/strategy/util/appstest"
+	"github.com/uccps-samples/library-go/pkg/apps/appsutil"
+	"github.com/uccps-samples/oc/pkg/cli/deployer/strategy/util/appstest"
 )
 
 func nowFunc() *metav1.Time {
@@ -327,7 +327,7 @@ func TestHookExecutor_makeHookPod(t *testing.T) {
 					Name:      naming.GetPodName(deploymentName, "hook"),
 					Namespace: "test",
 					Labels: map[string]string{
-						"openshift.io/deployer-pod.type":     "hook",
+						"uccp.io/deployer-pod.type":     "hook",
 						appsv1.DeployerPodForDeploymentLabel: deploymentName,
 					},
 					Annotations: map[string]string{
@@ -388,7 +388,7 @@ func TestHookExecutor_makeHookPod(t *testing.T) {
 					Name:      naming.GetPodName(deploymentName, "hook"),
 					Namespace: "test",
 					Labels: map[string]string{
-						"openshift.io/deployer-pod.type":     "hook",
+						"uccp.io/deployer-pod.type":     "hook",
 						appsv1.DeployerPodForDeploymentLabel: deploymentName,
 						"label1":                             "value1",
 					},

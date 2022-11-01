@@ -15,12 +15,12 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	userv1 "github.com/openshift/api/user/v1"
-	userv1typedclient "github.com/openshift/client-go/user/clientset/versioned/typed/user/v1"
+	userv1 "github.com/uccps-samples/api/user/v1"
+	userv1typedclient "github.com/uccps-samples/client-go/user/clientset/versioned/typed/user/v1"
 )
 
 const (
-	openShiftConfigManagedNamespaceName = "openshift-config-managed"
+	openShiftConfigManagedNamespaceName = "uccp-config-managed"
 	consolePublicConfigMap              = "console-public"
 )
 

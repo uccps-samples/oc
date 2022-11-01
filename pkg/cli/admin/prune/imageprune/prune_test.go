@@ -26,12 +26,12 @@ import (
 	"k8s.io/klog/v2"
 	"k8s.io/kubectl/pkg/scheme"
 
-	"github.com/openshift/api"
-	appsv1 "github.com/openshift/api/apps/v1"
-	buildv1 "github.com/openshift/api/build/v1"
-	imagev1 "github.com/openshift/api/image/v1"
-	fakeimagev1client "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1/fake"
-	imagetest "github.com/openshift/oc/pkg/helpers/image/test"
+	"github.com/uccps-samples/api"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	fakeimagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1/fake"
+	imagetest "github.com/uccps-samples/oc/pkg/helpers/image/test"
 )
 
 var logLevel = flag.Int("loglevel", 0, "")

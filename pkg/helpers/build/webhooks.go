@@ -6,7 +6,7 @@ import (
 
 	"k8s.io/client-go/rest"
 
-	buildv1 "github.com/openshift/api/build/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
 )
 
 var ErrTriggerIsNotAWebHook = errors.New("the specified trigger is not a webhook")

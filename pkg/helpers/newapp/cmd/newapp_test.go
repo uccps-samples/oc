@@ -22,16 +22,16 @@ import (
 	"k8s.io/client-go/restmapper"
 	clientgotesting "k8s.io/client-go/testing"
 
-	"github.com/openshift/api"
-	buildv1 "github.com/openshift/api/build/v1"
-	imagev1 "github.com/openshift/api/image/v1"
-	templatev1 "github.com/openshift/api/template/v1"
-	fakeimagev1client "github.com/openshift/client-go/image/clientset/versioned/fake"
-	routefakev1client "github.com/openshift/client-go/route/clientset/versioned/fake"
-	faketemplatev1client "github.com/openshift/client-go/template/clientset/versioned/fake"
-	"github.com/openshift/oc/pkg/helpers/newapp"
-	"github.com/openshift/oc/pkg/helpers/newapp/app"
-	"github.com/openshift/oc/pkg/helpers/source-to-image/git"
+	"github.com/uccps-samples/api"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	templatev1 "github.com/uccps-samples/api/template/v1"
+	fakeimagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/fake"
+	routefakev1client "github.com/uccps-samples/client-go/route/clientset/versioned/fake"
+	faketemplatev1client "github.com/uccps-samples/client-go/template/clientset/versioned/fake"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/app"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/git"
 )
 
 func TestValidate(t *testing.T) {
@@ -401,7 +401,7 @@ func TestEnsureHasSource(t *testing.T) {
 func mockSourceRepositories(t *testing.T, file string) []*app.SourceRepository {
 	var b []*app.SourceRepository
 	for _, location := range []string{
-		"https://github.com/openshift/ruby-hello-world.git",
+		"https://github.com/uccps-samples/ruby-hello-world.git",
 		file,
 	} {
 		s, err := app.NewSourceRepository(location, newapp.StrategySource)

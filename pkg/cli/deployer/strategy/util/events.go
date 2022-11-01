@@ -15,8 +15,8 @@ import (
 	"k8s.io/client-go/tools/reference"
 	"k8s.io/kubectl/pkg/scheme"
 
-	"github.com/openshift/library-go/pkg/apps/appsserialization"
-	"github.com/openshift/library-go/pkg/apps/appsutil"
+	"github.com/uccps-samples/library-go/pkg/apps/appsserialization"
+	"github.com/uccps-samples/library-go/pkg/apps/appsutil"
 )
 
 // RecordConfigEvent records an event for the deployment config referenced by the

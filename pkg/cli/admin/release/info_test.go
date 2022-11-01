@@ -11,7 +11,7 @@ import (
 
 	"k8s.io/apimachinery/pkg/util/diff"
 
-	imageapi "github.com/openshift/api/image/v1"
+	imageapi "github.com/uccps-samples/api/image/v1"
 )
 
 func Test_contentStream_Read(t *testing.T) {

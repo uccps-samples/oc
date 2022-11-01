@@ -6,7 +6,7 @@ SOURCE_GIT_TAG := ${OS_GIT_VERSION}
 endif
 
 # Include the library makefile
-include $(addprefix ./vendor/github.com/openshift/build-machinery-go/make/, \
+include $(addprefix ./vendor/github.com/uccps-samples/build-machinery-go/make/, \
 	golang.mk \
 	targets/openshift/images.mk \
 	targets/openshift/rpm.mk \

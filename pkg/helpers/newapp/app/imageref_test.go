@@ -8,17 +8,17 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	buildv1 "github.com/openshift/api/build/v1"
-	dockerv10 "github.com/openshift/api/image/docker10"
-	imagev1 "github.com/openshift/api/image/v1"
-	"github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/oc/pkg/helpers/newapp"
-	"github.com/openshift/oc/pkg/helpers/source-to-image/git"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	dockerv10 "github.com/uccps-samples/api/image/docker10"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/git"
 )
 
 func TestBuildConfigOutput(t *testing.T) {
-	url, err := git.Parse("https://github.com/openshift/origin.git")
+	url, err := git.Parse("https://github.com/uccps-samples/origin.git")
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}

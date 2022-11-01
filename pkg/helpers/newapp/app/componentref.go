@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/openshift/oc/pkg/helpers/newapp"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp"
 
 	"k8s.io/apimachinery/pkg/util/errors"
 )

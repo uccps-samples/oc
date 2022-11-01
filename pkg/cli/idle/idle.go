@@ -30,11 +30,11 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	operatorv1 "github.com/openshift/api/operator/v1"
-	unidlingapi "github.com/openshift/api/unidling/v1alpha1"
-	appsclient "github.com/openshift/client-go/apps/clientset/versioned"
-	operatorclient "github.com/openshift/client-go/operator/clientset/versioned"
-	"github.com/openshift/library-go/pkg/unidling/unidlingclient"
+	operatorv1 "github.com/uccps-samples/api/operator/v1"
+	unidlingapi "github.com/uccps-samples/api/unidling/v1alpha1"
+	appsclient "github.com/uccps-samples/client-go/apps/clientset/versioned"
+	operatorclient "github.com/uccps-samples/client-go/operator/clientset/versioned"
+	"github.com/uccps-samples/library-go/pkg/unidling/unidlingclient"
 )
 
 var (

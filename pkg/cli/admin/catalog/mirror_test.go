@@ -9,9 +9,9 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	operatorv1alpha1 "github.com/openshift/api/operator/v1alpha1"
-	"github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/oc/pkg/cli/image/imagesource"
+	operatorv1alpha1 "github.com/uccps-samples/api/operator/v1alpha1"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/oc/pkg/cli/image/imagesource"
 	"gopkg.in/yaml.v3"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -278,7 +278,7 @@ func TestGenerateICSP(t *testing.T) {
 				mapping: map[string]string{},
 			},
 			want: []byte(
-				`apiVersion: operator.openshift.io/v1alpha1
+				`apiVersion: operator.uccp.io/v1alpha1
 kind: ImageContentSourcePolicy
 metadata:
   labels:
@@ -297,7 +297,7 @@ spec:
 				mapping: map[string]string{},
 			},
 			want: []byte(
-				`apiVersion: operator.openshift.io/v1alpha1
+				`apiVersion: operator.uccp.io/v1alpha1
 kind: ImageContentSourcePolicy
 metadata:
   labels:
@@ -315,7 +315,7 @@ spec:
 				mapping: map[string]string{"docker.io/strimzi/operator": "quay.io/olmtest/strimzi-operator"},
 			},
 			want: []byte(
-				`apiVersion: operator.openshift.io/v1alpha1
+				`apiVersion: operator.uccp.io/v1alpha1
 kind: ImageContentSourcePolicy
 metadata:
   labels:
@@ -337,7 +337,7 @@ spec:
 				mapping: map[string]string{"docker.io": "quay.io"},
 			},
 			want: []byte(
-				`apiVersion: operator.openshift.io/v1alpha1
+				`apiVersion: operator.uccp.io/v1alpha1
 kind: ImageContentSourcePolicy
 metadata:
   labels:
@@ -358,7 +358,7 @@ spec:
 				mapping: map[string]string{"docker.io/strimzi/operator": "quay.io/olmtest/strimzi-operator"},
 			},
 			want: []byte(
-				`apiVersion: operator.openshift.io/v1alpha1
+				`apiVersion: operator.uccp.io/v1alpha1
 kind: ImageContentSourcePolicy
 metadata:
   labels:
@@ -380,7 +380,7 @@ spec:
 				mapping: map[string]string{"docker.io": "quay.io"},
 			},
 			want: []byte(
-				`apiVersion: operator.openshift.io/v1alpha1
+				`apiVersion: operator.uccp.io/v1alpha1
 kind: ImageContentSourcePolicy
 metadata:
   labels:
@@ -442,7 +442,7 @@ func TestGenerateCatalogSource(t *testing.T) {
 kind: CatalogSource
 metadata:
   name: index
-  namespace: openshift-marketplace
+  namespace: uccp-marketplace
 spec:
   image: quay.io/the/index:1
   sourceType: grpc
@@ -471,7 +471,7 @@ spec:
 kind: CatalogSource
 metadata:
   name: index
-  namespace: openshift-marketplace
+  namespace: uccp-marketplace
 spec:
   image: quay.io/the/index@sha256:d134a9865524c29fcf75bbc4469013bc38d8a15cb5f41acfddb6b9e492f556e4
   sourceType: grpc

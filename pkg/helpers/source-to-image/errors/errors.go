@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	utillog "github.com/openshift/oc/pkg/helpers/source-to-image/log"
+	utillog "github.com/uccps-samples/oc/pkg/helpers/source-to-image/log"
 )
 
 // Common S2I errors
@@ -287,8 +287,8 @@ func CheckError(err error) {
 		if e.Details != nil {
 			log.V(1).Infof("Details: %v", e.Details)
 		}
-		log.Error("If the problem persists consult the docs at https://github.com/openshift/source-to-image/tree/master/docs. " +
-			"Eventually reach us on freenode #openshift or file an issue at https://github.com/openshift/source-to-image/issues " +
+		log.Error("If the problem persists consult the docs at https://github.com/uccps-samples/source-to-image/tree/master/docs. " +
+			"Eventually reach us on freenode #openshift or file an issue at https://github.com/uccps-samples/source-to-image/issues " +
 			"providing us with a log from your build using log output level 3.")
 		os.Exit(e.ErrorCode)
 	} else {

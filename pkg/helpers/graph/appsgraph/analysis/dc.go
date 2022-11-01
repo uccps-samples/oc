@@ -8,14 +8,14 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	kctldeployutil "k8s.io/kubectl/pkg/util/deployment"
 
-	buildutil "github.com/openshift/oc/pkg/helpers/build"
-	appsedges "github.com/openshift/oc/pkg/helpers/graph/appsgraph"
-	appsgraph "github.com/openshift/oc/pkg/helpers/graph/appsgraph/nodes"
-	buildedges "github.com/openshift/oc/pkg/helpers/graph/buildgraph"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	imageedges "github.com/openshift/oc/pkg/helpers/graph/imagegraph"
-	imagegraph "github.com/openshift/oc/pkg/helpers/graph/imagegraph/nodes"
-	kubegraph "github.com/openshift/oc/pkg/helpers/graph/kubegraph/nodes"
+	buildutil "github.com/uccps-samples/oc/pkg/helpers/build"
+	appsedges "github.com/uccps-samples/oc/pkg/helpers/graph/appsgraph"
+	appsgraph "github.com/uccps-samples/oc/pkg/helpers/graph/appsgraph/nodes"
+	buildedges "github.com/uccps-samples/oc/pkg/helpers/graph/buildgraph"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	imageedges "github.com/uccps-samples/oc/pkg/helpers/graph/imagegraph"
+	imagegraph "github.com/uccps-samples/oc/pkg/helpers/graph/imagegraph/nodes"
+	kubegraph "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph/nodes"
 )
 
 const (

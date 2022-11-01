@@ -28,10 +28,10 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	buildv1 "github.com/openshift/api/build/v1"
-	"github.com/openshift/library-go/pkg/build/envresolve"
-	cmdutil "github.com/openshift/oc/pkg/helpers/cmd"
-	utilenv "github.com/openshift/oc/pkg/helpers/env"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	"github.com/uccps-samples/library-go/pkg/build/envresolve"
+	cmdutil "github.com/uccps-samples/oc/pkg/helpers/cmd"
+	utilenv "github.com/uccps-samples/oc/pkg/helpers/env"
 )
 
 var (

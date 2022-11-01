@@ -9,10 +9,10 @@ import (
 
 	"gopkg.in/ldap.v2"
 
-	ldapquery "github.com/openshift/library-go/pkg/security/ldapquery"
-	"github.com/openshift/library-go/pkg/security/ldaptestclient"
-	"github.com/openshift/library-go/pkg/security/ldaputil"
-	"github.com/openshift/oc/pkg/helpers/groupsync/syncerror"
+	ldapquery "github.com/uccps-samples/library-go/pkg/security/ldapquery"
+	"github.com/uccps-samples/library-go/pkg/security/ldaptestclient"
+	"github.com/uccps-samples/library-go/pkg/security/ldaputil"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/syncerror"
 )
 
 func newTestLDAPInterface(client ldap.Client) *LDAPInterface {

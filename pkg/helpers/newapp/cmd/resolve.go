@@ -8,10 +8,10 @@ import (
 	kutilerrors "k8s.io/apimachinery/pkg/util/errors"
 	"k8s.io/klog/v2"
 
-	"github.com/openshift/library-go/pkg/git"
-	"github.com/openshift/oc/pkg/helpers/newapp"
-	"github.com/openshift/oc/pkg/helpers/newapp/app"
-	dockerfileutil "github.com/openshift/oc/pkg/helpers/newapp/docker/dockerfile"
+	"github.com/uccps-samples/library-go/pkg/git"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/app"
+	dockerfileutil "github.com/uccps-samples/oc/pkg/helpers/newapp/docker/dockerfile"
 )
 
 // Resolvers are used to identify source repositories, images, or templates in different contexts

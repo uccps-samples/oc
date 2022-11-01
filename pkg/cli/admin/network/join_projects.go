@@ -11,8 +11,8 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/library-go/pkg/network/networkapihelpers"
-	"github.com/openshift/library-go/pkg/network/networkutils"
+	"github.com/uccps-samples/library-go/pkg/network/networkapihelpers"
+	"github.com/uccps-samples/library-go/pkg/network/networkutils"
 )
 
 const JoinProjectsNetworkCommandName = "join-projects"

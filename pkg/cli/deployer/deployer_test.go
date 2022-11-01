@@ -10,11 +10,11 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	kscale "k8s.io/kubectl/pkg/scale"
 
-	appsv1 "github.com/openshift/api/apps/v1"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
 
-	"github.com/openshift/library-go/pkg/apps/appsutil"
-	"github.com/openshift/oc/pkg/cli/deployer/strategy"
-	"github.com/openshift/oc/pkg/cli/deployer/strategy/util/appstest"
+	"github.com/uccps-samples/library-go/pkg/apps/appsutil"
+	"github.com/uccps-samples/oc/pkg/cli/deployer/strategy"
+	"github.com/uccps-samples/oc/pkg/cli/deployer/strategy/util/appstest"
 )
 
 func TestDeployer_getDeploymentFail(t *testing.T) {

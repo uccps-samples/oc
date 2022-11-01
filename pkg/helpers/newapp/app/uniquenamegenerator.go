@@ -9,7 +9,7 @@ import (
 	kvalidation "k8s.io/apimachinery/pkg/util/validation"
 	"k8s.io/klog/v2"
 
-	"github.com/openshift/library-go/pkg/build/naming"
+	"github.com/uccps-samples/library-go/pkg/build/naming"
 )
 
 // the opposite of kvalidation.DNS1123LabelFmt

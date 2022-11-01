@@ -7,7 +7,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/kubectl/pkg/polymorphichelpers"
 
-	appsv1 "github.com/openshift/api/apps/v1"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
 )
 
 func NewPortsForObjectFn(delegate polymorphichelpers.PortsForObjectFunc) polymorphichelpers.PortsForObjectFunc {

@@ -20,7 +20,7 @@
 #
 apiVersion: v1
 items:
-- apiVersion: build.openshift.io/v1
+- apiVersion: build.uccp.io/v1
   kind: BuildConfig
   metadata:
     name: parent1
@@ -33,7 +33,7 @@ items:
     resources: {}
     source:
       git:
-        uri: https://github.com/openshift/ruby-hello-world.git
+        uri: https://github.com/uccps-samples/ruby-hello-world.git
       type: Git
     strategy:
       dockerStrategy:
@@ -50,7 +50,7 @@ items:
       type: Generic
     - imageChange: {}
       type: ImageChange
-- apiVersion: build.openshift.io/v1
+- apiVersion: build.uccp.io/v1
   kind: BuildConfig
   metadata:
     name: parent2
@@ -63,7 +63,7 @@ items:
     resources: {}
     source:
       git:
-        uri: https://github.com/openshift/ruby-hello-world.git
+        uri: https://github.com/uccps-samples/ruby-hello-world.git
       type: Git
     strategy:
       dockerStrategy:
@@ -80,7 +80,7 @@ items:
       type: Generic
     - imageChange: {}
       type: ImageChange
-- apiVersion: build.openshift.io/v1
+- apiVersion: build.uccp.io/v1
   kind: BuildConfig
   metadata:
     name: parent3
@@ -93,7 +93,7 @@ items:
     resources: {}
     source:
       git:
-        uri: https://github.com/openshift/ruby-hello-world.git
+        uri: https://github.com/uccps-samples/ruby-hello-world.git
       type: Git
     strategy:
       dockerStrategy:
@@ -110,7 +110,7 @@ items:
       type: Generic
     - imageChange: {}
       type: ImageChange
-- apiVersion: build.openshift.io/v1
+- apiVersion: build.uccp.io/v1
   kind: BuildConfig
   metadata:
     name: child1
@@ -122,7 +122,7 @@ items:
         name: child1img:latest
     source:
       git:
-        uri: https://github.com/openshift/ruby-hello-world.git
+        uri: https://github.com/uccps-samples/ruby-hello-world.git
       type: Git
     strategy:
       sourceStrategy:
@@ -142,7 +142,7 @@ items:
            name: parent2img:latest
            kind: ImageStreamTag
       type: ImageChange
-- apiVersion: build.openshift.io/v1
+- apiVersion: build.uccp.io/v1
   kind: BuildConfig
   metadata:
     name: child2
@@ -154,7 +154,7 @@ items:
         name: child2img:latest
     source:
       git:
-        uri: https://github.com/openshift/ruby-hello-world.git
+        uri: https://github.com/uccps-samples/ruby-hello-world.git
       type: Git
     strategy:
       sourceStrategy:
@@ -179,7 +179,7 @@ items:
            name: parent3img:latest
            kind: ImageStreamTag
       type: ImageChange
-- apiVersion: build.openshift.io/v1
+- apiVersion: build.uccp.io/v1
   kind: BuildConfig
   metadata:
     name: child3
@@ -191,7 +191,7 @@ items:
         name: child3img:latest
     source:
       git:
-        uri: https://github.com/openshift/ruby-hello-world.git
+        uri: https://github.com/uccps-samples/ruby-hello-world.git
       type: Git
     strategy:
       sourceStrategy:

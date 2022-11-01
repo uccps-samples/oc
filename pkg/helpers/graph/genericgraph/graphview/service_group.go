@@ -7,12 +7,12 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 
-	appsgraph "github.com/openshift/oc/pkg/helpers/graph/appsgraph/nodes"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	kubeedges "github.com/openshift/oc/pkg/helpers/graph/kubegraph"
-	kubegraph "github.com/openshift/oc/pkg/helpers/graph/kubegraph/nodes"
-	routeedges "github.com/openshift/oc/pkg/helpers/graph/routegraph"
-	routegraph "github.com/openshift/oc/pkg/helpers/graph/routegraph/nodes"
+	appsgraph "github.com/uccps-samples/oc/pkg/helpers/graph/appsgraph/nodes"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	kubeedges "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph"
+	kubegraph "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph/nodes"
+	routeedges "github.com/uccps-samples/oc/pkg/helpers/graph/routegraph"
+	routegraph "github.com/uccps-samples/oc/pkg/helpers/graph/routegraph/nodes"
 )
 
 // ServiceGroup is a service, the DeploymentConfigPipelines it covers, and lists of the other nodes that fulfill it

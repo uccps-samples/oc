@@ -13,9 +13,9 @@ import (
 	"k8s.io/kubectl/pkg/generate/versioned"
 	"k8s.io/kubectl/pkg/polymorphichelpers"
 
-	"github.com/openshift/library-go/pkg/legacyapi/legacygroupification"
-	"github.com/openshift/oc/pkg/helpers/clientcmd"
-	"github.com/openshift/oc/pkg/helpers/originpolymorphichelpers"
+	"github.com/uccps-samples/library-go/pkg/legacyapi/legacygroupification"
+	"github.com/uccps-samples/oc/pkg/helpers/clientcmd"
+	"github.com/uccps-samples/oc/pkg/helpers/originpolymorphichelpers"
 )
 
 func shimKubectlForOc() {

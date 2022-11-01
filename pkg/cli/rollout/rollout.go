@@ -7,7 +7,7 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	cmdutil "github.com/openshift/oc/pkg/helpers/cmd"
+	cmdutil "github.com/uccps-samples/oc/pkg/helpers/cmd"
 )
 
 var (
@@ -34,7 +34,7 @@ var (
 func NewCmdRollout(f kcmdutil.Factory, streams genericclioptions.IOStreams) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "rollout SUBCOMMAND",
-		Short: "Manage a Kubernetes deployment or OpenShift deployment config",
+		Short: "Manage a Kubernetes deployment or Uccp deployment config",
 		Long:  rolloutLong,
 		Run:   kcmdutil.DefaultSubCommandRun(streams.ErrOut),
 	}

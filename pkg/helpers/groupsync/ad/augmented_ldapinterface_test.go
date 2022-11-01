@@ -8,9 +8,9 @@ import (
 
 	"gopkg.in/ldap.v2"
 
-	ldapquery "github.com/openshift/library-go/pkg/security/ldapquery"
-	"github.com/openshift/library-go/pkg/security/ldaptestclient"
-	"github.com/openshift/library-go/pkg/security/ldaputil"
+	ldapquery "github.com/uccps-samples/library-go/pkg/security/ldapquery"
+	"github.com/uccps-samples/library-go/pkg/security/ldaptestclient"
+	"github.com/uccps-samples/library-go/pkg/security/ldaputil"
 )
 
 func newTestAugmentedADLDAPInterface(client ldap.Client) *AugmentedADLDAPInterface {

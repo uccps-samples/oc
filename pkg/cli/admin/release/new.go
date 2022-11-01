@@ -34,15 +34,15 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/api/image/docker10"
-	imageapi "github.com/openshift/api/image/v1"
-	imageclient "github.com/openshift/client-go/image/clientset/versioned"
-	"github.com/openshift/library-go/pkg/image/dockerv1client"
-	imagereference "github.com/openshift/library-go/pkg/image/reference"
-	imageappend "github.com/openshift/oc/pkg/cli/image/append"
-	"github.com/openshift/oc/pkg/cli/image/extract"
-	"github.com/openshift/oc/pkg/cli/image/imagesource"
-	imagemanifest "github.com/openshift/oc/pkg/cli/image/manifest"
+	"github.com/uccps-samples/api/image/docker10"
+	imageapi "github.com/uccps-samples/api/image/v1"
+	imageclient "github.com/uccps-samples/client-go/image/clientset/versioned"
+	"github.com/uccps-samples/library-go/pkg/image/dockerv1client"
+	imagereference "github.com/uccps-samples/library-go/pkg/image/reference"
+	imageappend "github.com/uccps-samples/oc/pkg/cli/image/append"
+	"github.com/uccps-samples/oc/pkg/cli/image/extract"
+	"github.com/uccps-samples/oc/pkg/cli/image/imagesource"
+	imagemanifest "github.com/uccps-samples/oc/pkg/cli/image/manifest"
 )
 
 func NewNewOptions(streams genericclioptions.IOStreams) *NewOptions {
@@ -61,11 +61,11 @@ func NewRelease(f kcmdutil.Factory, streams genericclioptions.IOStreams) *cobra.
 	o := NewNewOptions(streams)
 	cmd := &cobra.Command{
 		Use:   "new [SRC=DST ...]",
-		Short: "Create a new OpenShift release",
+		Short: "Create a new Uccp release",
 		Long: templates.LongDesc(`
-			Build a new OpenShift release image that will update a cluster.
+			Build a new Uccp release image that will update a cluster.
 
-			OpenShift uses long-running active management processes called "operators" to
+			Uccp uses long-running active management processes called "operators" to
 			keep the cluster running and manage component lifecycle. This command
 			composes a set of images with operator definitions into a single update payload
 			that can be used to install or update a cluster.
@@ -79,7 +79,7 @@ func NewRelease(f kcmdutil.Factory, streams genericclioptions.IOStreams) *cobra.
 			needs to provide a global-ordered file (before or after other operators) should
 			prepend '0000_NN_<component>_' to their file name, which instructs the release builder
 			to not assign a component prefix. Only images in the input that have the image label
-			'io.openshift.release.operator=true' will have manifests loaded.
+			'io.uccp.release.operator=true' will have manifests loaded.
 
 			If an image is in the input but is not referenced by an operator's image-references
 			file, the image will not be included in the final release image unless
@@ -88,7 +88,7 @@ func NewRelease(f kcmdutil.Factory, streams genericclioptions.IOStreams) *cobra.
 			Mappings specified via SRC=DST positional arguments allows overriding particular
 			operators with a specific image.  For example:
 
-			cluster-version-operator=registry.example.com/openshift/cluster-version-operator:test-123
+			cluster-version-operator=registry.example.com/uccp/cluster-version-operator:test-123
 
 			will override the default cluster-version-operator image with one pulled from
 			registry.example.com.
@@ -541,8 +541,8 @@ func (o *NewOptions) Run() error {
 			if err := yaml.Unmarshal(data, &is); err != nil {
 				return fmt.Errorf("unable to load input image stream file: %v", err)
 			}
-			if is.Kind != "ImageStream" || is.APIVersion != "image.openshift.io/v1" {
-				return fmt.Errorf("unrecognized input image stream file, must be an ImageStream in image.openshift.io/v1")
+			if is.Kind != "ImageStream" || is.APIVersion != "image.uccp.io/v1" {
+				return fmt.Errorf("unrecognized input image stream file, must be an ImageStream in image.uccp.io/v1")
 			}
 			inputIS = is
 
@@ -593,7 +593,7 @@ func (o *NewOptions) Run() error {
 				if err := json.Unmarshal(data, overrideIS); err != nil {
 					return fmt.Errorf("unable to load image data from release directory")
 				}
-				if overrideIS.TypeMeta.Kind != "ImageStream" || overrideIS.APIVersion != "image.openshift.io/v1" {
+				if overrideIS.TypeMeta.Kind != "ImageStream" || overrideIS.APIVersion != "image.uccp.io/v1" {
 					return fmt.Errorf("could not parse images: invalid kind/apiVersion")
 				}
 				is = overrideIS
@@ -641,7 +641,7 @@ func (o *NewOptions) Run() error {
 		}
 	}
 
-	is.TypeMeta = metav1.TypeMeta{APIVersion: "image.openshift.io/v1", Kind: "ImageStream"}
+	is.TypeMeta = metav1.TypeMeta{APIVersion: "image.uccp.io/v1", Kind: "ImageStream"}
 	is.CreationTimestamp = metav1.Time{Time: now}
 	is.Name = name
 	if is.Annotations == nil {
@@ -1221,7 +1221,7 @@ func (o *NewOptions) write(r io.Reader, is *imageapi.ImageStream, now time.Time)
 			// explicitly set release info
 			config.Config.Labels["io.openshift.release"] = is.Name
 			config.History = []dockerv1client.DockerConfigHistory{
-				{Comment: "Release image for OpenShift", Created: now},
+				{Comment: "Release image for Uccp", Created: now},
 			}
 			if len(dgst) > 0 {
 				config.Config.Labels[annotationReleaseBaseImageDigest] = dgst.String()

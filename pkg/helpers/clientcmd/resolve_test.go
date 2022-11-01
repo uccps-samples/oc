@@ -6,8 +6,8 @@ import (
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	imagev1 "github.com/openshift/api/image/v1"
-	fakeimagev1client "github.com/openshift/client-go/image/clientset/versioned/fake"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	fakeimagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/fake"
 )
 
 func image(pullSpec string) *imagev1.Image {

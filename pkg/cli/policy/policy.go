@@ -5,7 +5,7 @@ import (
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 
-	adminpolicy "github.com/openshift/oc/pkg/cli/admin/policy"
+	adminpolicy "github.com/uccps-samples/oc/pkg/cli/admin/policy"
 )
 
 func NewCmdPolicy(f kcmdutil.Factory, streams genericclioptions.IOStreams) *cobra.Command {

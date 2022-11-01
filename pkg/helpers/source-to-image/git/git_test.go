@@ -7,9 +7,9 @@ import (
 	"reflect"
 	"testing"
 
-	testcmd "github.com/openshift/oc/pkg/helpers/source-to-image/cmd/test"
-	"github.com/openshift/oc/pkg/helpers/source-to-image/fs"
-	testfs "github.com/openshift/oc/pkg/helpers/source-to-image/fs/test"
+	testcmd "github.com/uccps-samples/oc/pkg/helpers/source-to-image/cmd/test"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/fs"
+	testfs "github.com/uccps-samples/oc/pkg/helpers/source-to-image/fs/test"
 )
 
 func TestIsValidGitRepository(t *testing.T) {

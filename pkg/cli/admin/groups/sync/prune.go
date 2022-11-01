@@ -12,22 +12,22 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	legacyconfigv1 "github.com/openshift/api/legacyconfig/v1"
-	userv1typedclient "github.com/openshift/client-go/user/clientset/versioned/typed/user/v1"
-	"github.com/openshift/library-go/pkg/security/ldapclient"
-	"github.com/openshift/oc/pkg/helpers/groupsync"
-	"github.com/openshift/oc/pkg/helpers/groupsync/ldap"
+	legacyconfigv1 "github.com/uccps-samples/api/legacyconfig/v1"
+	userv1typedclient "github.com/uccps-samples/client-go/user/clientset/versioned/typed/user/v1"
+	"github.com/uccps-samples/library-go/pkg/security/ldapclient"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/ldap"
 )
 
 var (
 	pruneLong = templates.LongDesc(`
-		Prune OpenShift groups referencing missing records from an external provider.
+		Prune Uccp groups referencing missing records from an external provider.
 
-		In order to prune OpenShift group records using those from an external provider, determine which groups you want
-		to prune. For instance, all or some groups may be selected from the current groups stored in OpenShift that have
+		In order to prune Uccp group records using those from an external provider, determine which groups you want
+		to prune. For instance, all or some groups may be selected from the current groups stored in Uccp that have
 		been synced previously. Any combination of a literal whitelist, a whitelist file and a blacklist file is supported.
 		The path to a sync configuration file that was used for syncing the groups in question is required in order to
-		describe how data is requested from the external record store. Default behavior is to indicate all OpenShift groups
+		describe how data is requested from the external record store. Default behavior is to indicate all Uccp groups
 		for which the external record does not exist, to run the pruning process and commit the results, use the --confirm
 		flag.
 	`)
@@ -52,18 +52,18 @@ type PruneOptions struct {
 	Config     *legacyconfigv1.LDAPSyncConfig
 	ConfigFile string
 
-	// Whitelist are the names of OpenShift group or LDAP group UIDs to use for syncing
+	// Whitelist are the names of Uccp group or LDAP group UIDs to use for syncing
 	Whitelist     []string
 	WhitelistFile string
 
-	// Blacklist are the names of OpenShift group or LDAP group UIDs to exclude
+	// Blacklist are the names of Uccp group or LDAP group UIDs to exclude
 	Blacklist     []string
 	BlacklistFile string
 
-	// Confirm determines whether or not to write to OpenShift
+	// Confirm determines whether or not to write to Uccp
 	Confirm bool
 
-	// GroupClient is the interface used to interact with OpenShift Group objects
+	// GroupClient is the interface used to interact with Uccp Group objects
 	GroupClient userv1typedclient.GroupsGetter
 
 	genericclioptions.IOStreams
@@ -80,7 +80,7 @@ func NewCmdPruneGroups(name, fullName string, f kcmdutil.Factory, streams generi
 	o := NewPruneOptions(streams)
 	cmd := &cobra.Command{
 		Use:     fmt.Sprintf("%s [WHITELIST] [--whitelist=WHITELIST-FILE] [--blacklist=BLACKLIST-FILE] --sync-config=CONFIG-SOURCE", name),
-		Short:   "Remove old OpenShift groups referencing missing records from an external provider",
+		Short:   "Remove old Uccp groups referencing missing records from an external provider",
 		Long:    pruneLong,
 		Example: fmt.Sprintf(pruneExamples, fullName),
 		Run: func(cmd *cobra.Command, args []string) {
@@ -98,7 +98,7 @@ func NewCmdPruneGroups(name, fullName string, f kcmdutil.Factory, streams generi
 	// cmd.Flags().StringSliceVar(&o.Blacklist, "blacklist-group", o.Blacklist, "group to blacklist")
 	cmd.Flags().StringVar(&o.ConfigFile, "sync-config", o.ConfigFile, "path to the sync config")
 	cmd.MarkFlagFilename("sync-config", "yaml", "yml")
-	cmd.Flags().BoolVar(&o.Confirm, "confirm", o.Confirm, "if true, modify OpenShift groups; if false, display groups")
+	cmd.Flags().BoolVar(&o.Confirm, "confirm", o.Confirm, "if true, modify Uccp groups; if false, display groups")
 
 	return cmd
 }

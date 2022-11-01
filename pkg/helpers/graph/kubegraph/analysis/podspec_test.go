@@ -3,9 +3,9 @@ package analysis
 import (
 	"testing"
 
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	osgraphtest "github.com/openshift/oc/pkg/helpers/graph/genericgraph/test"
-	kubeedges "github.com/openshift/oc/pkg/helpers/graph/kubegraph"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	osgraphtest "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph/test"
+	kubeedges "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph"
 )
 
 func TestMissingSecrets(t *testing.T) {

@@ -7,7 +7,7 @@ import (
 	"k8s.io/kubectl/pkg/polymorphichelpers"
 	"k8s.io/kubectl/pkg/scheme"
 
-	appsv1 "github.com/openshift/api/apps/v1"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
 )
 
 func NewObjectPauserFn(delegate polymorphichelpers.ObjectPauserFunc) polymorphichelpers.ObjectPauserFunc {

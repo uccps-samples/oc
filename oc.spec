@@ -4,7 +4,7 @@
 %global __os_install_post %{_rpmconfigdir}/brp-compress
 
 %global gopath      %{_datadir}/gocode
-%global import_path github.com/openshift/oc
+%global import_path github.com/uccps-samples/oc
 
 %global golang_version 1.13
 
@@ -27,7 +27,7 @@
 %global make %{os_git_vars} && make SOURCE_GIT_TAG:="${OS_GIT_VERSION}" SOURCE_GIT_COMMIT:="${OS_GIT_COMMIT}" SOURCE_GIT_MAJOR:="${OS_GIT_MAJOR}" SOURCE_GIT_MINOR:="${OS_GIT_MINOR}" SOURCE_GIT_TREE_STATE:="${OS_GIT_TREE_STATE}"
 %endif
 
-Name:           openshift-clients
+Name:           uccp-clients
 Version:        %{version}
 Release:        %{release}%{dist}
 Summary:        OpenShift client binaries
@@ -50,8 +50,8 @@ BuildRequires:  goversioninfo
 BuildRequires:  krb5-devel
 BuildRequires:  rsync
 
-Provides:       atomic-openshift-clients = %{version}
-Obsoletes:      atomic-openshift-clients <= %{version}
+Provides:       atomic-uccp-clients = %{version}
+Obsoletes:      atomic-uccp-clients <= %{version}
 Requires:       bash-completion
 
 %description
@@ -59,8 +59,8 @@ Requires:       bash-completion
 
 %package redistributable
 Summary:        OpenShift Client binaries for Linux, Mac OSX, and Windows
-Provides:       atomic-openshift-clients-redistributable = %{version}
-Obsoletes:      atomic-openshift-clients-redistributable <= %{version}
+Provides:       atomic-uccp-clients-redistributable = %{version}
+Obsoletes:      atomic-uccp-clients-redistributable <= %{version}
 
 %description redistributable
 %{summary}

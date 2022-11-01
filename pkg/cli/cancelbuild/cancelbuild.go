@@ -22,12 +22,12 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/api/build"
-	buildv1 "github.com/openshift/api/build/v1"
-	buildtv1client "github.com/openshift/client-go/build/clientset/versioned/typed/build/v1"
-	ocbuildutil "github.com/openshift/oc/pkg/helpers/build"
-	buildclientv1 "github.com/openshift/oc/pkg/helpers/build/client/v1"
-	cmdutil "github.com/openshift/oc/pkg/helpers/cmd"
+	"github.com/uccps-samples/api/build"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	buildtv1client "github.com/uccps-samples/client-go/build/clientset/versioned/typed/build/v1"
+	ocbuildutil "github.com/uccps-samples/oc/pkg/helpers/build"
+	buildclientv1 "github.com/uccps-samples/oc/pkg/helpers/build/client/v1"
+	cmdutil "github.com/uccps-samples/oc/pkg/helpers/cmd"
 )
 
 // CancelBuildRecommendedCommandName is the recommended command name.

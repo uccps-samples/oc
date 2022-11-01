@@ -19,23 +19,23 @@ import (
 	"k8s.io/klog/v2"
 	"k8s.io/kubectl/pkg/scheme"
 
-	"github.com/openshift/api/apps"
-	"github.com/openshift/api/authorization"
-	"github.com/openshift/api/build"
-	"github.com/openshift/api/image"
-	"github.com/openshift/api/network"
-	"github.com/openshift/api/oauth"
-	"github.com/openshift/api/project"
-	quotav1 "github.com/openshift/api/quota/v1"
-	"github.com/openshift/api/route"
-	securityv1 "github.com/openshift/api/security/v1"
-	"github.com/openshift/api/template"
-	"github.com/openshift/api/user"
-	"github.com/openshift/library-go/pkg/serviceability"
+	"github.com/uccps-samples/api/apps"
+	"github.com/uccps-samples/api/authorization"
+	"github.com/uccps-samples/api/build"
+	"github.com/uccps-samples/api/image"
+	"github.com/uccps-samples/api/network"
+	"github.com/uccps-samples/api/oauth"
+	"github.com/uccps-samples/api/project"
+	quotav1 "github.com/uccps-samples/api/quota/v1"
+	"github.com/uccps-samples/api/route"
+	securityv1 "github.com/uccps-samples/api/security/v1"
+	"github.com/uccps-samples/api/template"
+	"github.com/uccps-samples/api/user"
+	"github.com/uccps-samples/library-go/pkg/serviceability"
 
-	"github.com/openshift/oc/pkg/cli"
-	"github.com/openshift/oc/pkg/helpers/legacy"
-	"github.com/openshift/oc/pkg/version"
+	"github.com/uccps-samples/oc/pkg/cli"
+	"github.com/uccps-samples/oc/pkg/helpers/legacy"
+	"github.com/uccps-samples/oc/pkg/version"
 
 	// Import to initialize client auth plugins.
 	_ "k8s.io/client-go/plugin/pkg/client/auth"
@@ -56,8 +56,8 @@ func injectLoglevelFlag(flags *pflag.FlagSet) {
 func main() {
 	logs.InitLogs()
 	defer logs.FlushLogs()
-	defer serviceability.BehaviorOnPanic(os.Getenv("OPENSHIFT_ON_PANIC"), version.Get())()
-	defer serviceability.Profile(os.Getenv("OPENSHIFT_PROFILE")).Stop()
+	defer serviceability.BehaviorOnPanic(os.Getenv("UCCP_ON_PANIC"), version.Get())()
+	defer serviceability.Profile(os.Getenv("UCCP_PROFILE")).Stop()
 
 	rand.Seed(time.Now().UTC().UnixNano())
 	if len(os.Getenv("GOMAXPROCS")) == 0 {

@@ -6,7 +6,7 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	templatev1 "github.com/openshift/api/template/v1"
+	templatev1 "github.com/uccps-samples/api/template/v1"
 )
 
 func TestDefaultMigrations(t *testing.T) {
@@ -18,62 +18,62 @@ func TestDefaultMigrations(t *testing.T) {
 		{
 			name:   "legacy-dc",
 			input:  metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "v1"},
-			output: metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.openshift.io/v1"},
+			output: metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.uccp.io/v1"},
 		},
 		{
 			name:   "lazy-dc",
 			input:  metav1.TypeMeta{Kind: "DeploymentConfig"},
-			output: metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.openshift.io/v1"},
+			output: metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.uccp.io/v1"},
 		},
 		{
 			name:   "ok-dc",
-			input:  metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.openshift.io/v1"},
-			output: metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.openshift.io/v1"},
+			input:  metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.uccp.io/v1"},
+			output: metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.uccp.io/v1"},
 		},
 		{
 			name:   "legacy-bc",
 			input:  metav1.TypeMeta{Kind: "BuildConfig", APIVersion: "v1"},
-			output: metav1.TypeMeta{Kind: "BuildConfig", APIVersion: "build.openshift.io/v1"},
+			output: metav1.TypeMeta{Kind: "BuildConfig", APIVersion: "build.uccp.io/v1"},
 		},
 		{
 			name:   "lazy-bc",
 			input:  metav1.TypeMeta{Kind: "BuildConfig"},
-			output: metav1.TypeMeta{Kind: "BuildConfig", APIVersion: "build.openshift.io/v1"},
+			output: metav1.TypeMeta{Kind: "BuildConfig", APIVersion: "build.uccp.io/v1"},
 		},
 		{
 			name:   "ok-bc",
-			input:  metav1.TypeMeta{Kind: "BuildConfig", APIVersion: "build.openshift.io/v1"},
-			output: metav1.TypeMeta{Kind: "BuildConfig", APIVersion: "build.openshift.io/v1"},
+			input:  metav1.TypeMeta{Kind: "BuildConfig", APIVersion: "build.uccp.io/v1"},
+			output: metav1.TypeMeta{Kind: "BuildConfig", APIVersion: "build.uccp.io/v1"},
 		},
 		{
 			name:   "legacy-build",
 			input:  metav1.TypeMeta{Kind: "Build", APIVersion: "v1"},
-			output: metav1.TypeMeta{Kind: "Build", APIVersion: "build.openshift.io/v1"},
+			output: metav1.TypeMeta{Kind: "Build", APIVersion: "build.uccp.io/v1"},
 		},
 		{
 			name:   "lazy-build",
 			input:  metav1.TypeMeta{Kind: "Build"},
-			output: metav1.TypeMeta{Kind: "Build", APIVersion: "build.openshift.io/v1"},
+			output: metav1.TypeMeta{Kind: "Build", APIVersion: "build.uccp.io/v1"},
 		},
 		{
 			name:   "ok-build",
-			input:  metav1.TypeMeta{Kind: "Build", APIVersion: "build.openshift.io/v1"},
-			output: metav1.TypeMeta{Kind: "Build", APIVersion: "build.openshift.io/v1"},
+			input:  metav1.TypeMeta{Kind: "Build", APIVersion: "build.uccp.io/v1"},
+			output: metav1.TypeMeta{Kind: "Build", APIVersion: "build.uccp.io/v1"},
 		},
 		{
 			name:   "legacy-route",
 			input:  metav1.TypeMeta{Kind: "Route", APIVersion: "v1"},
-			output: metav1.TypeMeta{Kind: "Route", APIVersion: "route.openshift.io/v1"},
+			output: metav1.TypeMeta{Kind: "Route", APIVersion: "route.uccp.io/v1"},
 		},
 		{
 			name:   "lazy-route",
 			input:  metav1.TypeMeta{Kind: "Route"},
-			output: metav1.TypeMeta{Kind: "Route", APIVersion: "route.openshift.io/v1"},
+			output: metav1.TypeMeta{Kind: "Route", APIVersion: "route.uccp.io/v1"},
 		},
 		{
 			name:   "ok-route",
-			input:  metav1.TypeMeta{Kind: "Route", APIVersion: "route.openshift.io/v1"},
-			output: metav1.TypeMeta{Kind: "Route", APIVersion: "route.openshift.io/v1"},
+			input:  metav1.TypeMeta{Kind: "Route", APIVersion: "route.uccp.io/v1"},
+			output: metav1.TypeMeta{Kind: "Route", APIVersion: "route.uccp.io/v1"},
 		},
 		{
 			name:   "legacy-other",

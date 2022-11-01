@@ -11,7 +11,7 @@ import (
 
 	"k8s.io/klog/v2"
 
-	"github.com/openshift/oc/pkg/helpers/term"
+	"github.com/uccps-samples/oc/pkg/helpers/term"
 )
 
 // BasicAuthNoUsernameError when basic authentication challenge handling was attempted

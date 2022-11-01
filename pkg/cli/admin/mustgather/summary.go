@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/docker/go-units"
-	configv1 "github.com/openshift/api/config/v1"
-	"github.com/openshift/library-go/pkg/config/clusteroperator/v1helpers"
+	configv1 "github.com/uccps-samples/api/config/v1"
+	"github.com/uccps-samples/library-go/pkg/config/clusteroperator/v1helpers"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/util/sets"
 )
@@ -66,8 +66,8 @@ var longExistingOperators = []string{
 	"marketplace",
 	"monitoring",
 	"network",
-	"openshift-apiserver",
-	"openshift-controller-manager",
+	"uccp-apiserver",
+	"uccp-controller-manager",
 	"operator-lifecycle-manager",
 	"service-ca",
 	"storage",

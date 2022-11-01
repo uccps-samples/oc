@@ -17,8 +17,8 @@ import (
 	fakeclient "k8s.io/client-go/kubernetes/fake"
 	rbacv1client "k8s.io/client-go/kubernetes/typed/rbac/v1"
 
-	userv1 "github.com/openshift/api/user/v1"
-	fakeuserclient "github.com/openshift/client-go/user/clientset/versioned/fake"
+	userv1 "github.com/uccps-samples/api/user/v1"
+	fakeuserclient "github.com/uccps-samples/client-go/user/clientset/versioned/fake"
 )
 
 func TestModifyNamedClusterRoleBinding(t *testing.T) {

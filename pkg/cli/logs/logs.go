@@ -14,10 +14,10 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	buildv1 "github.com/openshift/api/build/v1"
-	buildv1client "github.com/openshift/client-go/build/clientset/versioned/typed/build/v1"
-	buildhelpers "github.com/openshift/oc/pkg/helpers/build"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	buildv1client "github.com/uccps-samples/client-go/build/clientset/versioned/typed/build/v1"
+	buildhelpers "github.com/uccps-samples/oc/pkg/helpers/build"
 )
 
 var (
@@ -109,7 +109,7 @@ func (o *LogsOptions) Complete(f kcmdutil.Factory, cmd *cobra.Command, args []st
 }
 
 // Validate runs the upstream validation for the logs command and then it
-// will validate any OpenShift-specific log options.
+// will validate any uccp-specific log options.
 func (o *LogsOptions) Validate(args []string) error {
 	return o.LogsOptions.Validate()
 }

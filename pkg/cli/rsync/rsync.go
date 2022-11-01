@@ -17,7 +17,7 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/oc/pkg/cli/rsync/fsnotification"
+	"github.com/uccps-samples/oc/pkg/cli/rsync/fsnotification"
 )
 
 const (

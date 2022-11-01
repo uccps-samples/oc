@@ -6,7 +6,7 @@ import (
 
 	kvalidation "k8s.io/apimachinery/pkg/util/validation"
 
-	"github.com/openshift/library-go/pkg/build/naming"
+	"github.com/uccps-samples/library-go/pkg/build/naming"
 )
 
 func TestUniqueNameGeneratorNameRequired(t *testing.T) {

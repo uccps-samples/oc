@@ -11,9 +11,9 @@ import (
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 	clientgotesting "k8s.io/client-go/testing"
 
-	"github.com/openshift/api/image"
-	imagev1 "github.com/openshift/api/image/v1"
-	fakeimagev1client "github.com/openshift/client-go/image/clientset/versioned/fake"
+	"github.com/uccps-samples/api/image"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	fakeimagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/fake"
 )
 
 type testAction struct {

@@ -8,11 +8,11 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	kubernetesscheme "k8s.io/client-go/kubernetes/scheme"
 
-	"github.com/openshift/api"
-	appsgraph "github.com/openshift/oc/pkg/helpers/graph/appsgraph"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	osgraphtest "github.com/openshift/oc/pkg/helpers/graph/genericgraph/test"
-	"github.com/openshift/oc/pkg/helpers/graph/kubegraph"
+	"github.com/uccps-samples/api"
+	appsgraph "github.com/uccps-samples/oc/pkg/helpers/graph/appsgraph"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	osgraphtest "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph/test"
+	"github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph"
 )
 
 func TestHPAMissingCPUTargetError(t *testing.T) {

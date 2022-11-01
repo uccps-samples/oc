@@ -10,8 +10,8 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	restclient "k8s.io/client-go/rest"
 
-	userv1 "github.com/openshift/api/user/v1"
-	userv1typedclient "github.com/openshift/client-go/user/clientset/versioned/typed/user/v1"
+	userv1 "github.com/uccps-samples/api/user/v1"
+	userv1typedclient "github.com/uccps-samples/client-go/user/clientset/versioned/typed/user/v1"
 )
 
 func WhoAmI(clientConfig *restclient.Config) (*userv1.User, error) {

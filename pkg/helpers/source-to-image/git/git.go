@@ -11,11 +11,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/openshift/oc/pkg/helpers/source-to-image/cmd"
-	"github.com/openshift/oc/pkg/helpers/source-to-image/cygpath"
-	"github.com/openshift/oc/pkg/helpers/source-to-image/fs"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/cmd"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/cygpath"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/fs"
 
-	utillog "github.com/openshift/oc/pkg/helpers/source-to-image/log"
+	utillog "github.com/uccps-samples/oc/pkg/helpers/source-to-image/log"
 )
 
 var log = utillog.StderrLog

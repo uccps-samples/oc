@@ -10,7 +10,7 @@ import (
 
 var catalogCmd = &cobra.Command{
 	Use:   "catalog",
-	Short: "Tools for managing the OpenShift OLM Catalogs",
+	Short: "Tools for managing the Uccp OLM Catalogs",
 	Long: templates.LongDesc(`
 			This tool is used to extract and mirror the contents of catalogs for Operator
 			Lifecycle Manager.

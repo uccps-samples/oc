@@ -16,7 +16,7 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/scheme"
 
-	"github.com/openshift/library-go/pkg/authorization/authorizationutil"
+	"github.com/uccps-samples/library-go/pkg/authorization/authorizationutil"
 )
 
 type RemoveFromProjectOptions struct {

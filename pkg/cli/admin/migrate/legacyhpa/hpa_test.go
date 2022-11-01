@@ -16,12 +16,12 @@ func TestDefaultMigrations(t *testing.T) {
 		{
 			name:   "legacy-dc",
 			input:  metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "v1"},
-			output: metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.openshift.io/v1"},
+			output: metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.uccp.io/v1"},
 		},
 		{
 			name:   "console-dc",
 			input:  metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "extensions/v1beta1"},
-			output: metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.openshift.io/v1"},
+			output: metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.uccp.io/v1"},
 		},
 		{
 			name:   "console-rc",
@@ -40,8 +40,8 @@ func TestDefaultMigrations(t *testing.T) {
 		},
 		{
 			name:   "ok-dc",
-			input:  metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.openshift.io/v1"},
-			output: metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.openshift.io/v1"},
+			input:  metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.uccp.io/v1"},
+			output: metav1.TypeMeta{Kind: "DeploymentConfig", APIVersion: "apps.uccp.io/v1"},
 		},
 		{
 			name:   "other",

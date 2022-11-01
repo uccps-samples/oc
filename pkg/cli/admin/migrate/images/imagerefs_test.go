@@ -11,10 +11,10 @@ import (
 	"k8s.io/apimachinery/pkg/util/diff"
 	"k8s.io/kubectl/pkg/polymorphichelpers"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	buildv1 "github.com/openshift/api/build/v1"
-	imagev1 "github.com/openshift/api/image/v1"
-	"github.com/openshift/oc/pkg/helpers/originpolymorphichelpers"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	"github.com/uccps-samples/oc/pkg/helpers/originpolymorphichelpers"
 )
 
 func TestImageReferenceMappingsMapReference(t *testing.T) {

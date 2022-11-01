@@ -12,23 +12,23 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	clienttesting "k8s.io/client-go/testing"
 
-	authv1 "github.com/openshift/api/authorization/v1"
-	oauthv1 "github.com/openshift/api/oauth/v1"
-	securityv1 "github.com/openshift/api/security/v1"
-	userv1 "github.com/openshift/api/user/v1"
-	fakeauthclient "github.com/openshift/client-go/authorization/clientset/versioned/fake"
-	fakeauthv1client "github.com/openshift/client-go/authorization/clientset/versioned/typed/authorization/v1/fake"
-	fakeoauthclient "github.com/openshift/client-go/oauth/clientset/versioned/fake"
-	fakeoauthv1client "github.com/openshift/client-go/oauth/clientset/versioned/typed/oauth/v1/fake"
-	fakesecurityclient "github.com/openshift/client-go/security/clientset/versioned/fake"
-	fakesecurityv1client "github.com/openshift/client-go/security/clientset/versioned/typed/security/v1/fake"
-	fakeuserclient "github.com/openshift/client-go/user/clientset/versioned/fake"
-	fakeuserv1client "github.com/openshift/client-go/user/clientset/versioned/typed/user/v1/fake"
+	authv1 "github.com/uccps-samples/api/authorization/v1"
+	oauthv1 "github.com/uccps-samples/api/oauth/v1"
+	securityv1 "github.com/uccps-samples/api/security/v1"
+	userv1 "github.com/uccps-samples/api/user/v1"
+	fakeauthclient "github.com/uccps-samples/client-go/authorization/clientset/versioned/fake"
+	fakeauthv1client "github.com/uccps-samples/client-go/authorization/clientset/versioned/typed/authorization/v1/fake"
+	fakeoauthclient "github.com/uccps-samples/client-go/oauth/clientset/versioned/fake"
+	fakeoauthv1client "github.com/uccps-samples/client-go/oauth/clientset/versioned/typed/oauth/v1/fake"
+	fakesecurityclient "github.com/uccps-samples/client-go/security/clientset/versioned/fake"
+	fakesecurityv1client "github.com/uccps-samples/client-go/security/clientset/versioned/typed/security/v1/fake"
+	fakeuserclient "github.com/uccps-samples/client-go/user/clientset/versioned/fake"
+	fakeuserv1client "github.com/uccps-samples/client-go/user/clientset/versioned/typed/user/v1/fake"
 )
 
 var (
-	securityContextContraintsResource = schema.GroupVersionResource{Group: "security.openshift.io", Version: "v1", Resource: "securitycontextconstraints"}
-	oAuthClientAuthorizationsResource = schema.GroupVersionResource{Group: "oauth.openshift.io", Version: "v1", Resource: "oauthclientauthorizations"}
+	securityContextContraintsResource = schema.GroupVersionResource{Group: "security.uccp.io", Version: "v1", Resource: "securitycontextconstraints"}
+	oAuthClientAuthorizationsResource = schema.GroupVersionResource{Group: "oauth.uccp.io", Version: "v1", Resource: "oauthclientauthorizations"}
 )
 
 func TestUserReaper(t *testing.T) {

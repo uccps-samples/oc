@@ -8,12 +8,12 @@ import (
 
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 
-	fakeimagev1client "github.com/openshift/client-go/image/clientset/versioned/fake"
-	faketemplatev1client "github.com/openshift/client-go/template/clientset/versioned/fake"
-	ocnewapp "github.com/openshift/oc/pkg/cli/newapp"
-	configcmd "github.com/openshift/oc/pkg/helpers/bulk"
-	"github.com/openshift/oc/pkg/helpers/newapp/app"
-	newcmd "github.com/openshift/oc/pkg/helpers/newapp/cmd"
+	fakeimagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/fake"
+	faketemplatev1client "github.com/uccps-samples/client-go/template/clientset/versioned/fake"
+	ocnewapp "github.com/uccps-samples/oc/pkg/cli/newapp"
+	configcmd "github.com/uccps-samples/oc/pkg/helpers/bulk"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/app"
+	newcmd "github.com/uccps-samples/oc/pkg/helpers/newapp/cmd"
 )
 
 // TestNewBuildRun ensures that Run command calls the right actions

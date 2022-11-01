@@ -10,8 +10,8 @@ import (
 	"k8s.io/client-go/kubernetes/fake"
 	"k8s.io/utils/diff"
 
-	imagev1 "github.com/openshift/api/image/v1"
-	imageclient "github.com/openshift/client-go/image/clientset/versioned/fake"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	imageclient "github.com/uccps-samples/client-go/image/clientset/versioned/fake"
 )
 
 func TestImagesAndImageStreams(t *testing.T) {
@@ -26,7 +26,7 @@ func TestImagesAndImageStreams(t *testing.T) {
 		{
 			name: "Default",
 			objects: []runtime.Object{
-				newImageStream("openshift", "must-gather", withTag("latest", "registry.test/must-gather:1.0.0")),
+				newImageStream("uccp", "must-gather", withTag("latest", "registry.test/must-gather:1.0.0")),
 			},
 			expectedImages: []string{"registry.test/must-gather:1.0.0"},
 		},

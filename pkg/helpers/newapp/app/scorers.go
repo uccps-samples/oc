@@ -3,8 +3,8 @@ package app
 import (
 	"strings"
 
-	imagev1 "github.com/openshift/api/image/v1"
-	templatev1 "github.com/openshift/api/template/v1"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	templatev1 "github.com/uccps-samples/api/template/v1"
 )
 
 func templateScorer(template templatev1.Template, term string) (float32, bool) {

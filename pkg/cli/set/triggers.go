@@ -31,13 +31,13 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	buildv1 "github.com/openshift/api/build/v1"
-	"github.com/openshift/library-go/pkg/build/buildutil"
-	"github.com/openshift/library-go/pkg/image/reference"
-	ometa "github.com/openshift/library-go/pkg/image/referencemutator"
-	triggerutil "github.com/openshift/library-go/pkg/image/trigger"
-	"github.com/openshift/oc/pkg/helpers/newapp/app"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	"github.com/uccps-samples/library-go/pkg/build/buildutil"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	ometa "github.com/uccps-samples/library-go/pkg/image/referencemutator"
+	triggerutil "github.com/uccps-samples/library-go/pkg/image/trigger"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/app"
 )
 
 var (

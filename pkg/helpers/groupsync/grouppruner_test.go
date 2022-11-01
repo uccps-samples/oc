@@ -10,8 +10,8 @@ import (
 	"k8s.io/apimachinery/pkg/util/sets"
 	clienttesting "k8s.io/client-go/testing"
 
-	fakeuserv1client "github.com/openshift/client-go/user/clientset/versioned/typed/user/v1/fake"
-	"github.com/openshift/oc/pkg/helpers/groupsync/interfaces"
+	fakeuserv1client "github.com/uccps-samples/client-go/user/clientset/versioned/typed/user/v1/fake"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/interfaces"
 )
 
 func TestGoodPrune(t *testing.T) {

@@ -14,11 +14,11 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	buildv1 "github.com/openshift/api/build/v1"
-	ocnewapp "github.com/openshift/oc/pkg/cli/newapp"
-	configcmd "github.com/openshift/oc/pkg/helpers/bulk"
-	newapp "github.com/openshift/oc/pkg/helpers/newapp/app"
-	newcmd "github.com/openshift/oc/pkg/helpers/newapp/cmd"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	ocnewapp "github.com/uccps-samples/oc/pkg/cli/newapp"
+	configcmd "github.com/uccps-samples/oc/pkg/helpers/bulk"
+	newapp "github.com/uccps-samples/oc/pkg/helpers/newapp/app"
+	newcmd "github.com/uccps-samples/oc/pkg/helpers/newapp/cmd"
 )
 
 // NewBuildRecommendedCommandName is the recommended command name.
@@ -48,25 +48,25 @@ var (
 		oc new-build centos/nodejs-8-centos7~https://github.com/sclorg/nodejs-ex.git
 
 		# Create a build config from a remote repository using its beta2 branch
-		oc new-build https://github.com/openshift/ruby-hello-world#beta2
+		oc new-build https://github.com/uccps-samples/ruby-hello-world#beta2
 
 		# Create a build config using a Dockerfile specified as an argument
 		oc new-build -D $'FROM centos:7\nRUN yum install -y httpd'
 
 		# Create a build config from a remote repository and add custom environment variables
-		oc new-build https://github.com/openshift/ruby-hello-world -e RACK_ENV=development
+		oc new-build https://github.com/uccps-samples/ruby-hello-world -e RACK_ENV=development
 
 		# Create a build config from a remote private repository and specify which existing secret to use
 		oc new-build https://github.com/youruser/yourgitrepo --source-secret=yoursecret
 
 		# Create a build config from a remote repository and inject the npmrc into a build
-		oc new-build https://github.com/openshift/ruby-hello-world --build-secret npmrc:.npmrc
+		oc new-build https://github.com/uccps-samples/ruby-hello-world --build-secret npmrc:.npmrc
 
 		# Create a build config from a remote repository and inject environment data into a build
-		oc new-build https://github.com/openshift/ruby-hello-world --build-config-map env:config
+		oc new-build https://github.com/uccps-samples/ruby-hello-world --build-config-map env:config
 
 		# Create a build config that gets its input from a remote repository and another Docker image
-		oc new-build https://github.com/openshift/ruby-hello-world --source-image=openshift/jenkins-1-centos7 --source-image-path=/var/lib/jenkins:tmp
+		oc new-build https://github.com/uccps-samples/ruby-hello-world --source-image=uccp/jenkins-1-centos7 --source-image-path=/var/lib/jenkins:tmp
 	`)
 
 	newBuildNoInput = `You must specify one or more images, image streams, or source code locations to create a build.
@@ -82,7 +82,7 @@ default container image registry.
 
   oc new-build https://github.com/sclorg/nodejs-ex.git
 
-will look for an image called "nodejs" in your current project, the 'openshift' project, or
+will look for an image called "nodejs" in your current project, the 'uccp' project, or
 on the Docker Hub.
 `
 )
@@ -106,7 +106,7 @@ func NewBuildOptions(streams genericclioptions.IOStreams) *BuildOptions {
 	}
 }
 
-// NewCmdNewBuild implements the OpenShift cli new-build command
+// NewCmdNewBuild implements the Uccp cli new-build command
 func NewCmdNewBuild(f kcmdutil.Factory, streams genericclioptions.IOStreams) *cobra.Command {
 	o := NewBuildOptions(streams)
 
@@ -140,7 +140,7 @@ func NewCmdNewBuild(f kcmdutil.Factory, streams genericclioptions.IOStreams) *co
 	cmd.Flags().MarkHidden("build-env-file")
 	cmd.Flags().StringArrayVar(&o.Config.BuildEnvironmentFiles, "env-file", o.Config.BuildEnvironmentFiles, "File containing key-value pairs of environment variables to set into each container.")
 	cmd.MarkFlagFilename("env-file")
-	cmd.Flags().Var(&o.Config.Strategy, "strategy", "Specify the build strategy to use if you don't want to detect (docker|pipeline|source). NOTICE: the pipeline strategy is deprecated; consider using Jenkinsfiles directly on Jenkins or OpenShift Pipelines.")
+	cmd.Flags().Var(&o.Config.Strategy, "strategy", "Specify the build strategy to use if you don't want to detect (docker|pipeline|source). NOTICE: the pipeline strategy is deprecated; consider using Jenkinsfiles directly on Jenkins or Uccp Pipelines.")
 	cmd.Flags().StringVarP(&o.Config.Dockerfile, "dockerfile", "D", o.Config.Dockerfile, "Specify the contents of a Dockerfile to build directly, implies --strategy=docker. Pass '-' to read from STDIN.")
 	cmd.Flags().StringArrayVar(&o.Config.BuildArgs, "build-arg", o.Config.BuildArgs, "Specify a key-value pair to pass to Docker during the build.")
 	cmd.Flags().BoolVar(&o.Config.BinaryBuild, "binary", o.Config.BinaryBuild, "Instead of expecting a source URL, set the build to expect binary contents. Will disable triggers.")
@@ -178,7 +178,7 @@ func (o *BuildOptions) Complete(f kcmdutil.Factory, cmd *cobra.Command, args []s
 	return nil
 }
 
-// RunNewBuild contains all the necessary functionality for the OpenShift cli new-build command
+// RunNewBuild contains all the necessary functionality for the Uccp cli new-build command
 func (o *BuildOptions) RunNewBuild() error {
 	config := o.Config
 	out := o.Action.Out
@@ -228,7 +228,7 @@ func (o *BuildOptions) RunNewBuild() error {
 		switch t := item.(type) {
 		case *buildv1.BuildConfig:
 			if t.Spec.Strategy.Type == buildv1.JenkinsPipelineBuildStrategyType {
-				fmt.Fprintln(o.Action.ErrOut, "JenkinsPipeline build strategy is deprecated. Use Jenkinsfiles directly on Jenkins or OpenShift Pipelines instead")
+				fmt.Fprintln(o.Action.ErrOut, "JenkinsPipeline build strategy is deprecated. Use Jenkinsfiles directly on Jenkins or Uccp Pipelines instead")
 			}
 			if len(t.Spec.Triggers) > 0 && t.Spec.Source.Binary == nil {
 				fmt.Fprintf(out, "%sBuild configuration %q created and build triggered.\n", indent, t.Name)
@@ -255,7 +255,7 @@ func transformBuildError(err error, commandPath string, groups ocnewapp.ErrorGro
 			heredoc.Docf(`
 				The '%[1]s' command will match arguments to the following types:
 
-				  1. Images tagged into image streams in the current project or the 'openshift' project
+				  1. Images tagged into image streams in the current project or the 'uccp' project
 				     - if you don't specify a tag, we'll add ':latest'
 				  2. Images in the Docker Hub, on remote registries, or on the local Docker engine
 				  3. Git repository URLs or local paths that point to Git repositories

@@ -4,7 +4,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 
-	oauthv1 "github.com/openshift/api/oauth/v1"
+	oauthv1 "github.com/uccps-samples/api/oauth/v1"
 )
 
 func InstallExternalLegacyOAuth(scheme *runtime.Scheme) {

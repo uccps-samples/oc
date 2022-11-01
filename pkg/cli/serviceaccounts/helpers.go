@@ -28,7 +28,7 @@ func GetTokenSecretNamePrefix(serviceAccountName string) string {
 // an 8-character hash of the [base]-[suffix] string.  If the suffix is not too long,
 // it will truncate the base, add the hash of the base and return [base]-[hash]-[suffix]
 // TODO this is nasty copy&paste from pkg/api/apihelpers/namer.go (before it moved to
-// openshift-apiserver internals)
+// uccp-apiserver internals)
 func getName(base, suffix string, maxLength int) string {
 	if maxLength <= 0 {
 		return ""

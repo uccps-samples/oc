@@ -4,7 +4,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 
-	networkv1 "github.com/openshift/api/network/v1"
+	networkv1 "github.com/uccps-samples/api/network/v1"
 )
 
 func InstallExternalLegacyNetwork(scheme *runtime.Scheme) {

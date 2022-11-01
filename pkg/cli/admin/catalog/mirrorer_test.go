@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/oc/pkg/cli/image/imagesource"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/oc/pkg/cli/image/imagesource"
 )
 
 func existingExtractor(dir string) IndexExtractorFunc {

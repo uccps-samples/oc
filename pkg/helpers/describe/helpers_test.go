@@ -11,8 +11,8 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	imagev1 "github.com/openshift/api/image/v1"
-	imagehelpers "github.com/openshift/oc/pkg/helpers/image"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	imagehelpers "github.com/uccps-samples/oc/pkg/helpers/image"
 )
 
 func TestFormatImageStreamTags(t *testing.T) {

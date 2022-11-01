@@ -15,7 +15,7 @@ items:
     resources: {}
     source:
       git:
-        uri: https://github.com/openshift/ruby-hello-world
+        uri: https://github.com/uccps-samples/ruby-hello-world
       type: Git
     strategy:
       dockerStrategy:
@@ -51,7 +51,7 @@ items:
     serviceAccount: builder
     source:
       git:
-        uri: https://github.com/openshift/ruby-hello-world
+        uri: https://github.com/uccps-samples/ruby-hello-world
       type: Git
     strategy:
       dockerStrategy:
@@ -67,7 +67,7 @@ items:
   kind: ImageStream
   metadata:
     annotations:
-      openshift.io/image.dockerRepositoryCheck: 2015-07-06T19:05:12Z
+      uccp.io/image.dockerRepositoryCheck: 2015-07-06T19:05:12Z
     creationTimestamp: null
     labels:
       app: ruby

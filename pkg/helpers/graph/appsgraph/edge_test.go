@@ -10,10 +10,10 @@ import (
 	"k8s.io/apimachinery/pkg/api/meta"
 	"k8s.io/apimachinery/pkg/runtime"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	nodes "github.com/openshift/oc/pkg/helpers/graph/appsgraph/nodes"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	kubegraph "github.com/openshift/oc/pkg/helpers/graph/kubegraph/nodes"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	nodes "github.com/uccps-samples/oc/pkg/helpers/graph/appsgraph/nodes"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	kubegraph "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph/nodes"
 )
 
 type objectifier interface {

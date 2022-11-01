@@ -30,7 +30,7 @@ items:
     resources: {}
     source:
       git:
-        uri: https://github.com/openshift/ruby-hello-world
+        uri: https://github.com/uccps-samples/ruby-hello-world
       type: Git
     strategy:
       dockerStrategy:

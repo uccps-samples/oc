@@ -19,8 +19,8 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/scheme"
 
-	authorizationv1 "github.com/openshift/api/authorization/v1"
-	authorizationv1typedclient "github.com/openshift/client-go/authorization/clientset/versioned/typed/authorization/v1"
+	authorizationv1 "github.com/uccps-samples/api/authorization/v1"
+	authorizationv1typedclient "github.com/uccps-samples/client-go/authorization/clientset/versioned/typed/authorization/v1"
 )
 
 const WhoCanRecommendedName = "who-can"

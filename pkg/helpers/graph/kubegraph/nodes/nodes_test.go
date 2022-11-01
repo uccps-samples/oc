@@ -6,7 +6,7 @@ import (
 	batchv1 "k8s.io/api/batch/v1"
 	corev1 "k8s.io/api/core/v1"
 
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
 )
 
 func TestPodSpecNode(t *testing.T) {

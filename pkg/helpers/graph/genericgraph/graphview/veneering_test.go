@@ -10,17 +10,17 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	buildv1 "github.com/openshift/api/build/v1"
-	appsedges "github.com/openshift/oc/pkg/helpers/graph/appsgraph"
-	appsgraph "github.com/openshift/oc/pkg/helpers/graph/appsgraph/nodes"
-	buildedges "github.com/openshift/oc/pkg/helpers/graph/buildgraph"
-	buildgraph "github.com/openshift/oc/pkg/helpers/graph/buildgraph/nodes"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	osgraphtest "github.com/openshift/oc/pkg/helpers/graph/genericgraph/test"
-	imageedges "github.com/openshift/oc/pkg/helpers/graph/imagegraph"
-	kubeedges "github.com/openshift/oc/pkg/helpers/graph/kubegraph"
-	kubegraph "github.com/openshift/oc/pkg/helpers/graph/kubegraph/nodes"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	appsedges "github.com/uccps-samples/oc/pkg/helpers/graph/appsgraph"
+	appsgraph "github.com/uccps-samples/oc/pkg/helpers/graph/appsgraph/nodes"
+	buildedges "github.com/uccps-samples/oc/pkg/helpers/graph/buildgraph"
+	buildgraph "github.com/uccps-samples/oc/pkg/helpers/graph/buildgraph/nodes"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	osgraphtest "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph/test"
+	imageedges "github.com/uccps-samples/oc/pkg/helpers/graph/imagegraph"
+	kubeedges "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph"
+	kubegraph "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph/nodes"
 )
 
 func TestServiceGroup(t *testing.T) {

@@ -6,7 +6,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/openshift/library-go/pkg/image/imageutil"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
 
 	"github.com/spf13/cobra"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -17,13 +17,13 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/api/image"
-	buildv1client "github.com/openshift/client-go/build/clientset/versioned/typed/build/v1"
-	imagev1client "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	projectv1client "github.com/openshift/client-go/project/clientset/versioned/typed/project/v1"
-	osutil "github.com/openshift/oc/pkg/helpers/cmd"
-	"github.com/openshift/oc/pkg/helpers/describe"
-	imagegraph "github.com/openshift/oc/pkg/helpers/graph/imagegraph/nodes"
+	"github.com/uccps-samples/api/image"
+	buildv1client "github.com/uccps-samples/client-go/build/clientset/versioned/typed/build/v1"
+	imagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	projectv1client "github.com/uccps-samples/client-go/project/clientset/versioned/typed/project/v1"
+	osutil "github.com/uccps-samples/oc/pkg/helpers/cmd"
+	"github.com/uccps-samples/oc/pkg/helpers/describe"
+	imagegraph "github.com/uccps-samples/oc/pkg/helpers/graph/imagegraph/nodes"
 )
 
 // BuildChainRecommendedCommandName is the recommended command name

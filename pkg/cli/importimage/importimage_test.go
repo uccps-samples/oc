@@ -8,9 +8,9 @@ import (
 	apiequality "k8s.io/apimachinery/pkg/api/equality"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	imagev1 "github.com/openshift/api/image/v1"
-	imagefake "github.com/openshift/client-go/image/clientset/versioned/fake"
-	"github.com/openshift/oc/pkg/cli/tag"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	imagefake "github.com/uccps-samples/client-go/image/clientset/versioned/fake"
+	"github.com/uccps-samples/oc/pkg/cli/tag"
 )
 
 func TestCreateImageImport(t *testing.T) {

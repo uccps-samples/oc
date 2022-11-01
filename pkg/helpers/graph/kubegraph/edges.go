@@ -14,16 +14,16 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	oapps "github.com/openshift/api/apps"
-	appsv1 "github.com/openshift/api/apps/v1"
-	"github.com/openshift/library-go/pkg/image/imageutil"
-	triggerutil "github.com/openshift/library-go/pkg/image/trigger"
-	"github.com/openshift/oc/pkg/helpers/graph/appsgraph"
-	appsnodes "github.com/openshift/oc/pkg/helpers/graph/appsgraph/nodes"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	imagegraph "github.com/openshift/oc/pkg/helpers/graph/imagegraph/nodes"
-	kubegraph "github.com/openshift/oc/pkg/helpers/graph/kubegraph/nodes"
-	"github.com/openshift/oc/pkg/helpers/legacy"
+	oapps "github.com/uccps-samples/api/apps"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
+	triggerutil "github.com/uccps-samples/library-go/pkg/image/trigger"
+	"github.com/uccps-samples/oc/pkg/helpers/graph/appsgraph"
+	appsnodes "github.com/uccps-samples/oc/pkg/helpers/graph/appsgraph/nodes"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	imagegraph "github.com/uccps-samples/oc/pkg/helpers/graph/imagegraph/nodes"
+	kubegraph "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph/nodes"
+	"github.com/uccps-samples/oc/pkg/helpers/legacy"
 )
 
 const (

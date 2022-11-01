@@ -14,7 +14,7 @@ import (
 	cmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/oc/pkg/helpers/term"
+	"github.com/uccps-samples/oc/pkg/helpers/term"
 )
 
 const (

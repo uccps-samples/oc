@@ -5,10 +5,10 @@ import (
 
 	"k8s.io/apimachinery/pkg/util/sets"
 
-	"github.com/openshift/library-go/pkg/security/ldapclient"
-	ldapquery "github.com/openshift/library-go/pkg/security/ldapquery"
-	"github.com/openshift/oc/pkg/helpers/groupsync/groupdetector"
-	"github.com/openshift/oc/pkg/helpers/groupsync/interfaces"
+	"github.com/uccps-samples/library-go/pkg/security/ldapclient"
+	ldapquery "github.com/uccps-samples/library-go/pkg/security/ldapquery"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/groupdetector"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/interfaces"
 )
 
 // NewADLDAPInterface builds a new ADLDAPInterface using a schema-appropriate config

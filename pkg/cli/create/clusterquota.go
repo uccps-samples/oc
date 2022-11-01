@@ -17,8 +17,8 @@ import (
 	"k8s.io/kubectl/pkg/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	quotav1 "github.com/openshift/api/quota/v1"
-	quotav1client "github.com/openshift/client-go/quota/clientset/versioned/typed/quota/v1"
+	quotav1 "github.com/uccps-samples/api/quota/v1"
+	quotav1client "github.com/uccps-samples/client-go/quota/clientset/versioned/typed/quota/v1"
 )
 
 var (
@@ -30,7 +30,7 @@ var (
 
 	clusterQuotaExample = templates.Examples(`
 		# Create a cluster resource quota limited to 10 pods
-		oc create clusterresourcequota limit-bob --project-annotation-selector=openshift.io/requester=user-bob --hard=pods=10
+		oc create clusterresourcequota limit-bob --project-annotation-selector=uccp.io/requester=user-bob --hard=pods=10
 	`)
 )
 

@@ -17,13 +17,13 @@ import (
 	"github.com/spf13/cobra"
 	"k8s.io/klog/v2"
 
-	configclient "github.com/openshift/client-go/config/clientset/versioned"
-	imagev1client "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	"github.com/openshift/library-go/pkg/image/imageutil"
-	imagereference "github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/library-go/pkg/operator/resource/retry"
-	"github.com/openshift/oc/pkg/cli/admin/inspect"
-	"github.com/openshift/oc/pkg/cli/rsync"
+	configclient "github.com/uccps-samples/client-go/config/clientset/versioned"
+	imagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
+	imagereference "github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/library-go/pkg/operator/resource/retry"
+	"github.com/uccps-samples/oc/pkg/cli/admin/inspect"
+	"github.com/uccps-samples/oc/pkg/cli/rsync"
 	corev1 "k8s.io/api/core/v1"
 	rbacv1 "k8s.io/api/rbac/v1"
 	kerrors "k8s.io/apimachinery/pkg/api/errors"
@@ -273,13 +273,13 @@ func (o *MustGatherOptions) Run() error {
 	// create namespace ...
 	ns, err := o.Client.CoreV1().Namespaces().Create(context.TODO(), &corev1.Namespace{
 		ObjectMeta: metav1.ObjectMeta{
-			GenerateName: "openshift-must-gather-",
+			GenerateName: "uccp-must-gather-",
 			Labels: map[string]string{
-				"openshift.io/run-level": "0",
+				"uccp.io/run-level": "0",
 			},
 			Annotations: map[string]string{
-				"oc.openshift.io/command":    "oc adm must-gather",
-				"openshift.io/node-selector": "",
+				"oc.uccp.io/command":    "oc adm must-gather",
+				"uccp.io/node-selector": "",
 			},
 		},
 	}, metav1.CreateOptions{})
@@ -566,7 +566,7 @@ func (o *MustGatherOptions) newClusterRoleBinding(ns string) *rbacv1.ClusterRole
 		ObjectMeta: metav1.ObjectMeta{
 			GenerateName: "must-gather-",
 			Annotations: map[string]string{
-				"oc.openshift.io/command": "oc adm must-gather",
+				"oc.uccp.io/command": "oc adm must-gather",
 			},
 		},
 		RoleRef: rbacv1.RoleRef{
@@ -607,7 +607,7 @@ func (o *MustGatherOptions) newPod(node, image string) *corev1.Pod {
 		Spec: corev1.PodSpec{
 			NodeName: node,
 			// This pod is ok to be OOMKilled but not preempted. Following the conventions mentioned at:
-			// https://github.com/openshift/enhancements/blob/master/CONVENTIONS.md#priority-classes
+			// https://github.com/uccps-samples/enhancements/blob/master/CONVENTIONS.md#priority-classes
 			// so setting priority class to system-cluster-critical
 			PriorityClassName: "system-cluster-critical",
 			RestartPolicy:     corev1.RestartPolicyNever,
@@ -671,7 +671,7 @@ func (o *MustGatherOptions) BackupGathering(ctx context.Context) {
 	inspectOptions := inspect.NewInspectOptions(o.IOStreams)
 	inspectOptions.RESTConfig = rest.CopyConfig(o.Config)
 	inspectOptions.DestDir = o.DestDir
-	if err := inspectOptions.Complete([]string{"clusteroperators.v1.config.openshift.io"}); err != nil {
+	if err := inspectOptions.Complete([]string{"clusteroperators.v1.config.uccp.io"}); err != nil {
 		fmt.Fprintf(o.ErrOut, "error completing backup collection: %v", err)
 		return
 	}

@@ -22,9 +22,9 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	"github.com/openshift/library-go/pkg/apps/appsutil"
-	"github.com/openshift/oc/pkg/cli/set"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	"github.com/uccps-samples/library-go/pkg/apps/appsutil"
+	"github.com/uccps-samples/oc/pkg/cli/set"
 )
 
 type RetryOptions struct {

@@ -4,11 +4,11 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	userv1 "github.com/openshift/api/user/v1"
+	userv1 "github.com/uccps-samples/api/user/v1"
 	"io/ioutil"
 	"strings"
 
-	"github.com/openshift/library-go/pkg/config/helpers"
+	"github.com/uccps-samples/library-go/pkg/config/helpers"
 
 	"github.com/spf13/cobra"
 
@@ -21,27 +21,27 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	legacyconfigv1 "github.com/openshift/api/legacyconfig/v1"
-	userv1typedclient "github.com/openshift/client-go/user/clientset/versioned/typed/user/v1"
-	"github.com/openshift/library-go/pkg/security/ldapclient"
-	"github.com/openshift/oc/pkg/helpers/groupsync"
-	"github.com/openshift/oc/pkg/helpers/groupsync/interfaces"
-	"github.com/openshift/oc/pkg/helpers/groupsync/ldap"
-	"github.com/openshift/oc/pkg/helpers/groupsync/syncerror"
+	legacyconfigv1 "github.com/uccps-samples/api/legacyconfig/v1"
+	userv1typedclient "github.com/uccps-samples/client-go/user/clientset/versioned/typed/user/v1"
+	"github.com/uccps-samples/library-go/pkg/security/ldapclient"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/interfaces"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/ldap"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/syncerror"
 )
 
 const SyncRecommendedName = "sync"
 
 var (
 	syncLong = templates.LongDesc(`
-		Sync OpenShift groups with records from an external provider.
+		Sync Uccp groups with records from an external provider.
 
-		In order to sync OpenShift group records with those from an external provider, determine which groups you want
+		In order to sync Uccp group records with those from an external provider, determine which groups you want
 		to sync and where their records live. For instance, all or some groups may be selected from the current groups
-		stored in OpenShift that have been synced previously, or similarly all or some groups may be selected from those
+		stored in Uccp that have been synced previously, or similarly all or some groups may be selected from those
 		stored on an LDAP server. The path to a sync configuration file is required in order to describe how data is
-		requested from the external record store and migrated to OpenShift records. Default behavior is to do a dry-run
-		without changing OpenShift records. Passing '--confirm' will sync all groups from the LDAP server returned by the
+		requested from the external record store and migrated to Uccp records. Default behavior is to do a dry-run
+		without changing Uccp records. Passing '--confirm' will sync all groups from the LDAP server returned by the
 		LDAP query templates.
 	`)
 
@@ -55,10 +55,10 @@ var (
 		# Sync specific groups specified in a whitelist file with an LDAP server
 		oc adm groups sync --whitelist=/path/to/whitelist.txt --sync-config=/path/to/sync-config.yaml --confirm
 
-		# Sync all OpenShift groups that have been synced previously with an LDAP server
-		oc adm groups sync --type=openshift --sync-config=/path/to/ldap-sync-config.yaml --confirm
+		# Sync all Uccp groups that have been synced previously with an LDAP server
+		oc adm groups sync --type=uccp --sync-config=/path/to/ldap-sync-config.yaml --confirm
 
-		# Sync specific OpenShift groups if they have been synced previously with an LDAP server
+		# Sync specific Uccp groups if they have been synced previously with an LDAP server
 		oc adm groups sync groups/group1 groups/group2 groups/group3 --sync-config=/path/to/sync-config.yaml --confirm
 	`)
 )
@@ -69,8 +69,8 @@ type GroupSyncSource string
 const (
 	// GroupSyncSourceLDAP determines that the groups to be synced are determined from an LDAP record
 	GroupSyncSourceLDAP GroupSyncSource = "ldap"
-	// GroupSyncSourceOpenShift determines that the groups to be synced are determined from OpenShift records
-	GroupSyncSourceOpenShift GroupSyncSource = "openshift"
+	// GroupSyncSourceOpenShift determines that the groups to be synced are determined from Uccp records
+	GroupSyncSourceOpenShift GroupSyncSource = "uccp"
 )
 
 var AllowedSourceTypes = []string{string(GroupSyncSourceLDAP), string(GroupSyncSourceOpenShift)}
@@ -86,20 +86,20 @@ type SyncOptions struct {
 	Config     *legacyconfigv1.LDAPSyncConfig
 	ConfigFile string
 
-	// Whitelist are the names of OpenShift group or LDAP group UIDs to use for syncing
+	// Whitelist are the names of Uccp group or LDAP group UIDs to use for syncing
 	Whitelist     []string
 	WhitelistFile string
 
-	// Blacklist are the names of OpenShift group or LDAP group UIDs to exclude
+	// Blacklist are the names of Uccp group or LDAP group UIDs to exclude
 	Blacklist     []string
 	BlacklistFile string
 
 	Type string
 
-	// Confirm determines whether or not to write to OpenShift
+	// Confirm determines whether or not to write to Uccp
 	Confirm bool
 
-	// GroupClient is the interface used to interact with OpenShift Group objects
+	// GroupClient is the interface used to interact with Uccp Group objects
 	GroupClient userv1typedclient.GroupsGetter
 
 	genericclioptions.IOStreams
@@ -118,7 +118,7 @@ func NewCmdSync(f kcmdutil.Factory, streams genericclioptions.IOStreams) *cobra.
 	o := NewSyncOptions(streams)
 	cmd := &cobra.Command{
 		Use:     "sync [--type=TYPE] [WHITELIST] [--whitelist=WHITELIST-FILE] --sync-config=CONFIG-FILE [--confirm]",
-		Short:   "Sync OpenShift groups with records from an external provider",
+		Short:   "Sync Uccp groups with records from an external provider",
 		Long:    syncLong,
 		Example: syncExamples,
 		Run: func(c *cobra.Command, args []string) {
@@ -137,7 +137,7 @@ func NewCmdSync(f kcmdutil.Factory, streams genericclioptions.IOStreams) *cobra.
 	cmd.Flags().StringVar(&o.ConfigFile, "sync-config", o.ConfigFile, "path to the sync config")
 	cmd.MarkFlagFilename("sync-config", "yaml", "yml")
 	cmd.Flags().StringVar(&o.Type, "type", o.Type, "which groups white- and blacklist entries refer to: "+strings.Join(AllowedSourceTypes, ","))
-	cmd.Flags().BoolVar(&o.Confirm, "confirm", o.Confirm, "if true, modify OpenShift groups; if false, display results of a dry-run")
+	cmd.Flags().BoolVar(&o.Confirm, "confirm", o.Confirm, "if true, modify Uccp groups; if false, display results of a dry-run")
 
 	o.PrintFlags.AddFlags(cmd)
 
@@ -199,8 +199,8 @@ func (o *SyncOptions) Complete(f kcmdutil.Factory, args []string) error {
 	return nil
 }
 
-// buildOpenShiftGroupNameList builds a list of OpenShift names from file and args
-// nameMapping is used to override the OpenShift names built from file and args
+// buildOpenShiftGroupNameList builds a list of Uccp names from file and args
+// nameMapping is used to override the Uccp names built from file and args
 func buildOpenShiftGroupNameList(args []string, file string, nameMapping map[string]string) ([]string, error) {
 	rawList, err := buildNameList(args, file)
 	if err != nil {
@@ -276,7 +276,7 @@ func openshiftGroupNamesOnlyList(list []string) ([]string, error) {
 		}
 
 		if tokens[0] != "group" && tokens[0] != "groups" {
-			errs = append(errs, fmt.Errorf("%q is not a valid OpenShift group", curr))
+			errs = append(errs, fmt.Errorf("%q is not a valid Uccp group", curr))
 			continue
 		}
 

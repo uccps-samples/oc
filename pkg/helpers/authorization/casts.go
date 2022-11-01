@@ -3,7 +3,7 @@ package authorization
 import (
 	corev1 "k8s.io/api/core/v1"
 
-	authorizationv1 "github.com/openshift/api/authorization/v1"
+	authorizationv1 "github.com/uccps-samples/api/authorization/v1"
 )
 
 func ToRoleList(in *authorizationv1.ClusterRoleList) *authorizationv1.RoleList {

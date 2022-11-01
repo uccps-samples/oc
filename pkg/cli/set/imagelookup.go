@@ -20,8 +20,8 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	imagev1 "github.com/openshift/api/image/v1"
-	ometa "github.com/openshift/library-go/pkg/image/referencemutator"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	ometa "github.com/uccps-samples/library-go/pkg/image/referencemutator"
 )
 
 var (
@@ -79,7 +79,7 @@ var (
 		oc set image-lookup --all`)
 )
 
-const alphaResolveNamesAnnotation = "alpha.image.policy.openshift.io/resolve-names"
+const alphaResolveNamesAnnotation = "alpha.image.policy.uccp.io/resolve-names"
 
 type ImageLookupOptions struct {
 	PrintFlags *genericclioptions.PrintFlags

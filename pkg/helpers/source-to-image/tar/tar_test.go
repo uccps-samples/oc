@@ -12,8 +12,8 @@ import (
 	"testing"
 	"time"
 
-	s2ierr "github.com/openshift/oc/pkg/helpers/source-to-image/errors"
-	"github.com/openshift/oc/pkg/helpers/source-to-image/fs"
+	s2ierr "github.com/uccps-samples/oc/pkg/helpers/source-to-image/errors"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/fs"
 )
 
 type dirDesc struct {

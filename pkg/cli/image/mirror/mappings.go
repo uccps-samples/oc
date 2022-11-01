@@ -11,7 +11,7 @@ import (
 	"github.com/docker/distribution/registry/client/auth"
 	digest "github.com/opencontainers/go-digest"
 
-	"github.com/openshift/oc/pkg/cli/image/imagesource"
+	"github.com/uccps-samples/oc/pkg/cli/image/imagesource"
 )
 
 // ErrAlreadyExists may be returned by the blob Create function to indicate that the blob already exists.

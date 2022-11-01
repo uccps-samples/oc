@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	ldapquery "github.com/openshift/library-go/pkg/security/ldapquery"
+	ldapquery "github.com/uccps-samples/library-go/pkg/security/ldapquery"
 )
 
 func TestSuppressMemberLookupErrorOutOfBounds(t *testing.T) {

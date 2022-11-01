@@ -42,26 +42,26 @@ import (
 	"k8s.io/kubectl/pkg/util/templates"
 	"k8s.io/kubectl/pkg/util/term"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	dockerv10 "github.com/openshift/api/image/docker10"
-	imagev1 "github.com/openshift/api/image/v1"
-	appsv1client "github.com/openshift/client-go/apps/clientset/versioned/typed/apps/v1"
-	imagev1client "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	"github.com/openshift/library-go/pkg/apps/appsutil"
-	"github.com/openshift/library-go/pkg/image/imageutil"
-	"github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/oc/pkg/helpers/conditions"
-	utilenv "github.com/openshift/oc/pkg/helpers/env"
-	generateapp "github.com/openshift/oc/pkg/helpers/newapp/app"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	dockerv10 "github.com/uccps-samples/api/image/docker10"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	appsv1client "github.com/uccps-samples/client-go/apps/clientset/versioned/typed/apps/v1"
+	imagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	"github.com/uccps-samples/library-go/pkg/apps/appsutil"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/oc/pkg/helpers/conditions"
+	utilenv "github.com/uccps-samples/oc/pkg/helpers/env"
+	generateapp "github.com/uccps-samples/oc/pkg/helpers/newapp/app"
 )
 
 const (
-	debugPodAnnotationSourceContainer = "debug.openshift.io/source-container"
-	debugPodAnnotationSourceResource  = "debug.openshift.io/source-resource"
+	debugPodAnnotationSourceContainer = "debug.uccp.io/source-container"
+	debugPodAnnotationSourceResource  = "debug.uccp.io/source-resource"
 	// containerResourcesAnnotationPrefix contains resource annotation prefix that will be used by CRI-O to set cpu shares
-	containerResourcesAnnotationPrefix = "resources.workload.openshift.io/"
+	containerResourcesAnnotationPrefix = "resources.workload.uccp.io/"
 	// podWorkloadTargetAnnotationPrefix contains the prefix for the pod workload target annotation
-	podWorkloadTargetAnnotationPrefix = "target.workload.openshift.io/"
+	podWorkloadTargetAnnotationPrefix = "target.workload.uccp.io/"
 )
 
 var (
@@ -615,7 +615,7 @@ func (o *DebugOptions) RunDebug() error {
 
 // getContainerImageViaDeploymentConfig attempts to return an Image for a given
 // Container.  It tries to walk from the Container's Pod to its DeploymentConfig
-// (via the "openshift.io/deployment-config.name" annotation), then tries to
+// (via the "uccp.io/deployment-config.name" annotation), then tries to
 // find the ImageStream from which the DeploymentConfig is deploying, then tries
 // to find a match for the Container's image in the ImageStream's Images.
 func (o *DebugOptions) getContainerImageViaDeploymentConfig(pod *corev1.Pod, container *corev1.Container) (*imagev1.Image, error) {

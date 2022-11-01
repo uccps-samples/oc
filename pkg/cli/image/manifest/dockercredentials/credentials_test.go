@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/openshift/oc/pkg/helpers/image/credentialprovider"
+	"github.com/uccps-samples/oc/pkg/helpers/image/credentialprovider"
 )
 
 type mockKeyring struct {

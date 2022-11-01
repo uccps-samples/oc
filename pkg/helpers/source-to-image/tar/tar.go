@@ -11,10 +11,10 @@ import (
 	"strings"
 	"time"
 
-	s2ierr "github.com/openshift/oc/pkg/helpers/source-to-image/errors"
-	"github.com/openshift/oc/pkg/helpers/source-to-image/fs"
-	utillog "github.com/openshift/oc/pkg/helpers/source-to-image/log"
-	"github.com/openshift/oc/pkg/helpers/source-to-image/timeout"
+	s2ierr "github.com/uccps-samples/oc/pkg/helpers/source-to-image/errors"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/fs"
+	utillog "github.com/uccps-samples/oc/pkg/helpers/source-to-image/log"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/timeout"
 )
 
 var log = utillog.StderrLog

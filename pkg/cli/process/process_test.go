@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	templatev1 "github.com/openshift/api/template/v1"
+	templatev1 "github.com/uccps-samples/api/template/v1"
 )
 
 func TestInjectUserVars(t *testing.T) {

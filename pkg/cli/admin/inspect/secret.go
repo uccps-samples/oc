@@ -82,8 +82,8 @@ func elideSecret(secret *corev1.Secret) {
 		secret.Data[k] = []byte(fmt.Sprintf("%d bytes long", len(v)))
 	}
 
-	if _, ok := secret.Annotations["openshift.io/token-secret.value"]; ok {
-		secret.Annotations["openshift.io/token-secret.value"] = ""
+	if _, ok := secret.Annotations["uccp.io/token-secret.value"]; ok {
+		secret.Annotations["uccp.io/token-secret.value"] = ""
 	}
 	if _, ok := secret.Annotations["kubectl.kubernetes.io/last-applied-configuration"]; ok {
 		secret.Annotations["kubectl.kubernetes.io/last-applied-configuration"] = ""

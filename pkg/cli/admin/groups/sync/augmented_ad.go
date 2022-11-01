@@ -1,12 +1,12 @@
 package sync
 
 import (
-	legacyconfigv1 "github.com/openshift/api/legacyconfig/v1"
-	"github.com/openshift/library-go/pkg/security/ldapclient"
-	ldapquery "github.com/openshift/library-go/pkg/security/ldapquery"
-	"github.com/openshift/oc/pkg/helpers/groupsync"
-	"github.com/openshift/oc/pkg/helpers/groupsync/ad"
-	"github.com/openshift/oc/pkg/helpers/groupsync/interfaces"
+	legacyconfigv1 "github.com/uccps-samples/api/legacyconfig/v1"
+	"github.com/uccps-samples/library-go/pkg/security/ldapclient"
+	ldapquery "github.com/uccps-samples/library-go/pkg/security/ldapquery"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/ad"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/interfaces"
 )
 
 var _ SyncBuilder = &AugmentedADBuilder{}

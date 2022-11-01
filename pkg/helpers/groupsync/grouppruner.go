@@ -8,8 +8,8 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/klog/v2"
 
-	userv1client "github.com/openshift/client-go/user/clientset/versioned/typed/user/v1"
-	"github.com/openshift/oc/pkg/helpers/groupsync/interfaces"
+	userv1client "github.com/uccps-samples/client-go/user/clientset/versioned/typed/user/v1"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/interfaces"
 )
 
 // GroupPruner runs a prune job on Groups

@@ -27,11 +27,11 @@ import (
 	"k8s.io/klog/v2"
 
 	imagespecv1 "github.com/opencontainers/image-spec/specs-go/v1"
-	"github.com/openshift/library-go/pkg/image/dockerv1client"
-	imagereference "github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/library-go/pkg/image/registryclient"
-	"github.com/openshift/oc/pkg/cli/image/manifest/dockercredentials"
-	"github.com/openshift/oc/pkg/helpers/image/dockerlayer/add"
+	"github.com/uccps-samples/library-go/pkg/image/dockerv1client"
+	imagereference "github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/library-go/pkg/image/registryclient"
+	"github.com/uccps-samples/oc/pkg/cli/image/manifest/dockercredentials"
+	"github.com/uccps-samples/oc/pkg/helpers/image/dockerlayer/add"
 )
 
 type ParallelOptions struct {

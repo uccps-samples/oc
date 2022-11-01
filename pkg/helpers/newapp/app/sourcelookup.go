@@ -13,16 +13,16 @@ import (
 	"github.com/moby/buildkit/frontend/dockerfile/parser"
 	"k8s.io/klog/v2"
 
-	s2iapi "github.com/openshift/oc/pkg/helpers/source-to-image/api"
-	s2igit "github.com/openshift/oc/pkg/helpers/source-to-image/git"
+	s2iapi "github.com/uccps-samples/oc/pkg/helpers/source-to-image/api"
+	s2igit "github.com/uccps-samples/oc/pkg/helpers/source-to-image/git"
 
 	corev1 "k8s.io/api/core/v1"
 	apimachineryvalidation "k8s.io/apimachinery/pkg/api/validation"
 
-	buildv1 "github.com/openshift/api/build/v1"
-	"github.com/openshift/library-go/pkg/git"
-	"github.com/openshift/oc/pkg/helpers/newapp"
-	"github.com/openshift/oc/pkg/helpers/newapp/source"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	"github.com/uccps-samples/library-go/pkg/git"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp"
+	"github.com/uccps-samples/oc/pkg/helpers/newapp/source"
 )
 
 type Dockerfile interface {

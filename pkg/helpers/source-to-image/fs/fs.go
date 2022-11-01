@@ -12,8 +12,8 @@ import (
 	"sync"
 	"time"
 
-	s2ierr "github.com/openshift/oc/pkg/helpers/source-to-image/errors"
-	utillog "github.com/openshift/oc/pkg/helpers/source-to-image/log"
+	s2ierr "github.com/uccps-samples/oc/pkg/helpers/source-to-image/errors"
+	utillog "github.com/uccps-samples/oc/pkg/helpers/source-to-image/log"
 )
 
 var log = utillog.StderrLog

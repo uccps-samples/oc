@@ -10,11 +10,11 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	clientgotesting "k8s.io/client-go/testing"
 
-	dockerv10 "github.com/openshift/api/image/docker10"
-	imagev1 "github.com/openshift/api/image/v1"
-	imagefake "github.com/openshift/client-go/image/clientset/versioned/fake"
-	imagev1client "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	"github.com/openshift/library-go/pkg/image/reference"
+	dockerv10 "github.com/uccps-samples/api/image/docker10"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	imagefake "github.com/uccps-samples/client-go/image/clientset/versioned/fake"
+	imagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
 )
 
 func testImageStreamClient(imageStreams *imagev1.ImageStreamList, images map[string]*imagev1.ImageStreamImage) imagev1client.ImageV1Interface {

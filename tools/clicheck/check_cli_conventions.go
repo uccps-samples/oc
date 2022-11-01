@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/openshift/oc/pkg/cli"
-	"github.com/openshift/oc/tools/clicheck/sanity"
+	"github.com/uccps-samples/oc/pkg/cli"
+	"github.com/uccps-samples/oc/tools/clicheck/sanity"
 )
 
 func main() {

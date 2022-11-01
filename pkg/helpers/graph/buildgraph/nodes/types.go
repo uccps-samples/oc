@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"reflect"
 
-	buildv1 "github.com/openshift/api/build/v1"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
 )
 
 var (

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io"
 
-	ldapquery "github.com/openshift/library-go/pkg/security/ldapquery"
+	ldapquery "github.com/uccps-samples/library-go/pkg/security/ldapquery"
 )
 
 // Handler knows how to handle errors

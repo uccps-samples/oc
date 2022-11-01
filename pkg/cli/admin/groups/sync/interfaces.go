@@ -1,10 +1,10 @@
 package sync
 
 import (
-	legacyconfigv1 "github.com/openshift/api/legacyconfig/v1"
-	userv1client "github.com/openshift/client-go/user/clientset/versioned/typed/user/v1"
-	"github.com/openshift/library-go/pkg/security/ldapquery"
-	"github.com/openshift/oc/pkg/helpers/groupsync/interfaces"
+	legacyconfigv1 "github.com/uccps-samples/api/legacyconfig/v1"
+	userv1client "github.com/uccps-samples/client-go/user/clientset/versioned/typed/user/v1"
+	"github.com/uccps-samples/library-go/pkg/security/ldapquery"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/interfaces"
 )
 
 // SyncBuilder describes an object that can build all the schema-specific parts of an LDAPGroupSyncer

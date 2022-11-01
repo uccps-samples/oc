@@ -18,12 +18,12 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/api/annotations"
-	authorizationv1 "github.com/openshift/api/authorization/v1"
-	projectv1 "github.com/openshift/api/project/v1"
-	authorizationv1typedclient "github.com/openshift/client-go/authorization/clientset/versioned/typed/authorization/v1"
-	projectv1typedclient "github.com/openshift/client-go/project/clientset/versioned/typed/project/v1"
-	"github.com/openshift/oc/pkg/cli/admin/policy"
+	"github.com/uccps-samples/api/annotations"
+	authorizationv1 "github.com/uccps-samples/api/authorization/v1"
+	projectv1 "github.com/uccps-samples/api/project/v1"
+	authorizationv1typedclient "github.com/uccps-samples/client-go/authorization/clientset/versioned/typed/authorization/v1"
+	projectv1typedclient "github.com/uccps-samples/client-go/project/clientset/versioned/typed/project/v1"
+	"github.com/uccps-samples/oc/pkg/cli/admin/policy"
 )
 
 const NewProjectRecommendedName = "new-project"

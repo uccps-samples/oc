@@ -22,10 +22,10 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	imagev1 "github.com/openshift/api/image/v1"
-	imagev1typedclient "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	userv1typedclient "github.com/openshift/client-go/user/clientset/versioned/typed/user/v1"
-	imageref "github.com/openshift/library-go/pkg/image/reference"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	imagev1typedclient "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	userv1typedclient "github.com/uccps-samples/client-go/user/clientset/versioned/typed/user/v1"
+	imageref "github.com/uccps-samples/library-go/pkg/image/reference"
 )
 
 var (
@@ -262,7 +262,7 @@ func (o *VerifyImageSignatureOptions) getImageManifest(img *imagev1.Image) ([]by
 		}
 	}
 	// when using in-cluster auth, the username is just user + token, compare
-	// https://github.com/openshift/oc/blob/9f54c1d4f68c8530ac9466c655a4e55eb04a1459/pkg/cli/registry/login/login.go#L208
+	// https://github.com/uccps-samples/oc/blob/9f54c1d4f68c8530ac9466c655a4e55eb04a1459/pkg/cli/registry/login/login.go#L208
 	return getImageManifestByIDFromRegistry(registryURL, parsed.RepositoryName(), img.Name, "user", o.CurrentUserToken, o.Insecure)
 }
 

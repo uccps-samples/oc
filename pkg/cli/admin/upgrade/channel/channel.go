@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	configv1client "github.com/openshift/client-go/config/clientset/versioned"
+	configv1client "github.com/uccps-samples/client-go/config/clientset/versioned"
 	"github.com/spf13/cobra"
 	"k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -79,7 +79,7 @@ func (o *Options) Run() error {
 	cv, err := o.Client.ConfigV1().ClusterVersions().Get(ctx, "version", metav1.GetOptions{})
 	if err != nil {
 		if errors.IsNotFound(err) {
-			return fmt.Errorf("no cluster version information available - you must be connected to an OpenShift version 4 server to fetch the current version")
+			return fmt.Errorf("no cluster version information available - you must be connected to an Uccp version 1 server to fetch the current version")
 		}
 		return err
 	}

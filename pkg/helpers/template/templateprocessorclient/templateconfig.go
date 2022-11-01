@@ -5,7 +5,7 @@ import (
 
 	"k8s.io/client-go/rest"
 
-	templatev1 "github.com/openshift/api/template/v1"
+	templatev1 "github.com/uccps-samples/api/template/v1"
 )
 
 // TemplateConfigInterface is an interface for processing template client.

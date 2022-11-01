@@ -16,9 +16,9 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	templatev1 "github.com/openshift/api/template/v1"
-	templatev1typedclient "github.com/openshift/client-go/template/clientset/versioned/typed/template/v1"
-	"github.com/openshift/oc/pkg/cli/admin/migrate"
+	templatev1 "github.com/uccps-samples/api/template/v1"
+	templatev1typedclient "github.com/uccps-samples/client-go/template/clientset/versioned/typed/template/v1"
+	"github.com/uccps-samples/oc/pkg/cli/admin/migrate"
 )
 
 type apiType struct {
@@ -29,15 +29,15 @@ type apiType struct {
 var (
 	transforms = map[apiType]apiType{
 		// legacy oapi group
-		{"DeploymentConfig", "v1"}: {"DeploymentConfig", "apps.openshift.io/v1"},
-		{"BuildConfig", "v1"}:      {"BuildConfig", "build.openshift.io/v1"},
-		{"Build", "v1"}:            {"Build", "build.openshift.io/v1"},
-		{"Route", "v1"}:            {"Route", "route.openshift.io/v1"},
+		{"DeploymentConfig", "v1"}: {"DeploymentConfig", "apps.uccp.io/v1"},
+		{"BuildConfig", "v1"}:      {"BuildConfig", "build.uccp.io/v1"},
+		{"Build", "v1"}:            {"Build", "build.uccp.io/v1"},
+		{"Route", "v1"}:            {"Route", "route.uccp.io/v1"},
 		// legacy oapi group, for the lazy
-		{"DeploymentConfig", ""}: {"DeploymentConfig", "apps.openshift.io/v1"},
-		{"BuildConfig", ""}:      {"BuildConfig", "build.openshift.io/v1"},
-		{"Build", ""}:            {"Build", "build.openshift.io/v1"},
-		{"Route", ""}:            {"Route", "route.openshift.io/v1"},
+		{"DeploymentConfig", ""}: {"DeploymentConfig", "apps.uccp.io/v1"},
+		{"BuildConfig", ""}:      {"BuildConfig", "build.uccp.io/v1"},
+		{"Build", ""}:            {"Build", "build.uccp.io/v1"},
+		{"Route", ""}:            {"Route", "route.uccp.io/v1"},
 	}
 
 	internalMigrateTemplateInstancesLong = templates.LongDesc(fmt.Sprintf(`

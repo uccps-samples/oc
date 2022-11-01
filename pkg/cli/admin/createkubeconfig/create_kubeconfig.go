@@ -18,8 +18,8 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/library-go/pkg/crypto"
-	"github.com/openshift/oc/pkg/helpers/kubeconfig"
+	"github.com/uccps-samples/library-go/pkg/crypto"
+	"github.com/uccps-samples/oc/pkg/helpers/kubeconfig"
 )
 
 var createKubeConfigLongDesc = templates.LongDesc(`
@@ -71,7 +71,7 @@ type CreateKubeConfigOptions struct {
 func NewCreateKubeConfigOptions(streams genericclioptions.IOStreams) *CreateKubeConfigOptions {
 	return &CreateKubeConfigOptions{
 		APIServerURL:     "https://localhost:8443",
-		APIServerCAFiles: []string{"openshift.local.config/master/ca.crt"},
+		APIServerCAFiles: []string{"uccp.local.config/master/ca.crt"},
 		ContextNamespace: metav1.NamespaceDefault,
 		KubeConfigFile:   ".kubeconfig",
 		IOStreams:        streams,

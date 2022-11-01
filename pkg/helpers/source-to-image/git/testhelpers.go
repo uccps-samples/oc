@@ -5,8 +5,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/openshift/oc/pkg/helpers/source-to-image/cmd"
-	"github.com/openshift/oc/pkg/helpers/source-to-image/cygpath"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/cmd"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/cygpath"
 )
 
 // CreateLocalGitDirectory creates a git directory with a commit

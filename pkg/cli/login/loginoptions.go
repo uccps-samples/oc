@@ -21,14 +21,14 @@ import (
 	kclientcmdapi "k8s.io/client-go/tools/clientcmd/api"
 	kterm "k8s.io/kubectl/pkg/util/term"
 
-	projectv1typedclient "github.com/openshift/client-go/project/clientset/versioned/typed/project/v1"
-	"github.com/openshift/oc/pkg/helpers/errors"
-	cliconfig "github.com/openshift/oc/pkg/helpers/kubeconfig"
-	"github.com/openshift/oc/pkg/helpers/motd"
-	"github.com/openshift/oc/pkg/helpers/project"
-	loginutil "github.com/openshift/oc/pkg/helpers/project"
-	"github.com/openshift/oc/pkg/helpers/term"
-	"github.com/openshift/oc/pkg/helpers/tokencmd"
+	projectv1typedclient "github.com/uccps-samples/client-go/project/clientset/versioned/typed/project/v1"
+	"github.com/uccps-samples/oc/pkg/helpers/errors"
+	cliconfig "github.com/uccps-samples/oc/pkg/helpers/kubeconfig"
+	"github.com/uccps-samples/oc/pkg/helpers/motd"
+	"github.com/uccps-samples/oc/pkg/helpers/project"
+	loginutil "github.com/uccps-samples/oc/pkg/helpers/project"
+	"github.com/uccps-samples/oc/pkg/helpers/term"
+	"github.com/uccps-samples/oc/pkg/helpers/tokencmd"
 )
 
 const defaultClusterURL = "https://localhost:8443"

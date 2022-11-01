@@ -5,9 +5,9 @@ import (
 
 	"github.com/gonum/graph"
 
-	buildv1 "github.com/openshift/api/build/v1"
-	buildgraph "github.com/openshift/oc/pkg/helpers/graph/buildgraph/nodes"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	buildgraph "github.com/uccps-samples/oc/pkg/helpers/graph/buildgraph/nodes"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
 )
 
 // RelevantBuilds returns the lastSuccessful build, lastUnsuccessful build, and a list of active builds

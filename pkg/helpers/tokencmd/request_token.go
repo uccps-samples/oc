@@ -20,7 +20,7 @@ import (
 	restclient "k8s.io/client-go/rest"
 	"k8s.io/klog/v2"
 
-	"github.com/openshift/library-go/pkg/oauth/oauthdiscovery"
+	"github.com/uccps-samples/library-go/pkg/oauth/oauthdiscovery"
 )
 
 const (
@@ -36,7 +36,7 @@ const (
 	oauthMetadataEndpoint = "/.well-known/oauth-authorization-server"
 
 	// openShiftCLIClientID is the name of the CLI OAuth client, copied from pkg/oauth/apiserver/auth.go
-	openShiftCLIClientID = "openshift-challenging-client"
+	openShiftCLIClientID = "uccp-challenging-client"
 
 	// pkce_s256 is sha256 hash per RFC7636, copied from github.com/RangelReale/osincli/pkce.go
 	pkce_s256 = "S256"

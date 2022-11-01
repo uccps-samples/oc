@@ -13,11 +13,11 @@ import (
 	"k8s.io/client-go/kubernetes/fake"
 	clientgotesting "k8s.io/client-go/testing"
 
-	appsv1 "github.com/openshift/api/apps/v1"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
 
-	"github.com/openshift/library-go/pkg/apps/appsutil"
-	strat "github.com/openshift/oc/pkg/cli/deployer/strategy"
-	"github.com/openshift/oc/pkg/cli/deployer/strategy/util/appstest"
+	"github.com/uccps-samples/library-go/pkg/apps/appsutil"
+	strat "github.com/uccps-samples/oc/pkg/cli/deployer/strategy"
+	"github.com/uccps-samples/oc/pkg/cli/deployer/strategy/util/appstest"
 )
 
 func TestRolling_deployInitial(t *testing.T) {

@@ -3,7 +3,7 @@ package originpolymorphichelpers
 import (
 	"k8s.io/kubectl/pkg/generate"
 
-	routegen "github.com/openshift/oc/pkg/helpers/route/generator"
+	routegen "github.com/uccps-samples/oc/pkg/helpers/route/generator"
 )
 
 func defaultGenerators(cmdName string) map[string]generate.Generator {

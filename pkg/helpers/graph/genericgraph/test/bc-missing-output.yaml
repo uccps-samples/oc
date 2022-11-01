@@ -2,7 +2,7 @@ apiVersion: v1
 kind: BuildConfig
 metadata:
   annotations:
-    openshift.io/generated-by: OpenShiftNewApp
+    uccp.io/generated-by: UccpNewApp
   creationTimestamp: 2015-11-18T14:41:17Z
   labels:
     app: gitauthtest

@@ -1,10 +1,10 @@
 apiVersion: v1
 items:
-- apiVersion: apps.openshift.io/v1
+- apiVersion: apps.uccp.io/v1
   kind: DeploymentConfig
   metadata:
     annotations:
-      openshift.io/generated-by: OpenShiftNewApp
+      uccp.io/generated-by: UccpNewApp
     creationTimestamp: 2016-02-11T11:57:22Z
     labels:
       app: ruby-hello-world
@@ -30,7 +30,7 @@ items:
     template:
       metadata:
         annotations:
-          openshift.io/generated-by: OpenShiftNewApp
+          uccp.io/generated-by: UccpNewApp
         creationTimestamp: null
         labels:
           app: ruby-hello-world

@@ -13,11 +13,11 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	clienttesting "k8s.io/client-go/testing"
 
-	userv1 "github.com/openshift/api/user/v1"
-	fakeuserclient "github.com/openshift/client-go/user/clientset/versioned/fake"
-	fakeuserv1client "github.com/openshift/client-go/user/clientset/versioned/typed/user/v1/fake"
-	"github.com/openshift/library-go/pkg/security/ldaputil"
-	"github.com/openshift/oc/pkg/helpers/groupsync/interfaces"
+	userv1 "github.com/uccps-samples/api/user/v1"
+	fakeuserclient "github.com/uccps-samples/client-go/user/clientset/versioned/fake"
+	fakeuserv1client "github.com/uccps-samples/client-go/user/clientset/versioned/typed/user/v1/fake"
+	"github.com/uccps-samples/library-go/pkg/security/ldaputil"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/interfaces"
 )
 
 func TestMakeOpenShiftGroup(t *testing.T) {
@@ -78,7 +78,7 @@ func TestMakeOpenShiftGroup(t *testing.T) {
 					Labels:      map[string]string{LDAPHostLabel: "test-host"}},
 					Users: []string{"other-user"}},
 			},
-			expectedErr: `group "zulu": openshift.io/ldap.uid annotation did not match LDAP UID: wanted alfa, got bravo`,
+			expectedErr: `group "zulu": uccp.io/ldap.uid annotation did not match LDAP UID: wanted alfa, got bravo`,
 		},
 		"conflicting host": {
 			ldapGroupUID: "alfa",
@@ -89,7 +89,7 @@ func TestMakeOpenShiftGroup(t *testing.T) {
 					Labels:      map[string]string{LDAPHostLabel: "bad-host"}},
 					Users: []string{"other-user"}},
 			},
-			expectedErr: `group "zulu": openshift.io/ldap.host label did not match sync host: wanted test-host, got bad-host`,
+			expectedErr: `group "zulu": uccp.io/ldap.host label did not match sync host: wanted test-host, got bad-host`,
 		},
 		"conflicting port": {
 			ldapGroupUID: "alfa",
@@ -100,7 +100,7 @@ func TestMakeOpenShiftGroup(t *testing.T) {
 					Labels:      map[string]string{LDAPHostLabel: "test-host"}},
 					Users: []string{"other-user"}},
 			},
-			expectedErr: `group "zulu": openshift.io/ldap.url annotation did not match sync host: wanted test-host:port, got test-host:port2`,
+			expectedErr: `group "zulu": uccp.io/ldap.url annotation did not match sync host: wanted test-host:port, got test-host:port2`,
 		},
 	}
 

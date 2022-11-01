@@ -14,7 +14,7 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	routev1client "github.com/openshift/client-go/route/clientset/versioned/typed/route/v1"
+	routev1client "github.com/uccps-samples/client-go/route/clientset/versioned/typed/route/v1"
 )
 
 var (

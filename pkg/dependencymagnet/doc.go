@@ -5,5 +5,5 @@
 package dependencymagnet
 
 import (
-	_ "github.com/openshift/build-machinery-go"
+	_ "github.com/uccps-samples/build-machinery-go"
 )

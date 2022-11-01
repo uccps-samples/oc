@@ -5,4 +5,4 @@ LABEL io.k8s.display-name="OpenShift Deployer" \
       io.openshift.tags="openshift,deployer"
 # The deployer doesn't require a root user.
 USER 1001
-ENTRYPOINT ["/usr/bin/openshift-deploy"]
+ENTRYPOINT ["/usr/bin/uccp-deploy"]

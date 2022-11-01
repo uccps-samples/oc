@@ -14,8 +14,8 @@ import (
 	"k8s.io/klog/v2"
 	"k8s.io/kubectl/pkg/scheme"
 
-	templatev1 "github.com/openshift/api/template/v1"
-	templatev1typedclient "github.com/openshift/client-go/template/clientset/versioned/typed/template/v1"
+	templatev1 "github.com/uccps-samples/api/template/v1"
+	templatev1typedclient "github.com/uccps-samples/client-go/template/clientset/versioned/typed/template/v1"
 )
 
 // TemplateSearcher resolves stored template arguments into template objects

@@ -9,15 +9,15 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"github.com/openshift/library-go/pkg/certs"
+	"github.com/uccps-samples/library-go/pkg/certs"
 
 	"gopkg.in/ldap.v2"
 
 	"k8s.io/apimachinery/pkg/util/validation/field"
 
-	legacyconfigv1 "github.com/openshift/api/legacyconfig/v1"
-	"github.com/openshift/library-go/pkg/config/validation"
-	"github.com/openshift/library-go/pkg/security/ldaputil"
+	legacyconfigv1 "github.com/uccps-samples/api/legacyconfig/v1"
+	"github.com/uccps-samples/library-go/pkg/config/validation"
+	"github.com/uccps-samples/library-go/pkg/security/ldaputil"
 )
 
 func GetStringSourceFileReferences(s *legacyconfigv1.StringSource) []*string {

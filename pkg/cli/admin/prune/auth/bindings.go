@@ -11,7 +11,7 @@ import (
 	kerrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	authv1client "github.com/openshift/client-go/authorization/clientset/versioned/typed/authorization/v1"
+	authv1client "github.com/uccps-samples/client-go/authorization/clientset/versioned/typed/authorization/v1"
 )
 
 // reapClusterBindings removes the subject from cluster-level role bindings

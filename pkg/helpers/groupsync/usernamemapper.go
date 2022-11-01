@@ -5,8 +5,8 @@ import (
 
 	"gopkg.in/ldap.v2"
 
-	"github.com/openshift/library-go/pkg/security/ldaputil"
-	"github.com/openshift/oc/pkg/helpers/groupsync/interfaces"
+	"github.com/uccps-samples/library-go/pkg/security/ldaputil"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/interfaces"
 )
 
 // NewUserNameMapper returns a new DefaultLDAPGroupUserNameMapper

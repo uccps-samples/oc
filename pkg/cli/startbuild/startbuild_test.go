@@ -24,10 +24,10 @@ import (
 	clientcmdapi "k8s.io/client-go/tools/clientcmd/api"
 	"k8s.io/kubectl/pkg/scheme"
 
-	"github.com/openshift/api"
-	buildv1 "github.com/openshift/api/build/v1"
-	buildclientmanual "github.com/openshift/oc/pkg/helpers/build/client/v1"
-	"github.com/openshift/oc/pkg/helpers/source-to-image/tar"
+	"github.com/uccps-samples/api"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	buildclientmanual "github.com/uccps-samples/oc/pkg/helpers/build/client/v1"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/tar"
 )
 
 type FakeClientConfig struct {

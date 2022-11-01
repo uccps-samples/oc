@@ -25,11 +25,11 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/library-go/pkg/image/dockerv1client"
-	"github.com/openshift/library-go/pkg/image/registryclient"
-	"github.com/openshift/oc/pkg/cli/image/imagesource"
-	imagemanifest "github.com/openshift/oc/pkg/cli/image/manifest"
-	"github.com/openshift/oc/pkg/cli/image/workqueue"
+	"github.com/uccps-samples/library-go/pkg/image/dockerv1client"
+	"github.com/uccps-samples/library-go/pkg/image/registryclient"
+	"github.com/uccps-samples/oc/pkg/cli/image/imagesource"
+	imagemanifest "github.com/uccps-samples/oc/pkg/cli/image/manifest"
+	"github.com/uccps-samples/oc/pkg/cli/image/workqueue"
 )
 
 func NewInfoOptions(streams genericclioptions.IOStreams) *InfoOptions {

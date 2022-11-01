@@ -5,7 +5,7 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/openshift/oc/pkg/helpers/source-to-image/cmd"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/cmd"
 )
 
 // FakeCmdRunner provider the fake command runner

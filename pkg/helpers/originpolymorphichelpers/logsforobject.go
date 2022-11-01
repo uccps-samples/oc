@@ -16,13 +16,13 @@ import (
 	"k8s.io/kubectl/pkg/polymorphichelpers"
 	"k8s.io/kubectl/pkg/scheme"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	buildv1 "github.com/openshift/api/build/v1"
-	appsv1client "github.com/openshift/client-go/apps/clientset/versioned/typed/apps/v1"
-	buildv1client "github.com/openshift/client-go/build/clientset/versioned/typed/build/v1"
-	ocbuildapihelpers "github.com/openshift/oc/pkg/helpers/build"
-	buildmanualclientv1 "github.com/openshift/oc/pkg/helpers/build/client/v1"
-	"github.com/openshift/oc/pkg/helpers/originpolymorphichelpers/deploymentconfigs"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	appsv1client "github.com/uccps-samples/client-go/apps/clientset/versioned/typed/apps/v1"
+	buildv1client "github.com/uccps-samples/client-go/build/clientset/versioned/typed/build/v1"
+	ocbuildapihelpers "github.com/uccps-samples/oc/pkg/helpers/build"
+	buildmanualclientv1 "github.com/uccps-samples/oc/pkg/helpers/build/client/v1"
+	"github.com/uccps-samples/oc/pkg/helpers/originpolymorphichelpers/deploymentconfigs"
 )
 
 func NewLogsForObjectFn(delegate polymorphichelpers.LogsForObjectFunc) polymorphichelpers.LogsForObjectFunc {

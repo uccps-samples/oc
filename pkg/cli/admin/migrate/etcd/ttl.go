@@ -45,7 +45,7 @@ func NewCmdMigrateTTLs(f kcmdutil.Factory, streams genericclioptions.IOStreams) 
 		Short:      "Attach keys to etcd v3 leases to assist in etcd v2 migrations",
 		Long:       internalMigrateTTLLong,
 		Example:    internalMigrateTTLExample,
-		Deprecated: "migration of content is managed automatically in OpenShift 4.x",
+		Deprecated: "migration of content is managed automatically in Uccp 1.x",
 		Run: func(cmd *cobra.Command, args []string) {
 			kcmdutil.CheckErr(o.Run())
 		},

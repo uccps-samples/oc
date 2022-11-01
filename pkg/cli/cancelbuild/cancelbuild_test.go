@@ -14,9 +14,9 @@ import (
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 	clientgotesting "k8s.io/client-go/testing"
 
-	"github.com/openshift/api"
-	buildv1 "github.com/openshift/api/build/v1"
-	buildfake "github.com/openshift/client-go/build/clientset/versioned/fake"
+	"github.com/uccps-samples/api"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	buildfake "github.com/uccps-samples/client-go/build/clientset/versioned/fake"
 )
 
 // TestCancelBuildDefaultFlags ensures that flags default values are set.

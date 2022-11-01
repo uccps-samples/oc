@@ -38,15 +38,15 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	configv1 "github.com/openshift/api/config/v1"
-	imageapi "github.com/openshift/api/image/v1"
-	configv1client "github.com/openshift/client-go/config/clientset/versioned"
-	"github.com/openshift/library-go/pkg/image/dockerv1client"
-	imagereference "github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/oc/pkg/cli/image/extract"
-	"github.com/openshift/oc/pkg/cli/image/imagesource"
-	imageinfo "github.com/openshift/oc/pkg/cli/image/info"
-	imagemanifest "github.com/openshift/oc/pkg/cli/image/manifest"
+	configv1 "github.com/uccps-samples/api/config/v1"
+	imageapi "github.com/uccps-samples/api/image/v1"
+	configv1client "github.com/uccps-samples/client-go/config/clientset/versioned"
+	"github.com/uccps-samples/library-go/pkg/image/dockerv1client"
+	imagereference "github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/oc/pkg/cli/image/extract"
+	"github.com/uccps-samples/oc/pkg/cli/image/imagesource"
+	imageinfo "github.com/uccps-samples/oc/pkg/cli/image/info"
+	imagemanifest "github.com/uccps-samples/oc/pkg/cli/image/manifest"
 )
 
 func NewInfoOptions(streams genericclioptions.IOStreams) *InfoOptions {
@@ -105,7 +105,7 @@ func NewInfo(f kcmdutil.Factory, streams genericclioptions.IOStreams) *cobra.Com
 			oc adm release info 4.2.0 4.2.2 --commits
 
 			# Show where the images referenced by the release are located
-			oc adm release info quay.io/openshift-release-dev/ocp-release:4.2.2 --pullspecs
+			oc adm release info quay.io/uccp-release-dev/ocp-release:4.2.2 --pullspecs
 
 		`),
 		Run: func(cmd *cobra.Command, args []string) {

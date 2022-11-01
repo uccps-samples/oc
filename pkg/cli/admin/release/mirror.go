@@ -33,20 +33,20 @@ import (
 	"k8s.io/kubectl/pkg/util/templates"
 	"sigs.k8s.io/yaml"
 
-	imagev1 "github.com/openshift/api/image/v1"
-	operatorv1alpha1 "github.com/openshift/api/operator/v1alpha1"
-	imageclient "github.com/openshift/client-go/image/clientset/versioned"
-	"github.com/openshift/library-go/pkg/image/dockerv1client"
-	imagereference "github.com/openshift/library-go/pkg/image/reference"
-	"github.com/openshift/library-go/pkg/manifest"
-	"github.com/openshift/library-go/pkg/verify"
-	"github.com/openshift/library-go/pkg/verify/store/configmap"
-	"github.com/openshift/library-go/pkg/verify/store/sigstore"
-	"github.com/openshift/library-go/pkg/verify/util"
-	"github.com/openshift/oc/pkg/cli/image/extract"
-	"github.com/openshift/oc/pkg/cli/image/imagesource"
-	imagemanifest "github.com/openshift/oc/pkg/cli/image/manifest"
-	"github.com/openshift/oc/pkg/cli/image/mirror"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	operatorv1alpha1 "github.com/uccps-samples/api/operator/v1alpha1"
+	imageclient "github.com/uccps-samples/client-go/image/clientset/versioned"
+	"github.com/uccps-samples/library-go/pkg/image/dockerv1client"
+	imagereference "github.com/uccps-samples/library-go/pkg/image/reference"
+	"github.com/uccps-samples/library-go/pkg/manifest"
+	"github.com/uccps-samples/library-go/pkg/verify"
+	"github.com/uccps-samples/library-go/pkg/verify/store/configmap"
+	"github.com/uccps-samples/library-go/pkg/verify/store/sigstore"
+	"github.com/uccps-samples/library-go/pkg/verify/util"
+	"github.com/uccps-samples/oc/pkg/cli/image/extract"
+	"github.com/uccps-samples/oc/pkg/cli/image/imagesource"
+	imagemanifest "github.com/uccps-samples/oc/pkg/cli/image/manifest"
+	"github.com/uccps-samples/oc/pkg/cli/image/mirror"
 )
 
 // configFilesBaseDir is created under '--to-dir', when specified, to contain release image
@@ -137,7 +137,7 @@ func NewMirror(f kcmdutil.Factory, streams genericclioptions.IOStreams) *cobra.C
 				--release-image-signature-to-dir /tmp/releases
 
 			# Mirror the 4.3.0 release to repository registry.example.com and apply signatures to connected cluster
-			oc adm release mirror --from=quay.io/openshift-release-dev/ocp-release:4.3.0-x86_64 \
+			oc adm release mirror --from=quay.io/uccp-release-dev/ocp-release:4.3.0-x86_64 \
 				--to=registry.example.com/your/repository --apply-release-image-signature
 		`),
 		Run: func(cmd *cobra.Command, args []string) {
@@ -499,7 +499,7 @@ func (o *MirrorOptions) Run() error {
 		if err := json.Unmarshal(buf.Bytes(), &is); err != nil {
 			return fmt.Errorf("unable to load image-references from release payload: %v", err)
 		}
-		if is.Kind != "ImageStream" || is.APIVersion != "image.openshift.io/v1" {
+		if is.Kind != "ImageStream" || is.APIVersion != "image.uccp.io/v1" {
 			return fmt.Errorf("unrecognized image-references in release payload")
 		}
 		if !verifier.Verified() {
@@ -840,7 +840,7 @@ func (o *MirrorOptions) Run() error {
 }
 
 // printImageContentInstructions provides examples to the user for using the new repository mirror
-// https://github.com/openshift/installer/blob/master/docs/dev/alternative_release_image_sources.md
+// https://github.com/uccps-samples/installer/blob/master/docs/dev/alternative_release_image_sources.md
 func printImageContentInstructions(out io.Writer, from string, toList []string, signatureToDir string, repositories map[string]struct{}) error {
 	type installConfigSubsection struct {
 		ImageContentSources []operatorv1alpha1.RepositoryDigestMirrors `json:"imageContentSources"`

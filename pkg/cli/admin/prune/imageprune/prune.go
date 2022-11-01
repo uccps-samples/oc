@@ -25,14 +25,14 @@ import (
 	kerrors "k8s.io/apimachinery/pkg/util/errors"
 	"k8s.io/client-go/util/retry"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	buildv1 "github.com/openshift/api/build/v1"
-	dockerv10 "github.com/openshift/api/image/docker10"
-	imagev1 "github.com/openshift/api/image/v1"
-	imagev1client "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	"github.com/openshift/library-go/pkg/build/buildutil"
-	"github.com/openshift/library-go/pkg/image/imageutil"
-	"github.com/openshift/library-go/pkg/image/reference"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	dockerv10 "github.com/uccps-samples/api/image/docker10"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	imagev1client "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	"github.com/uccps-samples/library-go/pkg/build/buildutil"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
+	"github.com/uccps-samples/library-go/pkg/image/reference"
 )
 
 const defaultPruneImageWorkerCount = 5
@@ -213,7 +213,7 @@ type PrunerOptions struct {
 	// KeepTagRevisions is the minimum number of tag revisions to preserve;
 	// revisions older than this value are candidates for pruning.
 	KeepTagRevisions *int
-	// PruneOverSizeLimit indicates that images exceeding defined limits (openshift.io/Image)
+	// PruneOverSizeLimit indicates that images exceeding defined limits (uccp.io/Image)
 	// will be considered as candidates for pruning.
 	PruneOverSizeLimit *bool
 	// AllImages considers all images for pruning, not just those pushed directly to the registry.
@@ -335,7 +335,7 @@ var _ Pruner = &pruner{}
 // - any builds
 // - the n most recent tag revisions in an image stream's status.tags
 //
-// including only images with the annotation openshift.io/image.managed=true
+// including only images with the annotation uccp.io/image.managed=true
 // unless allImages is true.
 //
 // When removing an image, remove all references to the image from all

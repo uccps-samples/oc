@@ -14,8 +14,8 @@ import (
 	"github.com/docker/distribution/manifest/schema2"
 	digest "github.com/opencontainers/go-digest"
 
-	"github.com/openshift/library-go/pkg/image/dockerv1client"
-	"github.com/openshift/oc/pkg/helpers/image/dockerlayer"
+	"github.com/uccps-samples/library-go/pkg/image/dockerv1client"
+	"github.com/uccps-samples/oc/pkg/helpers/image/dockerlayer"
 )
 
 // get base manifest

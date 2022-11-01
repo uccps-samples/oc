@@ -9,9 +9,9 @@ import (
 	"k8s.io/apimachinery/pkg/labels"
 	"k8s.io/apimachinery/pkg/util/sets"
 
-	userv1 "github.com/openshift/api/user/v1"
-	userv1client "github.com/openshift/client-go/user/clientset/versioned/typed/user/v1"
-	"github.com/openshift/oc/pkg/helpers/groupsync/interfaces"
+	userv1 "github.com/uccps-samples/api/user/v1"
+	userv1client "github.com/uccps-samples/client-go/user/clientset/versioned/typed/user/v1"
+	"github.com/uccps-samples/oc/pkg/helpers/groupsync/interfaces"
 )
 
 // NewAllOpenShiftGroupLister returns a new allOpenShiftGroupLister

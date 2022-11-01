@@ -17,18 +17,18 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/oc/pkg/cli/admin/migrate"
+	"github.com/uccps-samples/oc/pkg/cli/admin/migrate"
 )
 
 var (
 	defaultMigrations = map[metav1.TypeMeta]metav1.TypeMeta{
 		// legacy oapi group
-		{Kind: "DeploymentConfig", APIVersion: "v1"}: {Kind: "DeploymentConfig", APIVersion: "apps.openshift.io/v1"},
+		{Kind: "DeploymentConfig", APIVersion: "v1"}: {Kind: "DeploymentConfig", APIVersion: "apps.uccp.io/v1"},
 		// legacy oapi group, for the lazy
-		{Kind: "DeploymentConfig"}: {Kind: "DeploymentConfig", APIVersion: "apps.openshift.io/v1"},
+		{Kind: "DeploymentConfig"}: {Kind: "DeploymentConfig", APIVersion: "apps.uccp.io/v1"},
 
 		// webconsole shenaniganry
-		{Kind: "DeploymentConfig", APIVersion: "extensions/v1beta1"}:      {Kind: "DeploymentConfig", APIVersion: "apps.openshift.io/v1"},
+		{Kind: "DeploymentConfig", APIVersion: "extensions/v1beta1"}:      {Kind: "DeploymentConfig", APIVersion: "apps.uccp.io/v1"},
 		{Kind: "Deployment", APIVersion: "extensions/v1beta1"}:            {Kind: "Deployment", APIVersion: "apps/v1"},
 		{Kind: "ReplicaSet", APIVersion: "extensions/v1beta1"}:            {Kind: "ReplicaSet", APIVersion: "apps/v1"},
 		{Kind: "ReplicationController", APIVersion: "extensions/v1beta1"}: {Kind: "ReplicationController", APIVersion: "v1"},
@@ -88,7 +88,7 @@ func NewCmdMigrateLegacyHPA(f kcmdutil.Factory, streams genericclioptions.IOStre
 		Short:      "Update HPAs to point to the latest group-version-kinds",
 		Long:       internalMigrateLegacyHPALong,
 		Example:    internalMigrateLegacyHPAExample,
-		Deprecated: "migration of content is managed automatically in OpenShift 4.x",
+		Deprecated: "migration of content is managed automatically in Uccp 1.x",
 		Run: func(cmd *cobra.Command, args []string) {
 			kcmdutil.CheckErr(o.Complete(f, cmd, args))
 			kcmdutil.CheckErr(o.Validate())

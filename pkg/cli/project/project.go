@@ -19,11 +19,11 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/api/annotations"
-	projectv1 "github.com/openshift/api/project/v1"
-	projectv1client "github.com/openshift/client-go/project/clientset/versioned/typed/project/v1"
-	cliconfig "github.com/openshift/oc/pkg/helpers/kubeconfig"
-	"github.com/openshift/oc/pkg/helpers/project"
+	"github.com/uccps-samples/api/annotations"
+	projectv1 "github.com/uccps-samples/api/project/v1"
+	projectv1client "github.com/uccps-samples/client-go/project/clientset/versioned/typed/project/v1"
+	cliconfig "github.com/uccps-samples/oc/pkg/helpers/kubeconfig"
+	"github.com/uccps-samples/oc/pkg/helpers/project"
 )
 
 type ProjectOptions struct {

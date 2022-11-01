@@ -12,7 +12,7 @@ import (
 	"k8s.io/client-go/kubernetes/fake"
 	"k8s.io/kubectl/pkg/polymorphichelpers"
 
-	"github.com/openshift/oc/pkg/helpers/originpolymorphichelpers"
+	"github.com/uccps-samples/oc/pkg/helpers/originpolymorphichelpers"
 )
 
 func fakePodWithVol() *corev1.Pod {

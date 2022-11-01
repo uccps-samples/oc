@@ -13,20 +13,20 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	clienttesting "k8s.io/client-go/testing"
 
-	authv1 "github.com/openshift/api/authorization/v1"
-	securityv1 "github.com/openshift/api/security/v1"
-	fakeauthclient "github.com/openshift/client-go/authorization/clientset/versioned/fake"
-	fakeauthv1client "github.com/openshift/client-go/authorization/clientset/versioned/typed/authorization/v1/fake"
-	fakesecurityclient "github.com/openshift/client-go/security/clientset/versioned/fake"
-	fakesecurityv1client "github.com/openshift/client-go/security/clientset/versioned/typed/security/v1/fake"
-	fakeuserv1client "github.com/openshift/client-go/user/clientset/versioned/typed/user/v1/fake"
+	authv1 "github.com/uccps-samples/api/authorization/v1"
+	securityv1 "github.com/uccps-samples/api/security/v1"
+	fakeauthclient "github.com/uccps-samples/client-go/authorization/clientset/versioned/fake"
+	fakeauthv1client "github.com/uccps-samples/client-go/authorization/clientset/versioned/typed/authorization/v1/fake"
+	fakesecurityclient "github.com/uccps-samples/client-go/security/clientset/versioned/fake"
+	fakesecurityv1client "github.com/uccps-samples/client-go/security/clientset/versioned/typed/security/v1/fake"
+	fakeuserv1client "github.com/uccps-samples/client-go/user/clientset/versioned/typed/user/v1/fake"
 )
 
 var (
-	groupsResource              = schema.GroupVersionResource{Group: "user.openshift.io", Version: "v1", Resource: "groups"}
-	clusterRoleBindingsResource = schema.GroupVersionResource{Group: "authorization.openshift.io", Version: "v1", Resource: "clusterrolebindings"}
-	roleBindingsResource        = schema.GroupVersionResource{Group: "authorization.openshift.io", Version: "v1", Resource: "rolebindings"}
-	sccResource                 = schema.GroupVersionResource{Group: "security.openshift.io", Version: "v1", Resource: "securitycontextconstraints"}
+	groupsResource              = schema.GroupVersionResource{Group: "user.uccp.io", Version: "v1", Resource: "groups"}
+	clusterRoleBindingsResource = schema.GroupVersionResource{Group: "authorization.uccp.io", Version: "v1", Resource: "clusterrolebindings"}
+	roleBindingsResource        = schema.GroupVersionResource{Group: "authorization.uccp.io", Version: "v1", Resource: "rolebindings"}
+	sccResource                 = schema.GroupVersionResource{Group: "security.uccp.io", Version: "v1", Resource: "securitycontextconstraints"}
 )
 
 func TestGroupReaper(t *testing.T) {

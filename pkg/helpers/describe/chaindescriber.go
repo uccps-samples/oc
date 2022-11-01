@@ -13,15 +13,15 @@ import (
 	"k8s.io/apimachinery/pkg/util/sets"
 	"k8s.io/klog/v2"
 
-	imagev1 "github.com/openshift/api/image/v1"
-	buildv1client "github.com/openshift/client-go/build/clientset/versioned/typed/build/v1"
-	dotutil "github.com/openshift/oc/pkg/helpers/dot"
-	buildedges "github.com/openshift/oc/pkg/helpers/graph/buildgraph"
-	buildanalysis "github.com/openshift/oc/pkg/helpers/graph/buildgraph/analysis"
-	buildgraph "github.com/openshift/oc/pkg/helpers/graph/buildgraph/nodes"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	imagegraph "github.com/openshift/oc/pkg/helpers/graph/imagegraph/nodes"
-	"github.com/openshift/oc/pkg/helpers/parallel"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	buildv1client "github.com/uccps-samples/client-go/build/clientset/versioned/typed/build/v1"
+	dotutil "github.com/uccps-samples/oc/pkg/helpers/dot"
+	buildedges "github.com/uccps-samples/oc/pkg/helpers/graph/buildgraph"
+	buildanalysis "github.com/uccps-samples/oc/pkg/helpers/graph/buildgraph/analysis"
+	buildgraph "github.com/uccps-samples/oc/pkg/helpers/graph/buildgraph/nodes"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	imagegraph "github.com/uccps-samples/oc/pkg/helpers/graph/imagegraph/nodes"
+	"github.com/uccps-samples/oc/pkg/helpers/parallel"
 )
 
 // NotFoundErr is returned when the imageStreamTag (ist) of interest cannot

@@ -21,15 +21,15 @@ import (
 	kscale "k8s.io/kubectl/pkg/scale"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	imageclientv1 "github.com/openshift/client-go/image/clientset/versioned"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	imageclientv1 "github.com/uccps-samples/client-go/image/clientset/versioned"
 
-	"github.com/openshift/library-go/pkg/apps/appsserialization"
-	"github.com/openshift/library-go/pkg/apps/appsutil"
-	"github.com/openshift/oc/pkg/cli/deployer/strategy"
-	"github.com/openshift/oc/pkg/cli/deployer/strategy/recreate"
-	"github.com/openshift/oc/pkg/cli/deployer/strategy/rolling"
-	"github.com/openshift/oc/pkg/version"
+	"github.com/uccps-samples/library-go/pkg/apps/appsserialization"
+	"github.com/uccps-samples/library-go/pkg/apps/appsutil"
+	"github.com/uccps-samples/oc/pkg/cli/deployer/strategy"
+	"github.com/uccps-samples/oc/pkg/cli/deployer/strategy/recreate"
+	"github.com/uccps-samples/oc/pkg/cli/deployer/strategy/rolling"
+	"github.com/uccps-samples/oc/pkg/version"
 )
 
 var (
@@ -88,8 +88,8 @@ func NewCommandDeployer(name string) *cobra.Command {
 	cmd.AddCommand(NewCmdVersion(name, version.Get(), os.Stdout))
 
 	flag := cmd.Flags()
-	flag.StringVar(&cfg.rcName, "deployment", os.Getenv("OPENSHIFT_DEPLOYMENT_NAME"), "The deployment name to start")
-	flag.StringVar(&cfg.Namespace, "namespace", os.Getenv("OPENSHIFT_DEPLOYMENT_NAMESPACE"), "The deployment namespace")
+	flag.StringVar(&cfg.rcName, "deployment", os.Getenv("UCCP_DEPLOYMENT_NAME"), "The deployment name to start")
+	flag.StringVar(&cfg.Namespace, "namespace", os.Getenv("UCCP_DEPLOYMENT_NAMESPACE"), "The deployment namespace")
 	flag.StringVar(&cfg.Until, "until", "", "Exit the deployment when this condition is met. See help for more details")
 
 	return cmd
@@ -97,10 +97,10 @@ func NewCommandDeployer(name string) *cobra.Command {
 
 func (cfg *config) RunDeployer() error {
 	if len(cfg.rcName) == 0 {
-		return fmt.Errorf("--deployment or OPENSHIFT_DEPLOYMENT_NAME is required")
+		return fmt.Errorf("--deployment or UCCP_DEPLOYMENT_NAME is required")
 	}
 	if len(cfg.Namespace) == 0 {
-		return fmt.Errorf("--namespace or OPENSHIFT_DEPLOYMENT_NAMESPACE is required")
+		return fmt.Errorf("--namespace or UCCP_DEPLOYMENT_NAMESPACE is required")
 	}
 
 	kcfg, err := restclient.InClusterConfig()

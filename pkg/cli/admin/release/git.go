@@ -22,7 +22,7 @@ import (
 )
 
 // git is a wrapper to invoke git safely, similar to
-// github.com/openshift/library-go/pkg/git but giving access to lower level
+// github.com/uccps-samples/library-go/pkg/git but giving access to lower level
 // calls. Consider improving pkg/git in the future.
 type git struct {
 	path string

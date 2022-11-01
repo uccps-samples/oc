@@ -7,16 +7,16 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	ktemplates "k8s.io/kubectl/pkg/util/templates"
 
-	"github.com/openshift/oc/pkg/cli/registry/info"
-	"github.com/openshift/oc/pkg/cli/registry/login"
-	cmdutil "github.com/openshift/oc/pkg/helpers/cmd"
+	"github.com/uccps-samples/oc/pkg/cli/registry/info"
+	"github.com/uccps-samples/oc/pkg/cli/registry/login"
+	cmdutil "github.com/uccps-samples/oc/pkg/helpers/cmd"
 )
 
 var (
 	imageLong = ktemplates.LongDesc(`
-		Manage the integrated registry on OpenShift
+		Manage the integrated registry on Uccp
 
-		These commands help you work with an integrated OpenShift registry.`)
+		These commands help you work with an integrated Uccp registry.`)
 )
 
 // NewCmd exposes commands for working with the registry.

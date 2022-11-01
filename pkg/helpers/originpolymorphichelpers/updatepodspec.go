@@ -5,7 +5,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/kubectl/pkg/polymorphichelpers"
 
-	oappsv1 "github.com/openshift/api/apps/v1"
+	oappsv1 "github.com/uccps-samples/api/apps/v1"
 )
 
 func NewUpdatePodSpecForObjectFn(delegate polymorphichelpers.UpdatePodSpecForObjectFunc) polymorphichelpers.UpdatePodSpecForObjectFunc {

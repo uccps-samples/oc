@@ -19,10 +19,10 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	imagev1 "github.com/openshift/api/image/v1"
-	imagev1typedclient "github.com/openshift/client-go/image/clientset/versioned/typed/image/v1"
-	"github.com/openshift/library-go/pkg/image/imageutil"
-	imagehelpers "github.com/openshift/oc/pkg/helpers/image"
+	imagev1 "github.com/uccps-samples/api/image/v1"
+	imagev1typedclient "github.com/uccps-samples/client-go/image/clientset/versioned/typed/image/v1"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
+	imagehelpers "github.com/uccps-samples/oc/pkg/helpers/image"
 )
 
 // TagOptions contains all the necessary options for the cli tag command.
@@ -89,7 +89,7 @@ func NewTagOptions(streams genericclioptions.IOStreams) *TagOptions {
 	}
 }
 
-// NewCmdTag implements the OpenShift cli tag command.
+// NewCmdTag implements the Uccp cli tag command.
 func NewCmdTag(f kcmdutil.Factory, streams genericclioptions.IOStreams) *cobra.Command {
 	o := NewTagOptions(streams)
 	cmd := &cobra.Command{
@@ -357,7 +357,7 @@ func (o TagOptions) Validate() error {
 	return nil
 }
 
-// Run contains all the necessary functionality for the OpenShift cli tag command.
+// Run contains all the necessary functionality for the Uccp cli tag command.
 func (o TagOptions) Run() error {
 	var tagReferencePolicy imagev1.TagReferencePolicyType
 	switch o.referencePolicy {

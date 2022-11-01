@@ -15,10 +15,10 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 
-	appsv1 "github.com/openshift/api/apps/v1"
-	buildv1 "github.com/openshift/api/build/v1"
-	dockerv10 "github.com/openshift/api/image/docker10"
-	imagev1 "github.com/openshift/api/image/v1"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	dockerv10 "github.com/uccps-samples/api/image/docker10"
+	imagev1 "github.com/uccps-samples/api/image/v1"
 )
 
 const (
@@ -35,7 +35,7 @@ var (
 )
 
 const (
-	managedByOpenShiftAnnotation = "openshift.io/image.managed"
+	managedByOpenShiftAnnotation = "uccp.io/image.managed"
 )
 
 // AgedImage creates a test image with specified age.
@@ -397,7 +397,7 @@ func DC(namespace, name string, containerImages ...string) appsv1.DeploymentConf
 		ObjectMeta: metav1.ObjectMeta{
 			Namespace: namespace,
 			Name:      name,
-			SelfLink:  "/apis/apps.openshift.io/v1/deploymentconfigs/" + name,
+			SelfLink:  "/apis/apps.uccp.io/v1/deploymentconfigs/" + name,
 		},
 		Spec: appsv1.DeploymentConfigSpec{
 			Template: &corev1.PodTemplateSpec{
@@ -443,7 +443,7 @@ func BC(namespace, name, strategyType, fromKind, fromNamespace, fromName string)
 		ObjectMeta: metav1.ObjectMeta{
 			Namespace: namespace,
 			Name:      name,
-			SelfLink:  "/apis/build.openshift.io/v1/buildconfigs/" + name,
+			SelfLink:  "/apis/build.uccp.io/v1/buildconfigs/" + name,
 		},
 		Spec: buildv1.BuildConfigSpec{
 			CommonSpec: CommonSpec(strategyType, fromKind, fromNamespace, fromName),
@@ -464,7 +464,7 @@ func Build(namespace, name, strategyType, fromKind, fromNamespace, fromName stri
 		ObjectMeta: metav1.ObjectMeta{
 			Namespace: namespace,
 			Name:      name,
-			SelfLink:  "/apis/build.openshift.io/v1/builds/" + name,
+			SelfLink:  "/apis/build.uccp.io/v1/builds/" + name,
 		},
 		Spec: buildv1.BuildSpec{
 			CommonSpec: CommonSpec(strategyType, fromKind, fromNamespace, fromName),

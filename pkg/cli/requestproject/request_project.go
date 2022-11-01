@@ -12,9 +12,9 @@ import (
 	kcmdutil "k8s.io/kubectl/pkg/cmd/util"
 	"k8s.io/kubectl/pkg/util/templates"
 
-	projectv1 "github.com/openshift/api/project/v1"
-	projectv1client "github.com/openshift/client-go/project/clientset/versioned/typed/project/v1"
-	ocproject "github.com/openshift/oc/pkg/cli/project"
+	projectv1 "github.com/uccps-samples/api/project/v1"
+	projectv1client "github.com/uccps-samples/client-go/project/clientset/versioned/typed/project/v1"
+	ocproject "github.com/uccps-samples/oc/pkg/cli/project"
 )
 
 // RequestProjectOptions contains all the options for running the RequestProject cli command.

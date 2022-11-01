@@ -9,9 +9,9 @@ import (
 	"k8s.io/apimachinery/pkg/api/meta"
 	"k8s.io/apimachinery/pkg/runtime"
 
-	buildv1 "github.com/openshift/api/build/v1"
-	nodes "github.com/openshift/oc/pkg/helpers/graph/buildgraph/nodes"
-	osgraph "github.com/openshift/oc/pkg/helpers/graph/genericgraph"
+	buildv1 "github.com/uccps-samples/api/build/v1"
+	nodes "github.com/uccps-samples/oc/pkg/helpers/graph/buildgraph/nodes"
+	osgraph "github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
 )
 
 type objectifier interface {

@@ -19,16 +19,16 @@ import (
 	"k8s.io/kubectl/pkg/describe"
 	"k8s.io/kubectl/pkg/scheme"
 
-	"github.com/openshift/api/apps"
-	appsv1 "github.com/openshift/api/apps/v1"
-	appstypedclient "github.com/openshift/client-go/apps/clientset/versioned/typed/apps/v1"
-	"github.com/openshift/library-go/pkg/apps/appsutil"
-	"github.com/openshift/library-go/pkg/image/imageutil"
-	appsedges "github.com/openshift/oc/pkg/helpers/graph/appsgraph"
-	appsgraph "github.com/openshift/oc/pkg/helpers/graph/appsgraph/nodes"
-	"github.com/openshift/oc/pkg/helpers/graph/genericgraph"
-	kubegraph "github.com/openshift/oc/pkg/helpers/graph/kubegraph/nodes"
-	"github.com/openshift/oc/pkg/helpers/legacy"
+	"github.com/uccps-samples/api/apps"
+	appsv1 "github.com/uccps-samples/api/apps/v1"
+	appstypedclient "github.com/uccps-samples/client-go/apps/clientset/versioned/typed/apps/v1"
+	"github.com/uccps-samples/library-go/pkg/apps/appsutil"
+	"github.com/uccps-samples/library-go/pkg/image/imageutil"
+	appsedges "github.com/uccps-samples/oc/pkg/helpers/graph/appsgraph"
+	appsgraph "github.com/uccps-samples/oc/pkg/helpers/graph/appsgraph/nodes"
+	"github.com/uccps-samples/oc/pkg/helpers/graph/genericgraph"
+	kubegraph "github.com/uccps-samples/oc/pkg/helpers/graph/kubegraph/nodes"
+	"github.com/uccps-samples/oc/pkg/helpers/legacy"
 )
 
 const (
@@ -345,7 +345,7 @@ func printAutoscalingInfo(res []schema.GroupResource, namespace, name string, kc
 			fmt.Fprint(w, " (default autoscaling policy)\n")
 		}
 		// TODO: Print a warning in case of multiple hpas.
-		// Related oc status PR: https://github.com/openshift/origin/pull/7799
+		// Related oc status PR: https://github.com/uccps-samples/origin/pull/7799
 		break
 	}
 }

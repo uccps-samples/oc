@@ -14,8 +14,8 @@ import (
 	kerrors "k8s.io/apimachinery/pkg/util/errors"
 	"k8s.io/klog/v2"
 
-	s2ifs "github.com/openshift/oc/pkg/helpers/source-to-image/fs"
-	"github.com/openshift/oc/pkg/helpers/source-to-image/tar"
+	s2ifs "github.com/uccps-samples/oc/pkg/helpers/source-to-image/fs"
+	"github.com/uccps-samples/oc/pkg/helpers/source-to-image/tar"
 )
 
 // tarStrategy implements the tar copy strategy.
