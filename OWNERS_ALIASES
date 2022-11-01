@@ -1,0 +1,26 @@
+# See the OWNERS_ALIASES docs: https://git.k8s.io/community/contributors/guide/owners.md#OWNERS_ALIASES
+
+aliases:
+  root-approvers:
+    - deads2k
+    - mfojtik
+    - smarterclayton
+    - soltysh
+  update-approvers:
+    - abhinavdahiya
+    - jottofar
+    - LalatenduMohanty
+    - sdodson
+    - smarterclayton
+    - vrutkovs
+    - wking
+  catalog-approvers:
+    - kevinrizza
+  catalog-reviewers:
+    - kevinrizza
+  build-reviewers:
+    - adambkaplan
+    - gabemontero
+    - coreydaley
+  build-approvers:
+    - adambkaplan
